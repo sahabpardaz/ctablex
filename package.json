@@ -1,0 +1,34 @@
+{
+  "name": "@ctablex/core",
+  "description": "Flexible and powerful react table",
+  "version": "0.0.0",
+  "license": "MIT",
+  "main": "lib/ctablex.js",
+  "unpkg": "dist/ctablex.js",
+  "module": "es/ctablex.js",
+  "typings": "./index.d.ts",
+  "files": [
+    "dist",
+    "lib",
+    "es",
+    "src",
+    "index.d.ts",
+    "tsdoc-metadata.json"
+  ],
+  "scripts": {
+    "build": "libton-script build",
+    "build:doc": "libton-script doc",
+    "test": "libton-script test --coverage --verbose",
+    "lint": "libton-script lint",
+    "format": "libton-script format",
+    "format:check": "libton-script format --check",
+    "validate": "libton-script lint && libton-script format --check && libton-script test --coverage --verbose",
+    "prepublishOnly": "yarn validate && yarn build"
+  },
+  "devDependencies": {
+    "@types/jest": "26.0.0",
+    "libton-script": "0.12.7",
+    "husky": "4.2.5",
+    "lint-staged": "10.2.11"
+  }
+}
