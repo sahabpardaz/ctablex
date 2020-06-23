@@ -1,12 +1,11 @@
-// read more about doc comment syntax in https://api-extractor.com/pages/tsdoc/doc_comment_syntax/
+export { DataTable } from './DataTable';
+export { Columns } from './Columns';
+export { Column } from './Column';
 
-/**
- * Flexible and powerful react table
- *
- * @remarks
- * provide {@link ctablex} function that returns `ctablex` string
- *
- * @packageDocumentation
- */
+export { Table } from './Table';
+export { TableBody } from './TableBody';
+export { TableHeader } from './TableHeader';
+export { Rows } from './Rows';
+export { Row } from './Row';
 
-export { ctablex } from './ctablex';
+export { StringCell } from './cells/StringCell';
