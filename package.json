@@ -15,6 +15,9 @@
     "index.d.ts",
     "tsdoc-metadata.json"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "libton-script build",
     "build:doc": "libton-script doc",
@@ -23,7 +26,8 @@
     "format": "libton-script format",
     "format:check": "libton-script format --check",
     "validate": "libton-script lint && libton-script format --check && libton-script test --coverage --verbose",
-    "prepublishOnly": "yarn validate && yarn build"
+    "prepublishOnly": "yarn validate && yarn build",
+    "release": "standard-version"
   },
   "devDependencies": {
     "@commitlint/cli": "^9.0.1",
@@ -31,6 +35,7 @@
     "@types/jest": "26.0.0",
     "husky": "4.2.5",
     "libton-script": "0.12.7",
-    "lint-staged": "10.2.11"
+    "lint-staged": "10.2.11",
+    "standard-version": "^8.0.0"
   }
 }
