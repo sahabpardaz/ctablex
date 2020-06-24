@@ -1,1 +1,1 @@
-export { Options } from './ctablex';
+export { TableUIAdapterContextType } from './TableUIAdapterContext';

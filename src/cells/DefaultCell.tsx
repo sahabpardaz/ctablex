@@ -4,7 +4,7 @@ import { useCellContext } from '../CellContext';
 interface OwnProps<D> {}
 type Props<D> = PropsWithChildren<OwnProps<D>>;
 
-export function StringCell<D>(props: Props<D>) {
-  const value = useCellContext<string>();
+export function DefaultCell<D>(props: Props<D>) {
+  const value = useCellContext<any>();
   return <Fragment>{value}</Fragment>;
 }

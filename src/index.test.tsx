@@ -8,7 +8,7 @@ import {
   DataTable,
   Row,
   Rows,
-  StringCell,
+  DefaultCell,
   Table,
   TableBody,
   TableHeader,
@@ -54,19 +54,19 @@ describe('ctablex', () => {
             <IndexCell />
           </Column>
           <Column header="Name" accessor="name">
-            <StringCell />
+            <DefaultCell />
           </Column>
           <Column header="Price" accessor="price">
-            <StringCell />
+            <DefaultCell />
           </Column>
           <Column header="Count" accessor="price">
-            <StringCell />
+            <DefaultCell />
           </Column>
           <Column header="Total" accessor={(r: any) => r.price * r.count}>
-            <StringCell />
+            <DefaultCell />
           </Column>
           <Column header="Color" accessor="color">
-            <StringCell />
+            <DefaultCell />
           </Column>
         </Columns>
         <Table>
@@ -92,7 +92,7 @@ describe('ctablex', () => {
             <IndexCell />
           </Column>
           <Column header="Name" accessor="name">
-            <StringCell />
+            <DefaultCell />
           </Column>
         </Columns>
         <Table>
@@ -124,7 +124,7 @@ describe('ctablex', () => {
         <DataTable data={data}>
           <Columns>
             <Column header="Name" accessor="name">
-              <StringCell />
+              <DefaultCell />
             </Column>
           </Columns>
           <Table>
@@ -148,7 +148,7 @@ describe('ctablex', () => {
       <DataTable data={data}>
         <Columns>
           <Column header="Name" accessor="name">
-            <StringCell />
+            <DefaultCell />
           </Column>
         </Columns>
         <Table>
@@ -192,7 +192,7 @@ describe('ctablex', () => {
       <DataTable data={data}>
         <Columns>
           <Column header="Name" accessor="name">
-            <StringCell />
+            <DefaultCell />
           </Column>
         </Columns>
         <Table>
@@ -212,7 +212,7 @@ describe('ctablex', () => {
     // @ts-ignore
     console.error.mockImplementation(() => {});
     expect(() => render(<Row />)).toThrow();
-    expect(() => render(<StringCell />)).toThrow();
+    expect(() => render(<DefaultCell />)).toThrow();
     expect(() => render(<Column />)).toThrow();
     expect(() => render(<Cell accessor="id" />)).toThrow();
     expect(() =>

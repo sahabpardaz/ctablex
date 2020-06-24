@@ -8,4 +8,4 @@ export { TableHeader } from './TableHeader';
 export { Rows } from './Rows';
 export { Row } from './Row';
 
-export { StringCell } from './cells/StringCell';
+export { DefaultCell } from './cells/DefaultCell';
