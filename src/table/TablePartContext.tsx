@@ -1,6 +1,6 @@
 import React, { createContext, PropsWithChildren, useContext } from 'react';
 
-export type TablePartType = 'definition' | 'header' | 'body';
+export type TablePartType = 'definition' | 'header' | 'body' | string;
 export type TablePartContextType = TablePartType;
 export const TablePartContext = createContext<TablePartContextType | undefined>(
   undefined,
@@ -20,7 +20,7 @@ interface OwnProps {
   value: TablePartContextType;
 }
 
-type Props = PropsWithChildren<OwnProps>;
+export type Props = PropsWithChildren<OwnProps>;
 
 export function TablePartContextProvider(props: Props) {
   return (

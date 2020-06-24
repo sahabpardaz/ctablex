@@ -3,7 +3,7 @@ import { useTableUIAdapterContext } from '../TableUIAdapterContext';
 
 interface OwnProps {}
 
-type Props = PropsWithChildren<OwnProps>;
+export type Props = PropsWithChildren<OwnProps>;
 
 export function Table(props: Props) {
   const { children } = props;

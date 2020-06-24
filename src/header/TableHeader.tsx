@@ -4,7 +4,7 @@ import { useTableUIAdapterContext } from '../TableUIAdapterContext';
 
 interface OwnProps {}
 
-type Props = PropsWithChildren<OwnProps>;
+export type Props = PropsWithChildren<OwnProps>;
 
 export function TableHeader(props: Props) {
   const { children } = props;

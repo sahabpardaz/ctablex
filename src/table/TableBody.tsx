@@ -7,7 +7,7 @@ interface OwnProps<D> {
   keyAccessor?: Accessor<D, string | number>;
 }
 
-type Props<D> = PropsWithChildren<OwnProps<D>>;
+export type Props<D> = PropsWithChildren<OwnProps<D>>;
 
 export function TableBody<D>(props: Props<D>) {
   const { children } = props;

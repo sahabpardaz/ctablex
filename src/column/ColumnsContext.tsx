@@ -24,7 +24,7 @@ interface OwnProps {
   value: ColumnsContextType;
 }
 
-type Props = PropsWithChildren<OwnProps>;
+export type Props = PropsWithChildren<OwnProps>;
 
 export function ColumnsContextProvider(props: Props) {
   return (

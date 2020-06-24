@@ -1,1 +1,10 @@
 export { TableUIAdapterContextType } from './TableUIAdapterContext';
+export { ItemContextType } from './array/ItemContext';
+export { IndexContextType } from './array/IndexContext';
+export { CellContextType } from './cell/CellContext';
+export { ColumnsContextType } from './column/ColumnsContext';
+export { ColumnsType } from './column/ColumnsType';
+export { DataContextType } from './data/DataContext';
+export { RowDataContextType } from './row/RowDataContext';
+export { TablePartContextType, TablePartType } from './table/TablePartContext';
+export { Accessor } from './utils/accessor';

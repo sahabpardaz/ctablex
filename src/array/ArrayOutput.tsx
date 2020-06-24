@@ -7,7 +7,7 @@ interface OwnProps<V> {
   getKey?: (value: V, index: number) => string | number;
 }
 
-type Props<V> = PropsWithChildren<OwnProps<V>>;
+export type Props<V> = PropsWithChildren<OwnProps<V>>;
 
 const defaultGetKey = (value: any, index: number) => index;
 

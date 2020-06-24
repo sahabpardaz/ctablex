@@ -8,7 +8,7 @@ interface OwnProps<D> {
   row?: D;
 }
 
-type Props<D> = PropsWithChildren<OwnProps<D>>;
+export type Props<D> = PropsWithChildren<OwnProps<D>>;
 
 export function Row<D>(props: Props<D>) {
   const Adapter = useTableUIAdapterContext();

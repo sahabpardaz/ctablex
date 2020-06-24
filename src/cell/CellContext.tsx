@@ -19,7 +19,7 @@ interface OwnProps<V> {
   value: CellContextType<V>;
 }
 
-type Props<V> = PropsWithChildren<OwnProps<V>>;
+export type Props<V> = PropsWithChildren<OwnProps<V>>;
 
 export function CellContextProvider<V>(props: Props<V>) {
   return (

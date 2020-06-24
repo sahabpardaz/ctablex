@@ -8,7 +8,7 @@ interface OwnProps<D> {
   data?: ReadonlyArray<D>;
 }
 
-type Props<D> = PropsWithChildren<OwnProps<D>>;
+export type Props<D> = PropsWithChildren<OwnProps<D>>;
 
 export function DataTable<D>(props: Props<D>) {
   const columns = findColumns(props.children);

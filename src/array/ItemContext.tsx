@@ -22,7 +22,7 @@ interface OwnProps<V> {
   value: ItemContextType<V>;
 }
 
-type Props<V> = PropsWithChildren<OwnProps<V>>;
+export type Props<V> = PropsWithChildren<OwnProps<V>>;
 
 export function ItemContextProvider<V>(props: Props<V>) {
   return (

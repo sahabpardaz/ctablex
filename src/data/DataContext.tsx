@@ -24,7 +24,7 @@ interface OwnProps<D> {
   value: DataContextType<D>;
 }
 
-type Props<D> = PropsWithChildren<OwnProps<D>>;
+export type Props<D> = PropsWithChildren<OwnProps<D>>;
 
 export function DataContextProvider<D>(props: Props<D>) {
   return (

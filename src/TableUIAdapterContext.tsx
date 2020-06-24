@@ -35,7 +35,7 @@ interface OwnProps {
   value: Partial<TableUIAdapterContextType>;
 }
 
-type Props = PropsWithChildren<OwnProps>;
+export type Props = PropsWithChildren<OwnProps>;
 
 export function TableUIAdapterContextProvider(props: Props) {
   const contextValue = useTableUIAdapterContext();

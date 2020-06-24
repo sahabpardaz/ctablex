@@ -9,7 +9,7 @@ interface OwnProps<D> {
   data?: ReadonlyArray<D>;
 }
 
-type Props<D> = PropsWithChildren<OwnProps<D>>;
+export type Props<D> = PropsWithChildren<OwnProps<D>>;
 
 export function Rows<D>(props: Props<D>) {
   const { children, keyAccessor } = props;

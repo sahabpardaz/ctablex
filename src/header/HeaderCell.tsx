@@ -5,7 +5,7 @@ interface OwnProps {
   header: ReactNode;
 }
 
-type Props = PropsWithChildren<OwnProps>;
+export type Props = PropsWithChildren<OwnProps>;
 
 export function HeaderCell(props: Props) {
   const Adapter = useTableUIAdapterContext();

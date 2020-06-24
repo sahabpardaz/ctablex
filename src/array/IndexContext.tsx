@@ -19,7 +19,7 @@ interface OwnProps {
   value: IndexContextType;
 }
 
-type Props = PropsWithChildren<OwnProps>;
+export type Props = PropsWithChildren<OwnProps>;
 
 export function IndexContextProvider(props: Props) {
   return (

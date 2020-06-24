@@ -19,7 +19,7 @@ interface OwnProps<V> {
   value: RowDataContextType<V>;
 }
 
-type Props<V> = PropsWithChildren<OwnProps<V>>;
+export type Props<V> = PropsWithChildren<OwnProps<V>>;
 
 export function RowDataContextProvider<V>(props: Props<V>) {
   return (
