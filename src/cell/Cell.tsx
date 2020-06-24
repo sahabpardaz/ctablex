@@ -1,6 +1,6 @@
 import React, { PropsWithChildren } from 'react';
 import { useRowDataContext } from '../row/RowDataContext';
-import { useTableUIAdapterContext } from '../TableUIAdapterContext';
+import { useTableComponentsContext } from '../TableComponentsContext';
 import { getValue } from '../utils/getValue';
 import { CellContextProvider } from './CellContext';
 
@@ -10,7 +10,7 @@ interface OwnProps<D, C> {
 
 export type Props<D, C> = PropsWithChildren<OwnProps<D, C>>;
 export function Cell<D, C>(props: Props<D, C>) {
-  const Adapter = useTableUIAdapterContext();
+  const Adapter = useTableComponentsContext();
   const { accessor, children } = props;
   const row = useRowDataContext<D>();
   const value = getValue(row, accessor);

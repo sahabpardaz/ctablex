@@ -1,7 +1,7 @@
 import React, { PropsWithChildren } from 'react';
 import { useItemContext } from '../array/ItemContext';
 import { useColumnsContext } from '../column/ColumnsContext';
-import { useTableUIAdapterContext } from '../TableUIAdapterContext';
+import { useTableComponentsContext } from '../TableComponentsContext';
 import { RowDataContextProvider } from './RowDataContext';
 
 interface OwnProps<D> {
@@ -11,7 +11,7 @@ interface OwnProps<D> {
 export type Props<D> = PropsWithChildren<OwnProps<D>>;
 
 export function Row<D>(props: Props<D>) {
-  const Adapter = useTableUIAdapterContext();
+  const Adapter = useTableComponentsContext();
 
   const columns = useColumnsContext();
   const row = useItemContext<D>(props.row);

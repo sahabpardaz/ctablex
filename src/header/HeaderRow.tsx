@@ -1,13 +1,13 @@
 import React, { PropsWithChildren } from 'react';
 import { useColumnsContext } from '../column/ColumnsContext';
-import { useTableUIAdapterContext } from '../TableUIAdapterContext';
+import { useTableComponentsContext } from '../TableComponentsContext';
 
 interface OwnProps {}
 
 export type Props = PropsWithChildren<OwnProps>;
 
 export function HeaderRow(props: Props) {
-  const Adapter = useTableUIAdapterContext();
+  const Adapter = useTableComponentsContext();
 
   const columns = useColumnsContext();
 

@@ -115,7 +115,7 @@ declare interface OwnProps_19<V> {
 }
 
 declare interface OwnProps_2 {
-  value: Partial<TableUIAdapterContextType>;
+  value: Partial<TableComponentsContextType>;
 }
 
 declare interface OwnProps_20<V> {
@@ -209,6 +209,21 @@ export declare function Table(props: Props_14): JSX.Element;
 
 export declare function TableBody<D>(props: Props_13<D>): JSX.Element;
 
+export declare const TableComponentsContext: Context<TableComponentsContextType>;
+
+export declare function TableComponentsContextProvider(
+  props: Props_2,
+): JSX.Element;
+
+export declare interface TableComponentsContextType {
+  table: ElementType;
+  thead: ElementType;
+  tbody: ElementType;
+  tr: ElementType;
+  th: ElementType;
+  td: ElementType;
+}
+
 export declare function TableHeader(props: Props_7): JSX.Element;
 
 export declare const TablePartContext: Context<
@@ -220,21 +235,6 @@ export declare function TablePartContextProvider(props: Props_15): JSX.Element;
 export declare type TablePartContextType = TablePartType;
 
 export declare type TablePartType = 'definition' | 'header' | 'body' | string;
-
-export declare const TableUIAdapterContext: Context<TableUIAdapterContextType>;
-
-export declare function TableUIAdapterContextProvider(
-  props: Props_2,
-): JSX.Element;
-
-export declare interface TableUIAdapterContextType {
-  table: ElementType;
-  thead: ElementType;
-  tbody: ElementType;
-  tr: ElementType;
-  th: ElementType;
-  td: ElementType;
-}
 
 export declare function useCellContext<V>(): CellContextType<V>;
 
@@ -250,8 +250,8 @@ export declare function useItemContext<V>(value?: V): ItemContextType<V>;
 
 export declare function useRowDataContext<V>(): RowDataContextType<V>;
 
-export declare function useTablePartContext(): TablePartContextType;
+export declare function useTableComponentsContext(): TableComponentsContextType;
 
-export declare function useTableUIAdapterContext(): TableUIAdapterContextType;
+export declare function useTablePartContext(): TablePartContextType;
 
 export {};

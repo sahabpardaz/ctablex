@@ -1,4 +1,4 @@
-export { TableUIAdapterContextType } from './TableUIAdapterContext';
+export { TableComponentsContextType } from './TableComponentsContext';
 export { ItemContextType } from './array/ItemContext';
 export { IndexContextType } from './array/IndexContext';
 export { CellContextType } from './cell/CellContext';

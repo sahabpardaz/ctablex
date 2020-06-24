@@ -1,5 +1,5 @@
 import React, { PropsWithChildren } from 'react';
-import { useTableUIAdapterContext } from '../TableUIAdapterContext';
+import { useTableComponentsContext } from '../TableComponentsContext';
 
 interface OwnProps {}
 
@@ -7,6 +7,6 @@ export type Props = PropsWithChildren<OwnProps>;
 
 export function Table(props: Props) {
   const { children } = props;
-  const Adapter = useTableUIAdapterContext();
+  const Adapter = useTableComponentsContext();
   return <Adapter.table>{children}</Adapter.table>;
 }

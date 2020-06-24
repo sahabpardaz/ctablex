@@ -31,8 +31,8 @@ import {
   TableHeader,
   TablePartContext,
   TablePartContextProvider,
-  TableUIAdapterContext,
-  TableUIAdapterContextProvider,
+  TableComponentsContext,
+  TableComponentsContextProvider,
   useCellContext,
   useColumnsContext,
   useDataContext,
@@ -40,7 +40,7 @@ import {
   useItemContext,
   useRowDataContext,
   useTablePartContext,
-  useTableUIAdapterContext,
+  useTableComponentsContext,
 } from './index';
 
 const IndexCell = () => {
@@ -148,7 +148,7 @@ describe('ctablex', () => {
     };
 
     render(
-      <TableUIAdapterContextProvider value={adapter}>
+      <TableComponentsContextProvider value={adapter}>
         <DataTable data={data}>
           <Columns>
             <Column header="Name" accessor="name">
@@ -166,7 +166,7 @@ describe('ctablex', () => {
             </TableBody>
           </Table>
         </DataTable>
-      </TableUIAdapterContextProvider>,
+      </TableComponentsContextProvider>,
     );
     expect(screen.queryByTestId('table')).toBeInTheDocument();
   });
@@ -269,9 +269,9 @@ describe('ctablex', () => {
 
   it('should export every things', () => {
     expect(DataTable).toBeDefined();
-    expect(TableUIAdapterContext).toBeDefined();
-    expect(useTableUIAdapterContext).toBeDefined();
-    expect(TableUIAdapterContextProvider).toBeDefined();
+    expect(TableComponentsContext).toBeDefined();
+    expect(useTableComponentsContext).toBeDefined();
+    expect(TableComponentsContextProvider).toBeDefined();
     expect(useDataContext).toBeDefined();
     expect(DataContext).toBeDefined();
     expect(DataContextProvider).toBeDefined();

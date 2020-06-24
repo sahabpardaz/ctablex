@@ -1,5 +1,5 @@
 import React, { PropsWithChildren, ReactNode } from 'react';
-import { useTableUIAdapterContext } from '../TableUIAdapterContext';
+import { useTableComponentsContext } from '../TableComponentsContext';
 
 interface OwnProps {
   header: ReactNode;
@@ -8,7 +8,7 @@ interface OwnProps {
 export type Props = PropsWithChildren<OwnProps>;
 
 export function HeaderCell(props: Props) {
-  const Adapter = useTableUIAdapterContext();
+  const Adapter = useTableComponentsContext();
 
   return <Adapter.th>{props.header}</Adapter.th>;
 }

@@ -1,9 +1,9 @@
 export { DataTable } from './data/DataTable';
 export {
-  TableUIAdapterContext,
-  useTableUIAdapterContext,
-  TableUIAdapterContextProvider,
-} from './TableUIAdapterContext';
+  TableComponentsContext,
+  useTableComponentsContext,
+  TableComponentsContextProvider,
+} from './TableComponentsContext';
 export {
   useDataContext,
   DataContext,

@@ -1,5 +1,5 @@
 import React, { PropsWithChildren } from 'react';
-import { useTableUIAdapterContext } from '../TableUIAdapterContext';
+import { useTableComponentsContext } from '../TableComponentsContext';
 import { Accessor } from '../utils/accessor';
 import { TablePartContextProvider } from './TablePartContext';
 
@@ -11,7 +11,7 @@ export type Props<D> = PropsWithChildren<OwnProps<D>>;
 
 export function TableBody<D>(props: Props<D>) {
   const { children } = props;
-  const Adapter = useTableUIAdapterContext();
+  const Adapter = useTableComponentsContext();
 
   return (
     <TablePartContextProvider value="body">
