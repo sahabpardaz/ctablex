@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react';
 import React, { Fragment, PropsWithChildren } from 'react';
-import { Cell } from './Cell';
-import { HeaderRow } from './HeaderRow';
+import { Cell } from './cell/Cell';
+import { HeaderRow } from './header/HeaderRow';
 import {
   Column,
   Columns,
@@ -13,7 +13,7 @@ import {
   TableBody,
   TableHeader,
 } from './index';
-import { useIndexContext } from './IndexContext';
+import { useIndexContext } from './array/IndexContext';
 import { TableUIAdapterContextProvider } from './TableUIAdapterContext';
 
 const IndexCell = () => {

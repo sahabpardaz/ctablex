@@ -1,6 +1,6 @@
 import React, { PropsWithChildren } from 'react';
-import { TablePartContextProvider } from './TablePartContext';
-import { useTableUIAdapterContext } from './TableUIAdapterContext';
+import { TablePartContextProvider } from '../table/TablePartContext';
+import { useTableUIAdapterContext } from '../TableUIAdapterContext';
 
 interface OwnProps {}
 

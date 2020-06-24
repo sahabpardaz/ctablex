@@ -1,6 +1,6 @@
 import React, { PropsWithChildren } from 'react';
-import { useColumnsContext } from './ColumnsContext';
-import { useTableUIAdapterContext } from './TableUIAdapterContext';
+import { useColumnsContext } from '../column/ColumnsContext';
+import { useTableUIAdapterContext } from '../TableUIAdapterContext';
 
 interface OwnProps {}
 

@@ -1,8 +1,8 @@
 import React, { PropsWithChildren } from 'react';
 import { CellContextProvider } from './CellContext';
-import { useRowDataContext } from './RowDataContext';
-import { useTableUIAdapterContext } from './TableUIAdapterContext';
-import { getValue } from './utils/getValue';
+import { useRowDataContext } from '../row/RowDataContext';
+import { useTableUIAdapterContext } from '../TableUIAdapterContext';
+import { getValue } from '../utils/getValue';
 
 interface OwnProps<D, C> {
   accessor: string | ((row: D) => C);

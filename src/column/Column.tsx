@@ -1,7 +1,7 @@
 import React, { PropsWithChildren, ReactNode } from 'react';
-import { Cell } from './Cell';
-import { HeaderCell } from './HeaderCell';
-import { useTablePartContext } from './TablePartContext';
+import { Cell } from '../cell/Cell';
+import { HeaderCell } from '../header/HeaderCell';
+import { useTablePartContext } from '../table/TablePartContext';
 
 interface OwnProps<D, C> {
   header?: ReactNode;

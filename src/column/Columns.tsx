@@ -1,5 +1,5 @@
 import React, { Fragment, PropsWithChildren } from 'react';
-import { useTablePartContext } from './TablePartContext';
+import { useTablePartContext } from '../table/TablePartContext';
 
 interface OwnProps {}
 

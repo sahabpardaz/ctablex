@@ -1,11 +1,11 @@
-export { DataTable } from './DataTable';
-export { Columns } from './Columns';
-export { Column } from './Column';
+export { DataTable } from './data/DataTable';
+export { Columns } from './column/Columns';
+export { Column } from './column/Column';
 
-export { Table } from './Table';
-export { TableBody } from './TableBody';
-export { TableHeader } from './TableHeader';
-export { Rows } from './Rows';
-export { Row } from './Row';
+export { Table } from './table/Table';
+export { TableBody } from './table/TableBody';
+export { TableHeader } from './header/TableHeader';
+export { Rows } from './row/Rows';
+export { Row } from './row/Row';
 
 export { DefaultCell } from './cells/DefaultCell';

@@ -1,5 +1,5 @@
 import React, { PropsWithChildren, ReactNode } from 'react';
-import { useTableUIAdapterContext } from './TableUIAdapterContext';
+import { useTableUIAdapterContext } from '../TableUIAdapterContext';
 
 interface OwnProps {
   header: ReactNode;

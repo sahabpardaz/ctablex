@@ -1,8 +1,8 @@
 import React, { PropsWithChildren, useMemo } from 'react';
-import { ArrayOutput } from './ArrayOutput';
-import { useDataContext } from './DataContext';
-import { Accessor } from './utils/accessor';
-import { getValue } from './utils/getValue';
+import { ArrayOutput } from '../array/ArrayOutput';
+import { useDataContext } from '../data/DataContext';
+import { Accessor } from '../utils/accessor';
+import { getValue } from '../utils/getValue';
 
 interface OwnProps<D> {
   keyAccessor?: Accessor<D, string | number>;

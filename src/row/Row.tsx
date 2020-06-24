@@ -1,8 +1,8 @@
 import React, { PropsWithChildren } from 'react';
-import { useColumnsContext } from './ColumnsContext';
-import { useItemContext } from './ItemContext';
+import { useColumnsContext } from '../column/ColumnsContext';
+import { useItemContext } from '../array/ItemContext';
 import { RowDataContextProvider } from './RowDataContext';
-import { useTableUIAdapterContext } from './TableUIAdapterContext';
+import { useTableUIAdapterContext } from '../TableUIAdapterContext';
 
 interface OwnProps<D> {
   row?: D;

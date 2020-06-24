@@ -1,5 +1,5 @@
 import React, { Fragment, PropsWithChildren } from 'react';
-import { useCellContext } from '../CellContext';
+import { useCellContext } from '../cell/CellContext';
 
 interface OwnProps<D> {}
 type Props<D> = PropsWithChildren<OwnProps<D>>;
