@@ -1,9 +1,14 @@
-import React, { createContext, PropsWithChildren, useContext } from 'react';
+import React, {
+  Context,
+  createContext,
+  PropsWithChildren,
+  useContext,
+} from 'react';
 
 export type CellContextType<V> = V;
-export const CellContext = createContext<CellContextType<any> | undefined>(
-  undefined,
-);
+export const CellContext: Context<
+  CellContextType<any> | undefined
+> = createContext<CellContextType<any> | undefined>(undefined);
 
 export function useCellContext<V>(): CellContextType<V> {
   const context = useContext(CellContext);

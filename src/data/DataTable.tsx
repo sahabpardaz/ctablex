@@ -1,8 +1,8 @@
 import React, { PropsWithChildren } from 'react';
 import { ColumnsContextProvider } from '../column/ColumnsContext';
-import { DataContextProvider, useDataContext } from './DataContext';
-import { TablePartContextProvider } from '../table/TablePartContext';
 import { findColumns } from '../column/findColumns';
+import { TablePartContextProvider } from '../table/TablePartContext';
+import { DataContextProvider, useDataContext } from './DataContext';
 
 interface OwnProps<D> {
   data?: ReadonlyArray<D>;

@@ -1,4 +1,5 @@
 import React, {
+  Context,
   createContext,
   ElementType,
   PropsWithChildren,
@@ -23,9 +24,9 @@ const defaultTableUIAdapter: TableUIAdapterContextType = {
   td: 'td',
 };
 
-export const TableUIAdapterContext = createContext<TableUIAdapterContextType>(
-  defaultTableUIAdapter,
-);
+export const TableUIAdapterContext: Context<TableUIAdapterContextType> = createContext<
+  TableUIAdapterContextType
+>(defaultTableUIAdapter);
 
 export function useTableUIAdapterContext(): TableUIAdapterContextType {
   return useContext(TableUIAdapterContext);

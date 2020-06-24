@@ -1,9 +1,14 @@
-import React, { createContext, PropsWithChildren, useContext } from 'react';
+import React, {
+  Context,
+  createContext,
+  PropsWithChildren,
+  useContext,
+} from 'react';
 
 export type ItemContextType<V> = V;
-export const ItemContext = createContext<ItemContextType<any> | undefined>(
-  undefined,
-);
+export const ItemContext: Context<
+  ItemContextType<any> | undefined
+> = createContext<ItemContextType<any> | undefined>(undefined);
 
 export function useItemContext<V>(value?: V): ItemContextType<V> {
   const context = useContext(ItemContext);

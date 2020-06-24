@@ -1,4 +1,5 @@
 import React, {
+  Context,
   createContext,
   PropsWithChildren,
   ReactNode,
@@ -6,9 +7,9 @@ import React, {
 } from 'react';
 
 export type ColumnsContextType = ReactNode;
-export const ColumnsContext = createContext<ColumnsContextType | undefined>(
-  undefined,
-);
+export const ColumnsContext: Context<
+  ColumnsContextType | undefined
+> = createContext<ColumnsContextType | undefined>(undefined);
 
 export function useColumnsContext(): ColumnsContextType {
   const context = useContext(ColumnsContext);

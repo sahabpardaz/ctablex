@@ -1,9 +1,14 @@
-import React, { createContext, PropsWithChildren, useContext } from 'react';
+import React, {
+  Context,
+  createContext,
+  PropsWithChildren,
+  useContext,
+} from 'react';
 
 export type DataContextType<D> = ReadonlyArray<D>;
-export const DataContext = createContext<DataContextType<any> | undefined>(
-  undefined,
-);
+export const DataContext: Context<
+  DataContextType<any> | undefined
+> = createContext<DataContextType<any> | undefined>(undefined);
 
 export function useDataContext<D>(
   value?: ReadonlyArray<D>,

@@ -1,9 +1,14 @@
-import React, { createContext, PropsWithChildren, useContext } from 'react';
+import React, {
+  Context,
+  createContext,
+  PropsWithChildren,
+  useContext,
+} from 'react';
 
 export type RowDataContextType<V> = V;
-export const RowDataContext = createContext<
+export const RowDataContext: Context<
   RowDataContextType<any> | undefined
->(undefined);
+> = createContext<RowDataContextType<any> | undefined>(undefined);
 
 export function useRowDataContext<V>(): RowDataContextType<V> {
   const context = useContext(RowDataContext);

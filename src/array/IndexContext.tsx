@@ -1,9 +1,14 @@
-import React, { createContext, PropsWithChildren, useContext } from 'react';
+import React, {
+  Context,
+  createContext,
+  PropsWithChildren,
+  useContext,
+} from 'react';
 
 export type IndexContextType = number;
-export const IndexContext = createContext<IndexContextType | undefined>(
-  undefined,
-);
+export const IndexContext: Context<
+  IndexContextType | undefined
+> = createContext<IndexContextType | undefined>(undefined);
 
 export function useIndexContext(): IndexContextType {
   const context = useContext(IndexContext);

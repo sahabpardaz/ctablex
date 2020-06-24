@@ -1,10 +1,15 @@
-import React, { createContext, PropsWithChildren, useContext } from 'react';
+import React, {
+  Context,
+  createContext,
+  PropsWithChildren,
+  useContext,
+} from 'react';
 
 export type TablePartType = 'definition' | 'header' | 'body' | string;
 export type TablePartContextType = TablePartType;
-export const TablePartContext = createContext<TablePartContextType | undefined>(
-  undefined,
-);
+export const TablePartContext: Context<
+  TablePartContextType | undefined
+> = createContext<TablePartContextType | undefined>(undefined);
 
 export function useTablePartContext(): TablePartContextType {
   const context = useContext(TablePartContext);
