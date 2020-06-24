@@ -1,0 +1,8 @@
+node_modules
+/dist/
+/lib/
+/es/
+/bin/
+/coverage/
+/.cache/
+/tsdoc-metadata.json

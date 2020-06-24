@@ -1,0 +1,47 @@
+{
+  "name": "@ctablex/core",
+  "description": "Flexible and powerful react table",
+  "version": "0.0.0",
+  "license": "MIT",
+  "main": "lib/ctablex.js",
+  "unpkg": "dist/ctablex.js",
+  "module": "es/ctablex.js",
+  "typings": "./index.d.ts",
+  "files": [
+    "dist",
+    "lib",
+    "es",
+    "src",
+    "index.d.ts",
+    "tsdoc-metadata.json"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sahabpardaz/ctablex"
+  },
+  "scripts": {
+    "build": "libton-script build",
+    "build:doc": "libton-script doc",
+    "toc": "markdown-toc -i README.md",
+    "test": "libton-script test --coverage --verbose",
+    "lint": "libton-script lint",
+    "format": "libton-script format",
+    "format:check": "libton-script format --check",
+    "validate": "libton-script lint && libton-script format --check && libton-script test --coverage --verbose",
+    "prepublishOnly": "yarn validate && yarn build",
+    "release": "standard-version"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^9.0.1",
+    "@commitlint/config-conventional": "^9.0.1",
+    "@types/jest": "26.0.0",
+    "husky": "4.2.5",
+    "libton-script": "0.12.7",
+    "lint-staged": "10.2.11",
+    "markdown-toc": "^1.2.0",
+    "standard-version": "^8.0.0"
+  }
+}
