@@ -15,6 +15,13 @@
     "index.d.ts",
     "tsdoc-metadata.json"
   ],
+  "keywords": [
+    "react",
+    "table",
+    "ctablex",
+    "react-table",
+    "datagrid"
+  ],
   "publishConfig": {
     "access": "public"
   },
@@ -52,6 +59,6 @@
   },
   "peerDependencies": {
     "@types/react": "^16.9.38",
-    "react": "^16.13.1"
+    "react": "^16.9.0"
   }
 }
