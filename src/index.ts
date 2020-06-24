@@ -1,5 +1,10 @@
 export { DataTable } from './data/DataTable';
 export {
+  TableUIAdapterContext,
+  useTableUIAdapterContext,
+  TableUIAdapterContextProvider,
+} from './TableUIAdapterContext';
+export {
   useDataContext,
   DataContext,
   DataContextProvider,

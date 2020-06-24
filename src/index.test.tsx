@@ -1,20 +1,47 @@
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import React, { Fragment, PropsWithChildren } from 'react';
-import { Cell } from './cell/Cell';
-import { HeaderRow } from './header/HeaderRow';
 import {
+  ArrayOutput,
+  Cell,
+  CellContext,
+  CellContextProvider,
   Column,
   Columns,
+  ColumnsContext,
+  ColumnsContextProvider,
+  DataContext,
+  DataContextProvider,
   DataTable,
-  Row,
-  Rows,
   DefaultCell,
+  findColumns,
+  getValue,
+  HeaderCell,
+  HeaderRow,
+  IndexContext,
+  IndexContextProvider,
+  isColumnsType,
+  ItemContext,
+  ItemContextProvider,
+  Row,
+  RowDataContext,
+  RowDataContextProvider,
+  Rows,
   Table,
   TableBody,
   TableHeader,
+  TablePartContext,
+  TablePartContextProvider,
+  TableUIAdapterContext,
+  TableUIAdapterContextProvider,
+  useCellContext,
+  useColumnsContext,
+  useDataContext,
+  useIndexContext,
+  useItemContext,
+  useRowDataContext,
+  useTablePartContext,
+  useTableUIAdapterContext,
 } from './index';
-import { useIndexContext } from './array/IndexContext';
-import { TableUIAdapterContextProvider } from './TableUIAdapterContext';
 
 const IndexCell = () => {
   const index = useIndexContext();
@@ -47,7 +74,7 @@ const data = [
 
 describe('ctablex', () => {
   it('should render table', () => {
-    const c = (
+    render(
       <DataTable data={data}>
         <Columns>
           <Column>
@@ -79,13 +106,11 @@ describe('ctablex', () => {
             </Rows>
           </TableBody>
         </Table>
-      </DataTable>
+      </DataTable>,
     );
-    const { unmount } = render(c);
-    unmount();
   });
   it('should provide index context', () => {
-    const c = (
+    render(
       <DataTable data={data}>
         <Columns>
           <Column>
@@ -105,21 +130,24 @@ describe('ctablex', () => {
             </Rows>
           </TableBody>
         </Table>
-      </DataTable>
+      </DataTable>,
     );
-    const { unmount } = render(c);
-    unmount();
+    expect(screen.queryByText(/1\./)).toBeInTheDocument();
+    expect(screen.queryByText(/2\./)).toBeInTheDocument();
+    expect(screen.queryByText(/3\./)).toBeInTheDocument();
   });
   it('should use custom adapter', () => {
     const adapter = {
       table: (props: PropsWithChildren<{}>) => {
         return (
-          <table style={{ backgroundColor: '#ccc' }}>{props.children}</table>
+          <table style={{ backgroundColor: '#ccc' }} data-testid="table">
+            {props.children}
+          </table>
         );
       },
     };
 
-    const c = (
+    render(
       <TableUIAdapterContextProvider value={adapter}>
         <DataTable data={data}>
           <Columns>
@@ -138,13 +166,13 @@ describe('ctablex', () => {
             </TableBody>
           </Table>
         </DataTable>
-      </TableUIAdapterContextProvider>
+      </TableUIAdapterContextProvider>,
     );
-    const { unmount } = render(c);
-    unmount();
+    expect(screen.queryByTestId('table')).toBeInTheDocument();
   });
   it('should use custom key accessor', () => {
-    const c = (
+    const fn = jest.fn((row: any) => row.id);
+    render(
       <DataTable data={data}>
         <Columns>
           <Column header="Name" accessor="name">
@@ -156,18 +184,17 @@ describe('ctablex', () => {
             <HeaderRow />
           </TableHeader>
           <TableBody>
-            <Rows keyAccessor="id">
+            <Rows keyAccessor={fn}>
               <Row />
             </Rows>
           </TableBody>
         </Table>
-      </DataTable>
+      </DataTable>,
     );
-    const { unmount } = render(c);
-    unmount();
+    expect(fn).toBeCalled();
   });
   it('should render empty column', () => {
-    const c = (
+    const { container } = render(
       <DataTable data={data}>
         <Columns>
           <Column />
@@ -182,13 +209,16 @@ describe('ctablex', () => {
             </Rows>
           </TableBody>
         </Table>
-      </DataTable>
+      </DataTable>,
     );
-    const { unmount } = render(c);
-    unmount();
+    const tds = container.querySelectorAll('td');
+
+    expect(tds).toHaveLength(3);
+    tds.forEach((td) => expect(td).toHaveTextContent(''));
+    expect(container.querySelectorAll('th')).toHaveLength(1);
   });
-  it('should handle single row', () => {
-    const c = (
+  it('should render a custom Row with external data', () => {
+    render(
       <DataTable data={data}>
         <Columns>
           <Column header="Name" accessor="name">
@@ -203,10 +233,9 @@ describe('ctablex', () => {
             <Row row={data[0]} />
           </TableBody>
         </Table>
-      </DataTable>
+      </DataTable>,
     );
-    const { unmount } = render(c);
-    unmount();
+    expect(screen.queryByText('Gloves')).toBeInTheDocument();
   });
   it('should throw error if data is undefined', () => {
     // @ts-ignore
@@ -229,10 +258,55 @@ describe('ctablex', () => {
     ).toThrow();
     expect(() => render(<IndexCell />)).toThrow();
     expect(() => render(<DataTable />)).toThrow();
-    render(
-      <DataTable data={[]}>
-        <Column />
-      </DataTable>,
-    );
+    expect(() =>
+      render(
+        <DataTable data={[]}>
+          <Column />
+        </DataTable>,
+      ),
+    ).not.toThrow();
+  });
+
+  it('should export every things', () => {
+    expect(DataTable).toBeDefined();
+    expect(TableUIAdapterContext).toBeDefined();
+    expect(useTableUIAdapterContext).toBeDefined();
+    expect(TableUIAdapterContextProvider).toBeDefined();
+    expect(useDataContext).toBeDefined();
+    expect(DataContext).toBeDefined();
+    expect(DataContextProvider).toBeDefined();
+    expect(Columns).toBeDefined();
+    expect(Column).toBeDefined();
+    expect(useColumnsContext).toBeDefined();
+    expect(ColumnsContext).toBeDefined();
+    expect(ColumnsContextProvider).toBeDefined();
+    expect(isColumnsType).toBeDefined();
+    expect(findColumns).toBeDefined();
+    expect(TableHeader).toBeDefined();
+    expect(HeaderRow).toBeDefined();
+    expect(HeaderCell).toBeDefined();
+    expect(Rows).toBeDefined();
+    expect(Row).toBeDefined();
+    expect(useRowDataContext).toBeDefined();
+    expect(RowDataContextProvider).toBeDefined();
+    expect(RowDataContext).toBeDefined();
+    expect(TableBody).toBeDefined();
+    expect(Table).toBeDefined();
+    expect(TablePartContext).toBeDefined();
+    expect(TablePartContextProvider).toBeDefined();
+    expect(useTablePartContext).toBeDefined();
+    expect(DefaultCell).toBeDefined();
+    expect(Cell).toBeDefined();
+    expect(CellContext).toBeDefined();
+    expect(CellContextProvider).toBeDefined();
+    expect(useCellContext).toBeDefined();
+    expect(ArrayOutput).toBeDefined();
+    expect(useItemContext).toBeDefined();
+    expect(ItemContextProvider).toBeDefined();
+    expect(ItemContext).toBeDefined();
+    expect(useIndexContext).toBeDefined();
+    expect(IndexContext).toBeDefined();
+    expect(IndexContextProvider).toBeDefined();
+    expect(getValue).toBeDefined();
   });
 });

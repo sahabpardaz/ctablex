@@ -1,3 +1,4 @@
+import '@testing-library/jest-dom';
 import util from 'util';
 
 const { error: originalError } = console;
