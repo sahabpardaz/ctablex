@@ -10,13 +10,13 @@ interface OwnProps<D, C> {
 
 export type Props<D, C> = PropsWithChildren<OwnProps<D, C>>;
 export function Cell<D, C>(props: Props<D, C>) {
-  const Adapter = useTableComponentsContext();
+  const Components = useTableComponentsContext();
   const { accessor, children } = props;
   const row = useRowDataContext<D>();
   const value = getValue(row, accessor);
   return (
     <CellContextProvider value={value}>
-      <Adapter.td>{children}</Adapter.td>
+      <Components.Td>{children}</Components.Td>
     </CellContextProvider>
   );
 }

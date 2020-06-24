@@ -136,9 +136,9 @@ describe('ctablex', () => {
     expect(screen.queryByText(/2\./)).toBeInTheDocument();
     expect(screen.queryByText(/3\./)).toBeInTheDocument();
   });
-  it('should use custom adapter', () => {
-    const adapter = {
-      table: (props: PropsWithChildren<{}>) => {
+  it('should use custom Components', () => {
+    const components = {
+      Table: (props: PropsWithChildren<{}>) => {
         return (
           <table style={{ backgroundColor: '#ccc' }} data-testid="table">
             {props.children}
@@ -148,7 +148,7 @@ describe('ctablex', () => {
     };
 
     render(
-      <TableComponentsContextProvider value={adapter}>
+      <TableComponentsContextProvider value={components}>
         <DataTable data={data}>
           <Columns>
             <Column header="Name" accessor="name">

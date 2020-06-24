@@ -11,13 +11,13 @@ interface OwnProps<D> {
 export type Props<D> = PropsWithChildren<OwnProps<D>>;
 
 export function Row<D>(props: Props<D>) {
-  const Adapter = useTableComponentsContext();
+  const Components = useTableComponentsContext();
 
   const columns = useColumnsContext();
   const row = useItemContext<D>(props.row);
   return (
     <RowDataContextProvider value={row}>
-      <Adapter.tr>{columns}</Adapter.tr>
+      <Components.Tr>{columns}</Components.Tr>
     </RowDataContextProvider>
   );
 }

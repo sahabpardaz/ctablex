@@ -11,11 +11,11 @@ export type Props<D> = PropsWithChildren<OwnProps<D>>;
 
 export function TableBody<D>(props: Props<D>) {
   const { children } = props;
-  const Adapter = useTableComponentsContext();
+  const Components = useTableComponentsContext();
 
   return (
     <TablePartContextProvider value="body">
-      <Adapter.tbody>{children}</Adapter.tbody>
+      <Components.Tbody>{children}</Components.Tbody>
     </TablePartContextProvider>
   );
 }

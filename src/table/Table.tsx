@@ -7,6 +7,6 @@ export type Props = PropsWithChildren<OwnProps>;
 
 export function Table(props: Props) {
   const { children } = props;
-  const Adapter = useTableComponentsContext();
-  return <Adapter.table>{children}</Adapter.table>;
+  const Components = useTableComponentsContext();
+  return <Components.Table>{children}</Components.Table>;
 }

@@ -216,12 +216,12 @@ export declare function TableComponentsContextProvider(
 ): JSX.Element;
 
 export declare interface TableComponentsContextType {
-  table: ElementType;
-  thead: ElementType;
-  tbody: ElementType;
-  tr: ElementType;
-  th: ElementType;
-  td: ElementType;
+  Table: ElementType;
+  Thead: ElementType;
+  Tbody: ElementType;
+  Tr: ElementType;
+  Th: ElementType;
+  Td: ElementType;
 }
 
 export declare function TableHeader(props: Props_7): JSX.Element;

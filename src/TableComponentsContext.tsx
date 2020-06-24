@@ -8,20 +8,20 @@ import React, {
 } from 'react';
 
 export interface TableComponentsContextType {
-  table: ElementType;
-  thead: ElementType;
-  tbody: ElementType;
-  tr: ElementType;
-  th: ElementType;
-  td: ElementType;
+  Table: ElementType;
+  Thead: ElementType;
+  Tbody: ElementType;
+  Tr: ElementType;
+  Th: ElementType;
+  Td: ElementType;
 }
 const defaultTableComponents: TableComponentsContextType = {
-  table: 'table',
-  thead: 'thead',
-  tbody: 'tbody',
-  tr: 'tr',
-  th: 'th',
-  td: 'td',
+  Table: 'table',
+  Thead: 'thead',
+  Tbody: 'tbody',
+  Tr: 'tr',
+  Th: 'th',
+  Td: 'td',
 };
 
 export const TableComponentsContext: Context<TableComponentsContextType> = createContext<

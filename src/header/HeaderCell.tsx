@@ -8,7 +8,7 @@ interface OwnProps {
 export type Props = PropsWithChildren<OwnProps>;
 
 export function HeaderCell(props: Props) {
-  const Adapter = useTableComponentsContext();
+  const Components = useTableComponentsContext();
 
-  return <Adapter.th>{props.header}</Adapter.th>;
+  return <Components.Th>{props.header}</Components.Th>;
 }

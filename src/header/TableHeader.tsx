@@ -8,11 +8,11 @@ export type Props = PropsWithChildren<OwnProps>;
 
 export function TableHeader(props: Props) {
   const { children } = props;
-  const Adapter = useTableComponentsContext();
+  const Components = useTableComponentsContext();
 
   return (
     <TablePartContextProvider value="header">
-      <Adapter.thead>{children}</Adapter.thead>
+      <Components.Thead>{children}</Components.Thead>
     </TablePartContextProvider>
   );
 }

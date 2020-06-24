@@ -7,9 +7,9 @@ interface OwnProps {}
 export type Props = PropsWithChildren<OwnProps>;
 
 export function HeaderRow(props: Props) {
-  const Adapter = useTableComponentsContext();
+  const Components = useTableComponentsContext();
 
   const columns = useColumnsContext();
 
-  return <Adapter.tr>{columns}</Adapter.tr>;
+  return <Components.Tr>{columns}</Components.Tr>;
 }
