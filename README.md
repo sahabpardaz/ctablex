@@ -7,6 +7,13 @@
 
 Flexible and powerful react table
 
+<!-- toc -->
+
+- [Install](#install)
+- [Usage](#usage)
+
+<!-- tocstop -->
+
 ## Install
 
 ```bash

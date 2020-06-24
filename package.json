@@ -21,6 +21,7 @@
   "scripts": {
     "build": "libton-script build",
     "build:doc": "libton-script doc",
+    "toc": "markdown-toc -i README.md",
     "test": "libton-script test --coverage --verbose",
     "lint": "libton-script lint",
     "format": "libton-script format",
@@ -36,6 +37,7 @@
     "husky": "4.2.5",
     "libton-script": "0.12.7",
     "lint-staged": "10.2.11",
+    "markdown-toc": "^1.2.0",
     "standard-version": "^8.0.0"
   }
 }
