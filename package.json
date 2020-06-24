@@ -18,6 +18,10 @@
   "publishConfig": {
     "access": "public"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sahabpardaz/ctablex"
+  },
   "scripts": {
     "build": "libton-script build",
     "build:doc": "libton-script doc",
