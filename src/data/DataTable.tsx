@@ -4,13 +4,13 @@ import { findColumns } from '../column/findColumns';
 import { TablePartContextProvider } from '../table/TablePartContext';
 import { DataContextProvider, useData } from './DataContext';
 
-interface OwnProps<D> {
+interface DataTableOwnProps<D> {
   data?: ReadonlyArray<D>;
 }
 
-export type Props<D> = PropsWithChildren<OwnProps<D>>;
+export type DataTableProps<D> = PropsWithChildren<DataTableOwnProps<D>>;
 
-export function DataTable<D>(props: Props<D>) {
+export function DataTable<D>(props: DataTableProps<D>) {
   const columns = findColumns(props.children);
   const data = useData<D>(props.data);
   return (

@@ -21,13 +21,15 @@ export function useTablePart(): TablePartContextType {
   return context;
 }
 
-interface OwnProps {
+interface TablePartContextProviderOwnProps {
   value: TablePartContextType;
 }
 
-export type Props = PropsWithChildren<OwnProps>;
+export type TablePartContextProviderProps = PropsWithChildren<
+  TablePartContextProviderOwnProps
+>;
 
-export function TablePartContextProvider(props: Props) {
+export function TablePartContextProvider(props: TablePartContextProviderProps) {
   return (
     <TablePartContext.Provider value={props.value}>
       {props.children}

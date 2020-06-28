@@ -4,13 +4,13 @@ import { useColumns } from '../column/ColumnsContext';
 import { useTableComponentsContext } from '../TableComponentsContext';
 import { RowDataContextProvider } from './RowDataContext';
 
-interface OwnProps<D> {
+interface RowOwnProps<D> {
   row?: D;
 }
 
-export type Props<D> = PropsWithChildren<OwnProps<D>>;
+export type RowProps<D> = PropsWithChildren<RowOwnProps<D>>;
 
-export function Row<D>(props: Props<D>) {
+export function Row<D>(props: RowProps<D>) {
   const Components = useTableComponentsContext();
 
   const columns = useColumns();

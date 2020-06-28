@@ -20,13 +20,15 @@ export function useIndex(): IndexContextType {
   return context;
 }
 
-interface OwnProps {
+interface IndexContextProviderOwnProps {
   value: IndexContextType;
 }
 
-export type Props = PropsWithChildren<OwnProps>;
+export type IndexContextProviderProps = PropsWithChildren<
+  IndexContextProviderOwnProps
+>;
 
-export function IndexContextProvider(props: Props) {
+export function IndexContextProvider(props: IndexContextProviderProps) {
   return (
     <IndexContext.Provider value={props.value}>
       {props.children}

@@ -4,14 +4,14 @@ import { Cell } from '../cell/Cell';
 import { HeaderCell } from '../header/HeaderCell';
 import { useTablePart } from '../table/TablePartContext';
 
-interface OwnProps<D, C> {
+interface ColumnOwnProps<D, C> {
   header?: ReactNode;
   accessor?: string | ((row: D) => C);
 }
 
-export type Props<D, C> = PropsWithChildren<OwnProps<D, C>>;
+export type ColumnProps<D, C> = PropsWithChildren<ColumnOwnProps<D, C>>;
 
-export function Column<D, C>(props: Props<D, C>) {
+export function Column<D, C>(props: ColumnProps<D, C>) {
   const { children = <DefaultContent />, accessor = '' } = props;
   const part = useTablePart();
   if (part === 'header') {

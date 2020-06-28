@@ -23,13 +23,15 @@ export function useData<D>(value?: ReadonlyArray<D>): DataContextType<D> {
   return context;
 }
 
-interface OwnProps<D> {
+interface DataContextProviderOwnProps<D> {
   value: DataContextType<D>;
 }
 
-export type Props<D> = PropsWithChildren<OwnProps<D>>;
+export type DataContextProviderProps<D> = PropsWithChildren<
+  DataContextProviderOwnProps<D>
+>;
 
-export function DataContextProvider<D>(props: Props<D>) {
+export function DataContextProvider<D>(props: DataContextProviderProps<D>) {
   return (
     <DataContext.Provider value={props.value}>
       {props.children}

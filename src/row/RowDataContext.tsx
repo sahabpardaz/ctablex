@@ -20,13 +20,17 @@ export function useRowData<V>(): RowDataContextType<V> {
   return context;
 }
 
-interface OwnProps<V> {
+interface RowDataContextProviderOwnProps<V> {
   value: RowDataContextType<V>;
 }
 
-export type Props<V> = PropsWithChildren<OwnProps<V>>;
+export type RowDataContextProviderProps<V> = PropsWithChildren<
+  RowDataContextProviderOwnProps<V>
+>;
 
-export function RowDataContextProvider<V>(props: Props<V>) {
+export function RowDataContextProvider<V>(
+  props: RowDataContextProviderProps<V>,
+) {
   return (
     <RowDataContext.Provider value={props.value}>
       {props.children}

@@ -2,11 +2,11 @@ import React, { PropsWithChildren } from 'react';
 import { useColumns } from '../column/ColumnsContext';
 import { useTableComponentsContext } from '../TableComponentsContext';
 
-interface OwnProps {}
+interface HeaderRowOwnProps {}
 
-export type Props = PropsWithChildren<OwnProps>;
+export type HeaderRowProps = PropsWithChildren<HeaderRowOwnProps>;
 
-export function HeaderRow(props: Props) {
+export function HeaderRow(props: HeaderRowProps) {
   const Components = useTableComponentsContext();
 
   const columns = useColumns();

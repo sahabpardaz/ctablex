@@ -20,13 +20,17 @@ export function useContent<V>(): ContentContextType<V> {
   return context;
 }
 
-interface OwnProps<V> {
+interface ContentContextProviderOwnProps<V> {
   value: ContentContextType<V>;
 }
 
-export type Props<V> = PropsWithChildren<OwnProps<V>>;
+export type ContentContextProviderProps<V> = PropsWithChildren<
+  ContentContextProviderOwnProps<V>
+>;
 
-export function ContentContextProvider<V>(props: Props<V>) {
+export function ContentContextProvider<V>(
+  props: ContentContextProviderProps<V>,
+) {
   return (
     <ContentContext.Provider value={props.value}>
       {props.children}

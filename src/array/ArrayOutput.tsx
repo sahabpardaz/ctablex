@@ -2,16 +2,16 @@ import React, { Fragment, PropsWithChildren } from 'react';
 import { IndexContextProvider } from './IndexContext';
 import { ItemContextProvider } from './ItemContext';
 
-interface OwnProps<V> {
+interface ArrayOutputOwnProps<V> {
   value: ReadonlyArray<V>;
   getKey?: (value: V, index: number) => string | number;
 }
 
-export type Props<V> = PropsWithChildren<OwnProps<V>>;
+export type ArrayOutputProps<V> = PropsWithChildren<ArrayOutputOwnProps<V>>;
 
 const defaultGetKey = (value: any, index: number) => index;
 
-export function ArrayOutput<V>(props: Props<V>) {
+export function ArrayOutput<V>(props: ArrayOutputProps<V>) {
   const { value: values, children, getKey = defaultGetKey } = props;
   return (
     <Fragment>

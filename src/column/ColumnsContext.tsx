@@ -21,13 +21,15 @@ export function useColumns(): ColumnsContextType {
   return context;
 }
 
-interface OwnProps {
+interface ColumnsContextProviderOwnProps {
   value: ColumnsContextType;
 }
 
-export type Props = PropsWithChildren<OwnProps>;
+export type ColumnsContextProviderProps = PropsWithChildren<
+  ColumnsContextProviderOwnProps
+>;
 
-export function ColumnsContextProvider(props: Props) {
+export function ColumnsContextProvider(props: ColumnsContextProviderProps) {
   return (
     <ColumnsContext.Provider value={props.value}>
       {props.children}

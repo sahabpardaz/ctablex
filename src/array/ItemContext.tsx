@@ -23,13 +23,15 @@ export function useItem<V>(value?: V): ItemContextType<V> {
   return context;
 }
 
-interface OwnProps<V> {
+interface ItemContextProviderOwnProps<V> {
   value: ItemContextType<V>;
 }
 
-export type Props<V> = PropsWithChildren<OwnProps<V>>;
+export type ItemContextProviderProps<V> = PropsWithChildren<
+  ItemContextProviderOwnProps<V>
+>;
 
-export function ItemContextProvider<V>(props: Props<V>) {
+export function ItemContextProvider<V>(props: ItemContextProviderProps<V>) {
   return (
     <ItemContext.Provider value={props.value}>
       {props.children}

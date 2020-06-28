@@ -32,13 +32,17 @@ export function useTableComponentsContext(): TableComponentsContextType {
   return useContext(TableComponentsContext);
 }
 
-interface OwnProps {
+interface TableComponentsContextProviderOwnProps {
   value: Partial<TableComponentsContextType>;
 }
 
-export type Props = PropsWithChildren<OwnProps>;
+export type TableComponentsContextProviderProps = PropsWithChildren<
+  TableComponentsContextProviderOwnProps
+>;
 
-export function TableComponentsContextProvider(props: Props) {
+export function TableComponentsContextProvider(
+  props: TableComponentsContextProviderProps,
+) {
   const contextValue = useTableComponentsContext();
   const value = useMemo(() => ({ ...contextValue, ...props.value }), [
     contextValue,
