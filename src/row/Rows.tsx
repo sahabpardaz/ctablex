@@ -1,6 +1,6 @@
 import React, { PropsWithChildren, useMemo } from 'react';
 import { ArrayOutput } from '../array/ArrayOutput';
-import { useDataContext } from '../data/DataContext';
+import { useData } from '../data/DataContext';
 import { Accessor } from '../utils/accessor';
 import { getValue } from '../utils/getValue';
 
@@ -13,7 +13,7 @@ export type Props<D> = PropsWithChildren<OwnProps<D>>;
 
 export function Rows<D>(props: Props<D>) {
   const { children, keyAccessor } = props;
-  const data = useDataContext<D>(props.data);
+  const data = useData<D>(props.data);
   const getKey = useMemo(() => {
     if (keyAccessor) {
       return (value: D) => getValue<D, string | number>(value, keyAccessor);

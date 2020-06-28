@@ -11,7 +11,7 @@ export const TablePartContext: Context<
   TablePartContextType | undefined
 > = createContext<TablePartContextType | undefined>(undefined);
 
-export function useTablePartContext(): TablePartContextType {
+export function useTablePart(): TablePartContextType {
   const context = useContext(TablePartContext);
   if (context === undefined) {
     throw new Error(

@@ -10,7 +10,7 @@ export const ItemContext: Context<
   ItemContextType<any> | undefined
 > = createContext<ItemContextType<any> | undefined>(undefined);
 
-export function useItemContext<V>(value?: V): ItemContextType<V> {
+export function useItem<V>(value?: V): ItemContextType<V> {
   const context = useContext(ItemContext);
   if (value !== undefined) {
     return value;

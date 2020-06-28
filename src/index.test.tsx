@@ -33,18 +33,18 @@ import {
   TablePartContextProvider,
   TableComponentsContext,
   TableComponentsContextProvider,
-  useCellContext,
-  useColumnsContext,
-  useDataContext,
-  useIndexContext,
-  useItemContext,
-  useRowDataContext,
-  useTablePartContext,
+  useCell,
+  useColumns,
+  useData,
+  useIndex,
+  useItem,
+  useRowData,
+  useTablePart,
   useTableComponentsContext,
 } from './index';
 
 const IndexCell = () => {
-  const index = useIndexContext();
+  const index = useIndex();
   return <Fragment>{index + 1}.</Fragment>;
 };
 
@@ -272,12 +272,12 @@ describe('ctablex', () => {
     expect(TableComponentsContext).toBeDefined();
     expect(useTableComponentsContext).toBeDefined();
     expect(TableComponentsContextProvider).toBeDefined();
-    expect(useDataContext).toBeDefined();
+    expect(useData).toBeDefined();
     expect(DataContext).toBeDefined();
     expect(DataContextProvider).toBeDefined();
     expect(Columns).toBeDefined();
     expect(Column).toBeDefined();
-    expect(useColumnsContext).toBeDefined();
+    expect(useColumns).toBeDefined();
     expect(ColumnsContext).toBeDefined();
     expect(ColumnsContextProvider).toBeDefined();
     expect(isColumnsType).toBeDefined();
@@ -287,24 +287,24 @@ describe('ctablex', () => {
     expect(HeaderCell).toBeDefined();
     expect(Rows).toBeDefined();
     expect(Row).toBeDefined();
-    expect(useRowDataContext).toBeDefined();
+    expect(useRowData).toBeDefined();
     expect(RowDataContextProvider).toBeDefined();
     expect(RowDataContext).toBeDefined();
     expect(TableBody).toBeDefined();
     expect(Table).toBeDefined();
     expect(TablePartContext).toBeDefined();
     expect(TablePartContextProvider).toBeDefined();
-    expect(useTablePartContext).toBeDefined();
+    expect(useTablePart).toBeDefined();
     expect(DefaultCell).toBeDefined();
     expect(Cell).toBeDefined();
     expect(CellContext).toBeDefined();
     expect(CellContextProvider).toBeDefined();
-    expect(useCellContext).toBeDefined();
+    expect(useCell).toBeDefined();
     expect(ArrayOutput).toBeDefined();
-    expect(useItemContext).toBeDefined();
+    expect(useItem).toBeDefined();
     expect(ItemContextProvider).toBeDefined();
     expect(ItemContext).toBeDefined();
-    expect(useIndexContext).toBeDefined();
+    expect(useIndex).toBeDefined();
     expect(IndexContext).toBeDefined();
     expect(IndexContextProvider).toBeDefined();
     expect(getValue).toBeDefined();

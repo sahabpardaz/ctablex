@@ -11,7 +11,7 @@ export const ColumnsContext: Context<
   ColumnsContextType | undefined
 > = createContext<ColumnsContextType | undefined>(undefined);
 
-export function useColumnsContext(): ColumnsContextType {
+export function useColumns(): ColumnsContextType {
   const context = useContext(ColumnsContext);
   if (context === undefined) {
     throw new Error(

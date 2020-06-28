@@ -1,7 +1,7 @@
 import React, { PropsWithChildren, ReactNode } from 'react';
 import { Cell } from '../cell/Cell';
 import { HeaderCell } from '../header/HeaderCell';
-import { useTablePartContext } from '../table/TablePartContext';
+import { useTablePart } from '../table/TablePartContext';
 
 interface OwnProps<D, C> {
   header?: ReactNode;
@@ -12,7 +12,7 @@ export type Props<D, C> = PropsWithChildren<OwnProps<D, C>>;
 
 export function Column<D, C>(props: Props<D, C>) {
   const { children = '', accessor = '' } = props;
-  const part = useTablePartContext();
+  const part = useTablePart();
   if (part === 'header') {
     return <HeaderCell header={props.header} />;
   }

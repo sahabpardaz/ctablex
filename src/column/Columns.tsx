@@ -1,5 +1,5 @@
 import React, { Fragment, PropsWithChildren } from 'react';
-import { useTablePartContext } from '../table/TablePartContext';
+import { useTablePart } from '../table/TablePartContext';
 
 interface OwnProps {}
 
@@ -7,7 +7,7 @@ export type Props = PropsWithChildren<OwnProps>;
 
 export function Columns(props: Props) {
   const { children } = props;
-  const part = useTablePartContext();
+  const part = useTablePart();
   if (part === 'definition') {
     return null;
   }

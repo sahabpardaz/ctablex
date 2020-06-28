@@ -1,5 +1,5 @@
 import React, { PropsWithChildren } from 'react';
-import { useRowDataContext } from '../row/RowDataContext';
+import { useRowData } from '../row/RowDataContext';
 import { useTableComponentsContext } from '../TableComponentsContext';
 import { getValue } from '../utils/getValue';
 import { CellContextProvider } from './CellContext';
@@ -12,7 +12,7 @@ export type Props<D, C> = PropsWithChildren<OwnProps<D, C>>;
 export function Cell<D, C>(props: Props<D, C>) {
   const Components = useTableComponentsContext();
   const { accessor, children } = props;
-  const row = useRowDataContext<D>();
+  const row = useRowData<D>();
   const value = getValue(row, accessor);
   return (
     <CellContextProvider value={value}>

@@ -4,16 +4,12 @@ export {
   useTableComponentsContext,
   TableComponentsContextProvider,
 } from './TableComponentsContext';
-export {
-  useDataContext,
-  DataContext,
-  DataContextProvider,
-} from './data/DataContext';
+export { useData, DataContext, DataContextProvider } from './data/DataContext';
 
 export { Columns } from './column/Columns';
 export { Column } from './column/Column';
 export {
-  useColumnsContext,
+  useColumns,
   ColumnsContext,
   ColumnsContextProvider,
 } from './column/ColumnsContext';
@@ -27,7 +23,7 @@ export { HeaderCell } from './header/HeaderCell';
 export { Rows } from './row/Rows';
 export { Row } from './row/Row';
 export {
-  useRowDataContext,
+  useRowData,
   RowDataContextProvider,
   RowDataContext,
 } from './row/RowDataContext';
@@ -37,26 +33,18 @@ export { Table } from './table/Table';
 export {
   TablePartContext,
   TablePartContextProvider,
-  useTablePartContext,
+  useTablePart,
 } from './table/TablePartContext';
 
 export { DefaultCell } from './cells/DefaultCell';
 
 export { Cell } from './cell/Cell';
-export {
-  CellContext,
-  CellContextProvider,
-  useCellContext,
-} from './cell/CellContext';
+export { CellContext, CellContextProvider, useCell } from './cell/CellContext';
 
 export { ArrayOutput } from './array/ArrayOutput';
+export { useItem, ItemContextProvider, ItemContext } from './array/ItemContext';
 export {
-  useItemContext,
-  ItemContextProvider,
-  ItemContext,
-} from './array/ItemContext';
-export {
-  useIndexContext,
+  useIndex,
   IndexContext,
   IndexContextProvider,
 } from './array/IndexContext';

@@ -10,7 +10,7 @@ export const RowDataContext: Context<
   RowDataContextType<any> | undefined
 > = createContext<RowDataContextType<any> | undefined>(undefined);
 
-export function useRowDataContext<V>(): RowDataContextType<V> {
+export function useRowData<V>(): RowDataContextType<V> {
   const context = useContext(RowDataContext);
   if (context === undefined) {
     throw new Error(

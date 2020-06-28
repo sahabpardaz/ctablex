@@ -1,6 +1,6 @@
 import React, { PropsWithChildren } from 'react';
-import { useItemContext } from '../array/ItemContext';
-import { useColumnsContext } from '../column/ColumnsContext';
+import { useItem } from '../array/ItemContext';
+import { useColumns } from '../column/ColumnsContext';
 import { useTableComponentsContext } from '../TableComponentsContext';
 import { RowDataContextProvider } from './RowDataContext';
 
@@ -13,8 +13,8 @@ export type Props<D> = PropsWithChildren<OwnProps<D>>;
 export function Row<D>(props: Props<D>) {
   const Components = useTableComponentsContext();
 
-  const columns = useColumnsContext();
-  const row = useItemContext<D>(props.row);
+  const columns = useColumns();
+  const row = useItem<D>(props.row);
   return (
     <RowDataContextProvider value={row}>
       <Components.Tr>{columns}</Components.Tr>

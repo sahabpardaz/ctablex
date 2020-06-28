@@ -89,9 +89,7 @@ declare interface OwnProps_12<V> {
   value: RowDataContextType<V>;
 }
 
-declare interface OwnProps_13<D> {
-  keyAccessor?: Accessor<D, string | number>;
-}
+declare interface OwnProps_13<D> {}
 
 declare interface OwnProps_14 {}
 
@@ -236,22 +234,22 @@ export declare type TablePartContextType = TablePartType;
 
 export declare type TablePartType = 'definition' | 'header' | 'body' | string;
 
-export declare function useCellContext<V>(): CellContextType<V>;
+export declare function useCell<V>(): CellContextType<V>;
 
-export declare function useColumnsContext(): ColumnsContextType;
+export declare function useColumns(): ColumnsContextType;
 
-export declare function useDataContext<D>(
+export declare function useData<D>(
   value?: ReadonlyArray<D>,
 ): DataContextType<D>;
 
-export declare function useIndexContext(): IndexContextType;
+export declare function useIndex(): IndexContextType;
 
-export declare function useItemContext<V>(value?: V): ItemContextType<V>;
+export declare function useItem<V>(value?: V): ItemContextType<V>;
 
-export declare function useRowDataContext<V>(): RowDataContextType<V>;
+export declare function useRowData<V>(): RowDataContextType<V>;
 
 export declare function useTableComponentsContext(): TableComponentsContextType;
 
-export declare function useTablePartContext(): TablePartContextType;
+export declare function useTablePart(): TablePartContextType;
 
 export {};

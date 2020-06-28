@@ -10,7 +10,7 @@ export const IndexContext: Context<
   IndexContextType | undefined
 > = createContext<IndexContextType | undefined>(undefined);
 
-export function useIndexContext(): IndexContextType {
+export function useIndex(): IndexContextType {
   const context = useContext(IndexContext);
   if (context === undefined) {
     throw new Error(

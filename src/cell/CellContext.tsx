@@ -10,7 +10,7 @@ export const CellContext: Context<
   CellContextType<any> | undefined
 > = createContext<CellContextType<any> | undefined>(undefined);
 
-export function useCellContext<V>(): CellContextType<V> {
+export function useCell<V>(): CellContextType<V> {
   const context = useContext(CellContext);
   if (context === undefined) {
     throw new Error(

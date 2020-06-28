@@ -10,9 +10,7 @@ export const DataContext: Context<
   DataContextType<any> | undefined
 > = createContext<DataContextType<any> | undefined>(undefined);
 
-export function useDataContext<D>(
-  value?: ReadonlyArray<D>,
-): DataContextType<D> {
+export function useData<D>(value?: ReadonlyArray<D>): DataContextType<D> {
   const context = useContext(DataContext);
   if (value !== undefined) {
     return value;
