@@ -39,7 +39,11 @@ export {
 export { DefaultCell } from './cells/DefaultCell';
 
 export { Cell } from './cell/Cell';
-export { CellContext, CellContextProvider, useCell } from './cell/CellContext';
+export {
+  ContentContext,
+  ContentContextProvider,
+  useContent,
+} from './cell/ContentContext';
 
 export { ArrayOutput } from './array/ArrayOutput';
 export { useItem, ItemContextProvider, ItemContext } from './array/ItemContext';

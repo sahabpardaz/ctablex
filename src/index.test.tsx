@@ -3,8 +3,8 @@ import React, { Fragment, PropsWithChildren } from 'react';
 import {
   ArrayOutput,
   Cell,
-  CellContext,
-  CellContextProvider,
+  ContentContext,
+  ContentContextProvider,
   Column,
   Columns,
   ColumnsContext,
@@ -33,7 +33,7 @@ import {
   TablePartContextProvider,
   TableComponentsContext,
   TableComponentsContextProvider,
-  useCell,
+  useContent,
   useColumns,
   useData,
   useIndex,
@@ -297,9 +297,9 @@ describe('ctablex', () => {
     expect(useTablePart).toBeDefined();
     expect(DefaultCell).toBeDefined();
     expect(Cell).toBeDefined();
-    expect(CellContext).toBeDefined();
-    expect(CellContextProvider).toBeDefined();
-    expect(useCell).toBeDefined();
+    expect(ContentContext).toBeDefined();
+    expect(ContentContextProvider).toBeDefined();
+    expect(useContent).toBeDefined();
     expect(ArrayOutput).toBeDefined();
     expect(useItem).toBeDefined();
     expect(ItemContextProvider).toBeDefined();

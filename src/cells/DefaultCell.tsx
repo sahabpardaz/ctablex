@@ -1,10 +1,10 @@
 import React, { Fragment, PropsWithChildren } from 'react';
-import { useCell } from '../cell/CellContext';
+import { useContent } from '../cell/ContentContext';
 
 interface OwnProps<D> {}
 export type Props<D> = PropsWithChildren<OwnProps<D>>;
 
 export function DefaultCell<D>(props: Props<D>) {
-  const value = useCell<any>();
+  const value = useContent<any>();
   return <Fragment>{value}</Fragment>;
 }

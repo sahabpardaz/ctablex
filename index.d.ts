@@ -10,12 +10,6 @@ export declare function ArrayOutput<V>(props: Props_19<V>): JSX.Element;
 
 export declare function Cell<D, C>(props: Props_17<D, C>): JSX.Element;
 
-export declare const CellContext: Context<CellContextType<any> | undefined>;
-
-export declare function CellContextProvider<V>(props: Props_18<V>): JSX.Element;
-
-export declare type CellContextType<V> = V;
-
 export declare function Column<D, C>(props: Props_5<D, C>): JSX.Element | null;
 
 export declare function Columns(props: Props_4): JSX.Element | null;
@@ -33,6 +27,16 @@ export declare type ColumnsContextType = ReactNode;
 export declare interface ColumnsType<D extends object = {}> {
   __COLUMNS__: true;
 }
+
+export declare const ContentContext: Context<
+  ContentContextType<any> | undefined
+>;
+
+export declare function ContentContextProvider<V>(
+  props: Props_18<V>,
+): JSX.Element;
+
+export declare type ContentContextType<V> = V;
 
 export declare const DataContext: Context<DataContextType<any> | undefined>;
 
@@ -104,7 +108,7 @@ declare interface OwnProps_17<D, C> {
 }
 
 declare interface OwnProps_18<V> {
-  value: CellContextType<V>;
+  value: ContentContextType<V>;
 }
 
 declare interface OwnProps_19<V> {
@@ -234,9 +238,9 @@ export declare type TablePartContextType = TablePartType;
 
 export declare type TablePartType = 'definition' | 'header' | 'body' | string;
 
-export declare function useCell<V>(): CellContextType<V>;
-
 export declare function useColumns(): ColumnsContextType;
+
+export declare function useContent<V>(): ContentContextType<V>;
 
 export declare function useData<D>(
   value?: ReadonlyArray<D>,

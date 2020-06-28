@@ -2,7 +2,7 @@ import React, { PropsWithChildren } from 'react';
 import { useRowData } from '../row/RowDataContext';
 import { useTableComponentsContext } from '../TableComponentsContext';
 import { getValue } from '../utils/getValue';
-import { CellContextProvider } from './CellContext';
+import { ContentContextProvider } from './ContentContext';
 
 interface OwnProps<D, C> {
   accessor: string | ((row: D) => C);
@@ -15,8 +15,8 @@ export function Cell<D, C>(props: Props<D, C>) {
   const row = useRowData<D>();
   const value = getValue(row, accessor);
   return (
-    <CellContextProvider value={value}>
+    <ContentContextProvider value={value}>
       <Components.Td>{children}</Components.Td>
-    </CellContextProvider>
+    </ContentContextProvider>
   );
 }
