@@ -36,14 +36,15 @@ export {
   useTablePart,
 } from './table/TablePartContext';
 
-export { DefaultCell } from './cells/DefaultCell';
+export { ContentValue, useContentValue } from './content/ContentValue';
+export { DefaultContent } from './content/DefaultContent';
 
 export { Cell } from './cell/Cell';
 export {
   ContentContext,
   ContentContextProvider,
   useContent,
-} from './cell/ContentContext';
+} from './content/ContentContext';
 
 export { ArrayOutput } from './array/ArrayOutput';
 export { useItem, ItemContextProvider, ItemContext } from './array/ItemContext';

@@ -3,16 +3,17 @@ import React, { Fragment, PropsWithChildren } from 'react';
 import {
   ArrayOutput,
   Cell,
-  ContentContext,
-  ContentContextProvider,
   Column,
   Columns,
   ColumnsContext,
   ColumnsContextProvider,
+  ContentContext,
+  ContentContextProvider,
+  ContentValue,
   DataContext,
   DataContextProvider,
   DataTable,
-  DefaultCell,
+  DefaultContent,
   findColumns,
   getValue,
   HeaderCell,
@@ -28,19 +29,20 @@ import {
   Rows,
   Table,
   TableBody,
+  TableComponentsContext,
+  TableComponentsContextProvider,
   TableHeader,
   TablePartContext,
   TablePartContextProvider,
-  TableComponentsContext,
-  TableComponentsContextProvider,
-  useContent,
   useColumns,
+  useContent,
+  useContentValue,
   useData,
   useIndex,
   useItem,
   useRowData,
-  useTablePart,
   useTableComponentsContext,
+  useTablePart,
 } from './index';
 
 const IndexCell = () => {
@@ -80,21 +82,10 @@ describe('ctablex', () => {
           <Column>
             <IndexCell />
           </Column>
-          <Column header="Name" accessor="name">
-            <DefaultCell />
-          </Column>
-          <Column header="Price" accessor="price">
-            <DefaultCell />
-          </Column>
-          <Column header="Count" accessor="price">
-            <DefaultCell />
-          </Column>
-          <Column header="Total" accessor={(r: any) => r.price * r.count}>
-            <DefaultCell />
-          </Column>
-          <Column header="Color" accessor="color">
-            <DefaultCell />
-          </Column>
+          <Column header="Name" accessor="name" />
+          <Column header="Price" accessor="price" />
+          <Column header="Count" accessor="count" />
+          <Column header="Color" accessor="color" />
         </Columns>
         <Table>
           <TableHeader>
@@ -109,6 +100,35 @@ describe('ctablex', () => {
       </DataTable>,
     );
   });
+  it('should support multiple content in cell', () => {
+    render(
+      <DataTable data={data}>
+        <Columns>
+          <Column header="Name" accessor="name" />
+          <Column header="Total">
+            <ContentValue accessor="price" />
+            {' x '}
+            <ContentValue accessor="count" />
+            {' = '}
+            <ContentValue accessor={(r: any) => r.price * r.count} />
+          </Column>
+        </Columns>
+        <Table>
+          <TableHeader>
+            <HeaderRow />
+          </TableHeader>
+          <TableBody>
+            <Rows>
+              <Row />
+            </Rows>
+          </TableBody>
+        </Table>
+      </DataTable>,
+    );
+    expect(screen.queryByText(/544 x 5 = 2720/)).toBeInTheDocument();
+    expect(screen.queryByText(/601 x 6 = 3606/)).toBeInTheDocument();
+    expect(screen.queryByText(/116 x 1 = 1/)).toBeInTheDocument();
+  });
   it('should provide index context', () => {
     render(
       <DataTable data={data}>
@@ -116,9 +136,7 @@ describe('ctablex', () => {
           <Column>
             <IndexCell />
           </Column>
-          <Column header="Name" accessor="name">
-            <DefaultCell />
-          </Column>
+          <Column header="Name" accessor="name" />
         </Columns>
         <Table>
           <TableHeader>
@@ -151,9 +169,7 @@ describe('ctablex', () => {
       <TableComponentsContextProvider value={components}>
         <DataTable data={data}>
           <Columns>
-            <Column header="Name" accessor="name">
-              <DefaultCell />
-            </Column>
+            <Column header="Name" accessor="name" />
           </Columns>
           <Table>
             <TableHeader>
@@ -175,9 +191,7 @@ describe('ctablex', () => {
     render(
       <DataTable data={data}>
         <Columns>
-          <Column header="Name" accessor="name">
-            <DefaultCell />
-          </Column>
+          <Column header="Name" accessor="name" />
         </Columns>
         <Table>
           <TableHeader>
@@ -198,6 +212,7 @@ describe('ctablex', () => {
       <DataTable data={data}>
         <Columns>
           <Column />
+          <Column accessor="name" children="" />
         </Columns>
         <Table>
           <TableHeader>
@@ -213,17 +228,15 @@ describe('ctablex', () => {
     );
     const tds = container.querySelectorAll('td');
 
-    expect(tds).toHaveLength(3);
+    expect(tds).toHaveLength(6);
     tds.forEach((td) => expect(td).toHaveTextContent(''));
-    expect(container.querySelectorAll('th')).toHaveLength(1);
+    expect(container.querySelectorAll('th')).toHaveLength(2);
   });
   it('should render a custom Row with external data', () => {
     render(
       <DataTable data={data}>
         <Columns>
-          <Column header="Name" accessor="name">
-            <DefaultCell />
-          </Column>
+          <Column header="Name" accessor="name" />
         </Columns>
         <Table>
           <TableHeader>
@@ -241,7 +254,7 @@ describe('ctablex', () => {
     // @ts-ignore
     console.error.mockImplementation(() => {});
     expect(() => render(<Row />)).toThrow();
-    expect(() => render(<DefaultCell />)).toThrow();
+    expect(() => render(<DefaultContent />)).toThrow();
     expect(() => render(<Column />)).toThrow();
     expect(() => render(<Cell accessor="id" />)).toThrow();
     expect(() =>
@@ -295,8 +308,10 @@ describe('ctablex', () => {
     expect(TablePartContext).toBeDefined();
     expect(TablePartContextProvider).toBeDefined();
     expect(useTablePart).toBeDefined();
-    expect(DefaultCell).toBeDefined();
+    expect(DefaultContent).toBeDefined();
     expect(Cell).toBeDefined();
+    expect(ContentValue).toBeDefined();
+    expect(useContentValue).toBeDefined();
     expect(ContentContext).toBeDefined();
     expect(ContentContextProvider).toBeDefined();
     expect(useContent).toBeDefined();

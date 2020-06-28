@@ -6,9 +6,9 @@ import { ReactNode } from 'react';
 
 export declare type Accessor<D, C> = string | ((row: D) => C);
 
-export declare function ArrayOutput<V>(props: Props_19<V>): JSX.Element;
+export declare function ArrayOutput<V>(props: Props_20<V>): JSX.Element;
 
-export declare function Cell<D, C>(props: Props_17<D, C>): JSX.Element;
+export declare function Cell<D, C>(props: Props_18<D, C>): JSX.Element;
 
 export declare function Column<D, C>(props: Props_5<D, C>): JSX.Element | null;
 
@@ -33,10 +33,12 @@ export declare const ContentContext: Context<
 >;
 
 export declare function ContentContextProvider<V>(
-  props: Props_18<V>,
+  props: Props_19<V>,
 ): JSX.Element;
 
 export declare type ContentContextType<V> = V;
+
+export declare function ContentValue<D, C>(props: Props_16<D, C>): JSX.Element;
 
 export declare const DataContext: Context<DataContextType<any> | undefined>;
 
@@ -46,7 +48,7 @@ export declare type DataContextType<D> = ReadonlyArray<D>;
 
 export declare function DataTable<D>(props: Props<D>): JSX.Element;
 
-export declare function DefaultCell<D>(props: Props_16<D>): JSX.Element;
+export declare function DefaultContent<D>(props: Props_17<D>): JSX.Element;
 
 export declare function findColumns<D extends object = {}>(
   children: ReactNode,
@@ -62,7 +64,7 @@ export declare function HeaderRow(props: Props_8): JSX.Element;
 
 export declare const IndexContext: Context<IndexContextType | undefined>;
 
-export declare function IndexContextProvider(props: Props_21): JSX.Element;
+export declare function IndexContextProvider(props: Props_22): JSX.Element;
 
 export declare type IndexContextType = number;
 
@@ -72,7 +74,7 @@ export declare function isColumnsType<D extends object = {}>(
 
 export declare const ItemContext: Context<ItemContextType<any> | undefined>;
 
-export declare function ItemContextProvider<V>(props: Props_20<V>): JSX.Element;
+export declare function ItemContextProvider<V>(props: Props_21<V>): JSX.Element;
 
 export declare type ItemContextType<V> = V;
 
@@ -101,19 +103,18 @@ declare interface OwnProps_15 {
   value: TablePartContextType;
 }
 
-declare interface OwnProps_16<D> {}
-
-declare interface OwnProps_17<D, C> {
+declare interface OwnProps_16<D, C> {
   accessor: string | ((row: D) => C);
 }
 
-declare interface OwnProps_18<V> {
-  value: ContentContextType<V>;
+declare interface OwnProps_17<D> {}
+
+declare interface OwnProps_18<D, C> {
+  accessor: string | ((row: D) => C);
 }
 
 declare interface OwnProps_19<V> {
-  value: ReadonlyArray<V>;
-  getKey?: (value: V, index: number) => string | number;
+  value: ContentContextType<V>;
 }
 
 declare interface OwnProps_2 {
@@ -121,10 +122,15 @@ declare interface OwnProps_2 {
 }
 
 declare interface OwnProps_20<V> {
+  value: ReadonlyArray<V>;
+  getKey?: (value: V, index: number) => string | number;
+}
+
+declare interface OwnProps_21<V> {
   value: ItemContextType<V>;
 }
 
-declare interface OwnProps_21 {
+declare interface OwnProps_22 {
   value: IndexContextType;
 }
 
@@ -165,11 +171,11 @@ declare type Props_14 = PropsWithChildren<OwnProps_14>;
 
 declare type Props_15 = PropsWithChildren<OwnProps_15>;
 
-declare type Props_16<D> = PropsWithChildren<OwnProps_16<D>>;
+declare type Props_16<D, C> = PropsWithChildren<OwnProps_16<D, C>>;
 
-declare type Props_17<D, C> = PropsWithChildren<OwnProps_17<D, C>>;
+declare type Props_17<D> = PropsWithChildren<OwnProps_17<D>>;
 
-declare type Props_18<V> = PropsWithChildren<OwnProps_18<V>>;
+declare type Props_18<D, C> = PropsWithChildren<OwnProps_18<D, C>>;
 
 declare type Props_19<V> = PropsWithChildren<OwnProps_19<V>>;
 
@@ -177,7 +183,9 @@ declare type Props_2 = PropsWithChildren<OwnProps_2>;
 
 declare type Props_20<V> = PropsWithChildren<OwnProps_20<V>>;
 
-declare type Props_21 = PropsWithChildren<OwnProps_21>;
+declare type Props_21<V> = PropsWithChildren<OwnProps_21<V>>;
+
+declare type Props_22 = PropsWithChildren<OwnProps_22>;
 
 declare type Props_3<D> = PropsWithChildren<OwnProps_3<D>>;
 
@@ -241,6 +249,8 @@ export declare type TablePartType = 'definition' | 'header' | 'body' | string;
 export declare function useColumns(): ColumnsContextType;
 
 export declare function useContent<V>(): ContentContextType<V>;
+
+export declare function useContentValue<D, C>(accessor: Accessor<D, C>): C;
 
 export declare function useData<D>(
   value?: ReadonlyArray<D>,

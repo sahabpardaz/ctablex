@@ -1,7 +1,7 @@
 export { TableComponentsContextType } from './TableComponentsContext';
 export { ItemContextType } from './array/ItemContext';
 export { IndexContextType } from './array/IndexContext';
-export { ContentContextType } from './cell/ContentContext';
+export { ContentContextType } from './content/ContentContext';
 export { ColumnsContextType } from './column/ColumnsContext';
 export { ColumnsType } from './column/ColumnsType';
 export { DataContextType } from './data/DataContext';
