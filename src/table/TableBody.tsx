@@ -1,11 +1,8 @@
 import React, { PropsWithChildren } from 'react';
 import { useTableComponentsContext } from '../TableComponentsContext';
-import { Accessor } from '../utils/accessor';
 import { TablePartContextProvider } from './TablePartContext';
 
-interface OwnProps<D> {
-  keyAccessor?: Accessor<D, string | number>;
-}
+interface OwnProps<D> {}
 
 export type Props<D> = PropsWithChildren<OwnProps<D>>;
 
