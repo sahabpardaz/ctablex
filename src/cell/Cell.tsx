@@ -1,15 +1,17 @@
 import React, { PropsWithChildren } from 'react';
-import { useTableComponentsContext } from '../TableComponentsContext';
 import { ContentValue } from '../content/ContentValue';
+import { useTableComponentsContext } from '../TableComponentsContext';
+import { Accessor } from '../utils/accessor';
 
 interface CellOwnProps<D, C> {
-  accessor: string | ((row: D) => C);
+  accessor: Accessor<D, C>;
 }
 
 export type CellProps<D, C> = PropsWithChildren<CellOwnProps<D, C>>;
+
 export function Cell<D, C>(props: CellProps<D, C>) {
-  const Components = useTableComponentsContext();
   const { accessor, children } = props;
+  const Components = useTableComponentsContext();
   return (
     <ContentValue accessor={accessor}>
       <Components.Td>{children}</Components.Td>

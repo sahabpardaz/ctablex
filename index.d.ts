@@ -18,7 +18,7 @@ declare type ArrayOutputProps<V> = PropsWithChildren<ArrayOutputOwnProps<V>>;
 export declare function Cell<D, C>(props: CellProps<D, C>): JSX.Element;
 
 declare interface CellOwnProps<D, C> {
-  accessor: string | ((row: D) => C);
+  accessor: Accessor<D, C>;
 }
 
 declare type CellProps<D, C> = PropsWithChildren<CellOwnProps<D, C>>;
@@ -87,7 +87,7 @@ export declare function ContentValue<D, C>(
 ): JSX.Element;
 
 declare interface ContentValueOwnProps<D, C> {
-  accessor: string | ((row: D) => C);
+  accessor: Accessor<D, C>;
 }
 
 declare type ContentValueProps<D, C> = PropsWithChildren<

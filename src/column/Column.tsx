@@ -3,10 +3,11 @@ import { DefaultContent } from '..';
 import { Cell } from '../cell/Cell';
 import { HeaderCell } from '../header/HeaderCell';
 import { useTablePart } from '../table/TablePartContext';
+import { Accessor } from '../utils/accessor';
 
 interface ColumnOwnProps<D, C> {
   header?: ReactNode;
-  accessor?: string | ((row: D) => C);
+  accessor?: Accessor<D, C>;
 }
 
 export type ColumnProps<D, C> = PropsWithChildren<ColumnOwnProps<D, C>>;

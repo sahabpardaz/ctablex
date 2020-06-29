@@ -11,13 +11,14 @@ interface DataTableOwnProps<D> {
 export type DataTableProps<D> = PropsWithChildren<DataTableOwnProps<D>>;
 
 export function DataTable<D>(props: DataTableProps<D>) {
-  const columns = findColumns(props.children);
+  const { children } = props;
+  const columns = findColumns(children);
   const data = useData<D>(props.data);
   return (
     <DataContextProvider value={data}>
       <TablePartContextProvider value="definition">
         <ColumnsContextProvider value={columns}>
-          {props.children}
+          {children}
         </ColumnsContextProvider>
       </TablePartContextProvider>
     </DataContextProvider>
