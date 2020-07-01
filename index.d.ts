@@ -18,7 +18,7 @@ declare type ArrayOutputProps<V> = PropsWithChildren<ArrayOutputOwnProps<V>>;
 export declare function Cell<D, C>(props: CellProps<D, C>): JSX.Element;
 
 declare interface CellOwnProps<D, C> {
-  accessor: Accessor<D, C>;
+  accessor: Accessor<D, C> | null;
 }
 
 declare type CellProps<D, C> = PropsWithChildren<CellOwnProps<D, C>>;
@@ -29,7 +29,7 @@ export declare function Column<D, C>(
 
 declare interface ColumnOwnProps<D, C> {
   header?: ReactNode;
-  accessor?: string | ((row: D) => C);
+  accessor?: Accessor<D, C> | null;
 }
 
 declare type ColumnProps<D, C> = PropsWithChildren<ColumnOwnProps<D, C>>;
@@ -87,7 +87,7 @@ export declare function ContentValue<D, C>(
 ): JSX.Element;
 
 declare interface ContentValueOwnProps<D, C> {
-  accessor: Accessor<D, C>;
+  accessor: Accessor<D, C> | null;
 }
 
 declare type ContentValueProps<D, C> = PropsWithChildren<
@@ -132,9 +132,14 @@ export declare function findColumns<D extends object = {}>(
   children: ReactNode,
 ): ReactElement | null;
 
-export declare function getValue<D, C>(value: D, accessor: ''): null;
+export declare function getValue<D, C>(value: D, accessor: null): null;
 
 export declare function getValue<D, C>(value: D, accessor: Accessor<D, C>): C;
+
+export declare function getValue<D, C>(
+  value: D,
+  accessor: Accessor<D, C> | null,
+): C | null;
 
 export declare function HeaderCell(props: HeaderCellProps): JSX.Element;
 
@@ -286,7 +291,13 @@ export declare function useColumns(): ColumnsContextType;
 
 export declare function useContent<V>(): ContentContextType<V>;
 
+export declare function useContentValue<D, C>(accessor: null): null;
+
 export declare function useContentValue<D, C>(accessor: Accessor<D, C>): C;
+
+export declare function useContentValue<D, C>(
+  accessor: Accessor<D, C> | null,
+): C | null;
 
 export declare function useData<D>(
   value?: ReadonlyArray<D>,

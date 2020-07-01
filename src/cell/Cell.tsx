@@ -4,7 +4,7 @@ import { useTableComponentsContext } from '../TableComponentsContext';
 import { Accessor } from '../utils/accessor';
 
 interface CellOwnProps<D, C> {
-  accessor: Accessor<D, C>;
+  accessor: Accessor<D, C> | null;
 }
 
 export type CellProps<D, C> = PropsWithChildren<CellOwnProps<D, C>>;

@@ -7,13 +7,13 @@ import { Accessor } from '../utils/accessor';
 
 interface ColumnOwnProps<D, C> {
   header?: ReactNode;
-  accessor?: Accessor<D, C>;
+  accessor?: Accessor<D, C> | null;
 }
 
 export type ColumnProps<D, C> = PropsWithChildren<ColumnOwnProps<D, C>>;
 
 export function Column<D, C>(props: ColumnProps<D, C>) {
-  const { children = <DefaultContent />, accessor = '' } = props;
+  const { children = <DefaultContent />, accessor = null } = props;
   const part = useTablePart();
   if (part === 'header') {
     return <HeaderCell header={props.header} />;

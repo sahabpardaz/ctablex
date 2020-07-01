@@ -36,7 +36,8 @@ export {
   useTablePart,
 } from './table/TablePartContext';
 
-export { ContentValue, useContentValue } from './content/ContentValue';
+export { ContentValue } from './content/ContentValue';
+export { useContentValue } from './content/useContentValue';
 export { DefaultContent } from './content/DefaultContent';
 
 export { Cell } from './cell/Cell';

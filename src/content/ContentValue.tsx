@@ -1,17 +1,11 @@
 import React, { PropsWithChildren } from 'react';
-import { useRowData } from '../row/RowDataContext';
 import { Accessor } from '../utils/accessor';
-import { getValue } from '../utils/getValue';
+import { useContentValue } from './useContentValue';
 import { ContentContextProvider } from './ContentContext';
 import { DefaultContent } from './DefaultContent';
 
 interface ContentValueOwnProps<D, C> {
-  accessor: Accessor<D, C>;
-}
-
-export function useContentValue<D, C>(accessor: Accessor<D, C>) {
-  const row = useRowData<D>();
-  return getValue(row, accessor);
+  accessor: Accessor<D, C> | null;
 }
 
 export type ContentValueProps<D, C> = PropsWithChildren<
