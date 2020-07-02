@@ -10,6 +10,12 @@ export const ItemContext: Context<
   ItemContextType<any> | undefined
 > = createContext<ItemContextType<any> | undefined>(undefined);
 
+/**
+ * Returns the current context value for `ItemContext`.
+ * If `value` is provided, it will ignore the context value and return the given `value`.
+ *
+ * @param value - Overrides context
+ */
 export function useItem<V>(value?: V): ItemContextType<V> {
   const context = useContext(ItemContext);
   if (value !== undefined) {

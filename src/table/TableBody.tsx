@@ -6,6 +6,9 @@ interface TableBodyOwnProps<D> {}
 
 export type TableBodyProps<D> = PropsWithChildren<TableBodyOwnProps<D>>;
 
+/**
+ * Wraps its `children` with the component for `tbody`.
+ */
 export function TableBody<D>(props: TableBodyProps<D>) {
   const { children } = props;
   const Components = useTableComponentsContext();

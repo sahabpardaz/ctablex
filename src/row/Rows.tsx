@@ -11,6 +11,12 @@ interface RowsOwnProps<D> {
 
 export type RowsProps<D> = PropsWithChildren<RowsOwnProps<D>>;
 
+/**
+ * Iterates over `data` and renders `children` for each one of them, using `ArrayOutput`.
+ *
+ * @param props.keyAccessor - Specifies `id` for `ArrayOutput` iteration.
+ * @param props.data - `data` for rendering custom rows.
+ */
 export function Rows<D>(props: RowsProps<D>) {
   const { children, keyAccessor } = props;
   const data = useData<D>(props.data);

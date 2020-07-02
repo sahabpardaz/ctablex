@@ -7,6 +7,12 @@ import React, {
 
 export type TablePartType = 'definition' | 'header' | 'body' | string;
 export type TablePartContextType = TablePartType;
+
+/**
+ * - `'header'` indicates we are inside of `TableHeader` component.
+ * - `'body'` indicates we are inside of `TableBody` component.
+ * - `'definition'` indicates we are inside of `DataTable` but outside of aforementioned parts.
+ */
 export const TablePartContext: Context<
   TablePartContextType | undefined
 > = createContext<TablePartContextType | undefined>(undefined);
