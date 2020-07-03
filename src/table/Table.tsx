@@ -5,6 +5,9 @@ interface TableOwnProps {}
 
 export type TableProps = PropsWithChildren<TableOwnProps>;
 
+/**
+ * Wraps its `children` with the component for `table`.
+ */
 export function Table(props: TableProps) {
   const { children } = props;
   const Components = useTableComponentsContext();

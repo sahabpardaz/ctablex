@@ -15,6 +15,12 @@ export interface TableComponentsContextType {
   Th: ElementType;
   Td: ElementType;
 }
+
+/**
+ * `HTML` elements used as default components for table
+ *
+ * @internal
+ */
 const defaultTableComponents: TableComponentsContextType = {
   Table: 'table',
   Thead: 'thead',
@@ -24,6 +30,10 @@ const defaultTableComponents: TableComponentsContextType = {
   Td: 'td',
 };
 
+/**
+ * Table components can be customized using this context.
+ * Defautl table components are `HTML` elements for table.
+ */
 export const TableComponentsContext: Context<TableComponentsContextType> = createContext<
   TableComponentsContextType
 >(defaultTableComponents);
@@ -40,6 +50,25 @@ export type TableComponentsContextProviderProps = PropsWithChildren<
   TableComponentsContextProviderOwnProps
 >;
 
+/**
+ * Provides the value for `TableComponentsContext`
+ *
+ * @example
+ * // Custom `tr` which calls the `onClick` callback with the current index of row
+ * function CustomTr = ({children}:{children: React.ReactNode}) {
+ *  const index = useIndexContext()
+ *  const onClick = useOnClickContext()
+ *  return <tr onClick={() => onClick(index)}>{children}</tr>
+ * }
+ *
+ *
+ * @example
+ * // Custom `td` which sets the background color to `red` if the value of the cell is less than 10, otherwise sets it to `green`
+ * function CustomTd = ({children}:{children: React.ReactNode}) {
+ *  const value = useCellContext()
+ *  return <td style={{background: value > 10 ? 'green' : 'red'}}>{children}</td>
+ * }
+ */
 export function TableComponentsContextProvider(
   props: TableComponentsContextProviderProps,
 ) {

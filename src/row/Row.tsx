@@ -10,6 +10,11 @@ interface RowOwnProps<D> {
 
 export type RowProps<D> = PropsWithChildren<RowOwnProps<D>>;
 
+/**
+ * Wraps `columns` with the component for `tr` and provides `RowDataContext`
+ *
+ * @param props.row - Provide `row` prop for custom rows
+ */
 export function Row<D>(props: RowProps<D>) {
   const Components = useTableComponentsContext();
 

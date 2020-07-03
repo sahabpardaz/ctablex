@@ -6,6 +6,9 @@ interface TableHeaderOwnProps {}
 
 export type TableHeaderProps = PropsWithChildren<TableHeaderOwnProps>;
 
+/**
+ * Wraps columns with the component for `thead`.
+ */
 export function TableHeader(props: TableHeaderProps) {
   const { children } = props;
   const Components = useTableComponentsContext();
