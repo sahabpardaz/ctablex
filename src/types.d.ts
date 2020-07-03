@@ -2,7 +2,10 @@ export {
   TableComponentsContextType,
   TableComponentsContextProviderProps,
 } from './TableComponentsContext';
-export { ItemContextType, ItemContextProviderProps } from './array/ItemContext';
+export {
+  CurrentValueContextType,
+  CurrentValueContextProviderProps,
+} from './array/CurrentValueContext';
 export {
   IndexContextType,
   IndexContextProviderProps,
