@@ -13,10 +13,10 @@ interface ColumnOwnProps<D, C> {
 export type ColumnProps<D, C> = PropsWithChildren<ColumnOwnProps<D, C>>;
 
 export function Column<D, C>(props: ColumnProps<D, C>) {
-  const { children = <DefaultContent />, accessor = null } = props;
+  const { children = <DefaultContent />, accessor = null, header } = props;
   const part = useTablePart();
   if (part === 'header') {
-    return <HeaderCell header={props.header} />;
+    return <HeaderCell>{header}</HeaderCell>;
   }
   if (part === 'body') {
     return <Cell accessor={accessor}>{children}</Cell>;
