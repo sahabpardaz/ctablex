@@ -21,8 +21,8 @@ import {
   IndexContext,
   IndexContextProvider,
   isColumnsType,
-  ItemContext,
-  ItemContextProvider,
+  CurrentValueContext,
+  CurrentValueContextProvider,
   Row,
   RowDataContext,
   RowDataContextProvider,
@@ -39,7 +39,7 @@ import {
   useContentValue,
   useData,
   useIndex,
-  useItem,
+  useCurrentValue,
   useRowData,
   useTableComponentsContext,
   useTablePart,
@@ -316,9 +316,9 @@ describe('ctablex', () => {
     expect(ContentContextProvider).toBeDefined();
     expect(useContent).toBeDefined();
     expect(ArrayOutput).toBeDefined();
-    expect(useItem).toBeDefined();
-    expect(ItemContextProvider).toBeDefined();
-    expect(ItemContext).toBeDefined();
+    expect(useCurrentValue).toBeDefined();
+    expect(CurrentValueContextProvider).toBeDefined();
+    expect(CurrentValueContext).toBeDefined();
     expect(useIndex).toBeDefined();
     expect(IndexContext).toBeDefined();
     expect(IndexContextProvider).toBeDefined();

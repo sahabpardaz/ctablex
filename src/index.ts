@@ -48,7 +48,11 @@ export {
 } from './content/ContentContext';
 
 export { ArrayOutput } from './array/ArrayOutput';
-export { useItem, ItemContextProvider, ItemContext } from './array/ItemContext';
+export {
+  useCurrentValue,
+  CurrentValueContextProvider,
+  CurrentValueContext,
+} from './array/CurrentValueContext';
 export {
   useIndex,
   IndexContext,
