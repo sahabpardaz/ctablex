@@ -2,8 +2,8 @@
 
 [![NPM version](https://badgen.net/npm/v/@ctablex/core)](https://npmjs.com/package/@ctablex/core)
 [![NPM downloads](https://badgen.net/npm/dm/@ctablex/core)](https://npmjs.com/package/@ctablex/core)
-[![Build Status](https://travis-ci.com/ctablex/core.svg?branch=master)](https://travis-ci.com/ctablex/core)
-[![codecov](https://codecov.io/gh/ctablex/core/branch/master/graph/badge.svg)](https://codecov.io/gh/ctablex/core)
+[![Build Status](https://travis-ci.com/sahabpardaz/ctablex.svg?branch=master)](https://travis-ci.com/sahabpardaz/ctablex)
+[![codecov](https://codecov.io/gh/sahabpardaz/ctablex/branch/master/graph/badge.svg)](https://codecov.io/gh/sahabpardaz/ctablex)
 
 Featureable, flexible and powerful react table. `ctablex` will not hold you back and let you customize table UI and behavior. `ctablex` name is the combination of `table` and `ctx` (context).
 
