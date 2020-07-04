@@ -1,7 +1,7 @@
 {
   "name": "@ctablex/core",
   "description": "Flexible and powerful react table",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "license": "MIT",
   "main": "lib/ctablex.js",
   "unpkg": "dist/ctablex.js",
