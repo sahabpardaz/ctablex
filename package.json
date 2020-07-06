@@ -34,7 +34,7 @@
     "build:doc": "libton-script doc",
     "toc": "markdown-toc -i README.md",
     "test": "libton-script test --coverage --verbose",
-    "lint": "libton-script lint",
+    "lint": "libton-script lint && eslint --max-warnings=0 examples/**/*.{ts,tsx}",
     "format": "libton-script format",
     "format:check": "libton-script format --check",
     "validate": "libton-script lint && libton-script format --check && libton-script test --coverage --verbose",
