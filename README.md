@@ -22,13 +22,12 @@ yarn add @ctablex/core
 
 ## Usage
 
-```js
+```tsx
 import React from 'react';
 import {
   DataTable,
   Columns,
   Column,
-  IndexCell,
   Table,
   TableHeader,
   HeaderRow,
@@ -78,6 +77,8 @@ export function MyTable() {
   );
 }
 ```
+
+[live demo](https://codesandbox.io/s/github/sahabpardaz/ctablex/tree/master/examples/basic?file=/src/BasicTable.tsx), [source code](https://github.com/sahabpardaz/ctablex/tree/master/examples/basic?file=/src/BasicTable.tsx)
 
 ## Changelog
 
