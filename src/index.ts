@@ -3,6 +3,7 @@ export {
   TableComponentsContext,
   useTableComponentsContext,
   TableComponentsContextProvider,
+  defaultTableComponents,
 } from './TableComponentsContext';
 export { useData, DataContext, DataContextProvider } from './data/DataContext';
 

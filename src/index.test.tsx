@@ -10,10 +10,13 @@ import {
   ContentContext,
   ContentContextProvider,
   ContentValue,
+  CurrentValueContext,
+  CurrentValueContextProvider,
   DataContext,
   DataContextProvider,
   DataTable,
   DefaultContent,
+  defaultTableComponents,
   findColumns,
   getValue,
   HeaderCell,
@@ -21,8 +24,6 @@ import {
   IndexContext,
   IndexContextProvider,
   isColumnsType,
-  CurrentValueContext,
-  CurrentValueContextProvider,
   Row,
   RowDataContext,
   RowDataContextProvider,
@@ -37,9 +38,9 @@ import {
   useColumns,
   useContent,
   useContentValue,
+  useCurrentValue,
   useData,
   useIndex,
-  useCurrentValue,
   useRowData,
   useTableComponentsContext,
   useTablePart,
@@ -156,6 +157,7 @@ describe('ctablex', () => {
   });
   it('should use custom Components', () => {
     const components = {
+      ...defaultTableComponents,
       Table: (props: PropsWithChildren<{}>) => {
         return (
           <table style={{ backgroundColor: '#ccc' }} data-testid="table">
