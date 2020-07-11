@@ -96,6 +96,20 @@ export declare type ContentValueProps<D, C> = PropsWithChildren<
   ContentValueOwnProps<D, C>
 >;
 
+export declare const CurrentValueContext: Context<
+  CurrentValueContextType<any> | undefined
+>;
+
+export declare function CurrentValueContextProvider<V>(
+  props: CurrentValueContextProviderProps<V>,
+): JSX.Element;
+
+export declare type CurrentValueContextProviderProps<V> = PropsWithChildren<
+  ItemContextProviderOwnProps<V>
+>;
+
+export declare type CurrentValueContextType<V> = V;
+
 export declare const DataContext: Context<DataContextType<any> | undefined>;
 
 export declare function DataContextProvider<D>(
@@ -134,20 +148,18 @@ export declare function findColumns<D extends object = {}>(
   children: ReactNode,
 ): ReactElement | null;
 
-export declare function getValue<D, C>(value: D, accessor: null): null;
+export declare function getValue<D, C>(data: D, accessor: null): null;
 
-export declare function getValue<D, C>(value: D, accessor: Accessor<D, C>): C;
+export declare function getValue<D, C>(data: D, accessor: Accessor<D, C>): C;
 
 export declare function getValue<D, C>(
-  value: D,
+  data: D,
   accessor: Accessor<D, C> | null,
 ): C | null;
 
 export declare function HeaderCell(props: HeaderCellProps): JSX.Element;
 
-declare interface HeaderCellOwnProps {
-  header: ReactNode;
-}
+declare interface HeaderCellOwnProps {}
 
 export declare type HeaderCellProps = PropsWithChildren<HeaderCellOwnProps>;
 
@@ -177,21 +189,9 @@ export declare function isColumnsType<D extends object = {}>(
   type: any,
 ): type is ColumnsType<D>;
 
-export declare const ItemContext: Context<ItemContextType<any> | undefined>;
-
-export declare function ItemContextProvider<V>(
-  props: ItemContextProviderProps<V>,
-): JSX.Element;
-
 declare interface ItemContextProviderOwnProps<V> {
-  value: ItemContextType<V>;
+  value: CurrentValueContextType<V>;
 }
-
-export declare type ItemContextProviderProps<V> = PropsWithChildren<
-  ItemContextProviderOwnProps<V>
->;
-
-export declare type ItemContextType<V> = V;
 
 export declare function Row<D>(props: RowProps<D>): JSX.Element;
 
@@ -301,13 +301,15 @@ export declare function useContentValue<D, C>(
   accessor: Accessor<D, C> | null,
 ): C | null;
 
+export declare function useCurrentValue<V>(
+  value?: V,
+): CurrentValueContextType<V>;
+
 export declare function useData<D>(
   value?: ReadonlyArray<D>,
 ): DataContextType<D>;
 
 export declare function useIndex(): IndexContextType;
-
-export declare function useItem<V>(value?: V): ItemContextType<V>;
 
 export declare function useRowData<V>(): RowDataContextType<V>;
 
