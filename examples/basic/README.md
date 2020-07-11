@@ -1,8 +1,7 @@
 # Basic example
 
-You can:
+## Demo
 
 - Open this example in a new [CodeSandbox]
-- `yarn` and `yarn start` to run and edit the example
 
 [codesandbox]: https://codesandbox.io/s/github/sahabpardaz/ctablex/tree/master/examples/basic?file=/src/BasicTable.tsx
