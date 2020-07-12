@@ -78,7 +78,7 @@ export function MyTable() {
 }
 ```
 
-[live demo](https://codesandbox.io/s/github/sahabpardaz/ctablex/tree/master/examples/basic?file=/src/BasicTable.tsx), [source code](https://github.com/sahabpardaz/ctablex/tree/master/examples/basic?file=/src/BasicTable.tsx)
+[live demo](https://codesandbox.io/s/github/sahabpardaz/ctablex/tree/master/examples/basic?file=/src/BasicTable.tsx), [source code](https://github.com/sahabpardaz/ctablex/tree/master/examples/basic)
 
 ## Changelog
 
