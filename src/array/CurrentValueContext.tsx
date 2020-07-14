@@ -5,35 +5,31 @@ import React, {
   useContext,
 } from 'react';
 
-export type CurrentValueContextType<V> = V;
+export type CurrentValue<V> = V;
 export const CurrentValueContext: Context<
-  CurrentValueContextType<any> | undefined
-> = createContext<CurrentValueContextType<any> | undefined>(undefined);
+  CurrentValue<any> | undefined
+> = createContext<CurrentValue<any> | undefined>(undefined);
 
-export function useCurrentValue<V>(value?: V): CurrentValueContextType<V> {
+export function useCurrentValue<V>(value?: V): CurrentValue<V> {
   const context = useContext(CurrentValueContext);
   if (value !== undefined) {
     return value;
   }
   if (context === undefined) {
-    throw new Error(
-      'useCurrentValue must be used inside the <ItemContextProvider/>',
-    );
+    throw new Error('useCurrentValue must be used inside the <ItemProvider/>');
   }
   return context;
 }
 
-interface ItemContextProviderOwnProps<V> {
-  value: CurrentValueContextType<V>;
+interface ItemProviderOwnProps<V> {
+  value: CurrentValue<V>;
 }
 
-export type CurrentValueContextProviderProps<V> = PropsWithChildren<
-  ItemContextProviderOwnProps<V>
+export type CurrentValueProviderProps<V> = PropsWithChildren<
+  ItemProviderOwnProps<V>
 >;
 
-export function CurrentValueContextProvider<V>(
-  props: CurrentValueContextProviderProps<V>,
-) {
+export function CurrentValueProvider<V>(props: CurrentValueProviderProps<V>) {
   return (
     <CurrentValueContext.Provider value={props.value}>
       {props.children}

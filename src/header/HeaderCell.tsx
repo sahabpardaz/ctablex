@@ -1,5 +1,5 @@
 import React, { PropsWithChildren } from 'react';
-import { useTableComponentsContext } from '../TableComponentsContext';
+import { useTableComponents } from '../TableComponentsContext';
 
 interface HeaderCellOwnProps {}
 
@@ -8,7 +8,7 @@ export type HeaderCellProps = PropsWithChildren<HeaderCellOwnProps>;
 export function HeaderCell(props: HeaderCellProps) {
   const { children } = props;
 
-  const Components = useTableComponentsContext();
+  const Components = useTableComponents();
 
   return <Components.Th>{children}</Components.Th>;
 }

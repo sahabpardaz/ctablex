@@ -6,30 +6,26 @@ import React, {
   useContext,
 } from 'react';
 
-export type ColumnsContextType = ReactNode;
-export const ColumnsContext: Context<
-  ColumnsContextType | undefined
-> = createContext<ColumnsContextType | undefined>(undefined);
+export type ColumnsNode = ReactNode;
+export const ColumnsContext: Context<ColumnsNode | undefined> = createContext<
+  ColumnsNode | undefined
+>(undefined);
 
-export function useColumns(): ColumnsContextType {
+export function useColumns(): ColumnsNode {
   const context = useContext(ColumnsContext);
   if (context === undefined) {
-    throw new Error(
-      'useColumnsContext must be used inside the <ColumnsContextProvider/>',
-    );
+    throw new Error('useColumns must be used inside the <ColumnsProvider/>');
   }
   return context;
 }
 
-interface ColumnsContextProviderOwnProps {
-  value: ColumnsContextType;
+interface ColumnsProviderOwnProps {
+  value: ColumnsNode;
 }
 
-export type ColumnsContextProviderProps = PropsWithChildren<
-  ColumnsContextProviderOwnProps
->;
+export type ColumnsProviderProps = PropsWithChildren<ColumnsProviderOwnProps>;
 
-export function ColumnsContextProvider(props: ColumnsContextProviderProps) {
+export function ColumnsProvider(props: ColumnsProviderProps) {
   return (
     <ColumnsContext.Provider value={props.value}>
       {props.children}

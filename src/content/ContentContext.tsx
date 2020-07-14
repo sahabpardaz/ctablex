@@ -5,32 +5,28 @@ import React, {
   useContext,
 } from 'react';
 
-export type ContentContextType<V> = V;
-export const ContentContext: Context<
-  ContentContextType<any> | undefined
-> = createContext<ContentContextType<any> | undefined>(undefined);
+export type Content<V> = V;
+export const ContentContext: Context<Content<any> | undefined> = createContext<
+  Content<any> | undefined
+>(undefined);
 
-export function useContent<V>(): ContentContextType<V> {
+export function useContent<V>(): Content<V> {
   const context = useContext(ContentContext);
   if (context === undefined) {
-    throw new Error(
-      'useContentContext must be used inside the <ContentContextProvider/>',
-    );
+    throw new Error('useContent must be used inside the <ContentProvider/>');
   }
   return context;
 }
 
-interface ContentContextProviderOwnProps<V> {
-  value: ContentContextType<V>;
+interface ContentProviderOwnProps<V> {
+  value: Content<V>;
 }
 
-export type ContentContextProviderProps<V> = PropsWithChildren<
-  ContentContextProviderOwnProps<V>
+export type ContentProviderProps<V> = PropsWithChildren<
+  ContentProviderOwnProps<V>
 >;
 
-export function ContentContextProvider<V>(
-  props: ContentContextProviderProps<V>,
-) {
+export function ContentProvider<V>(props: ContentProviderProps<V>) {
   return (
     <ContentContext.Provider value={props.value}>
       {props.children}

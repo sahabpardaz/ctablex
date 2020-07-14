@@ -6,30 +6,30 @@ import React, {
 } from 'react';
 
 export type TablePartType = 'definition' | 'header' | 'body' | string;
-export type TablePartContextType = TablePartType;
-export const TablePartContext: Context<
-  TablePartContextType | undefined
-> = createContext<TablePartContextType | undefined>(undefined);
+export type TablePart = TablePartType;
+export const TablePartContext: Context<TablePart | undefined> = createContext<
+  TablePart | undefined
+>(undefined);
 
-export function useTablePart(): TablePartContextType {
+export function useTablePart(): TablePart {
   const context = useContext(TablePartContext);
   if (context === undefined) {
     throw new Error(
-      'useTablePartContext must be used inside the <TablePartContextProvider/>',
+      'useTablePart must be used inside the <TablePartProvider/>',
     );
   }
   return context;
 }
 
-interface TablePartContextProviderOwnProps {
-  value: TablePartContextType;
+interface TablePartProviderOwnProps {
+  value: TablePart;
 }
 
-export type TablePartContextProviderProps = PropsWithChildren<
-  TablePartContextProviderOwnProps
+export type TablePartProviderProps = PropsWithChildren<
+  TablePartProviderOwnProps
 >;
 
-export function TablePartContextProvider(props: TablePartContextProviderProps) {
+export function TablePartProvider(props: TablePartProviderProps) {
   return (
     <TablePartContext.Provider value={props.value}>
       {props.children}

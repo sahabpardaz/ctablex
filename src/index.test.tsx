@@ -6,14 +6,14 @@ import {
   Column,
   Columns,
   ColumnsContext,
-  ColumnsContextProvider,
+  ColumnsProvider,
   ContentContext,
-  ContentContextProvider,
+  ContentProvider,
   ContentValue,
   CurrentValueContext,
-  CurrentValueContextProvider,
+  CurrentValueProvider,
   DataContext,
-  DataContextProvider,
+  DataProvider,
   DataTable,
   DefaultContent,
   defaultTableComponents,
@@ -22,19 +22,19 @@ import {
   HeaderCell,
   HeaderRow,
   IndexContext,
-  IndexContextProvider,
+  IndexProvider,
   isColumnsType,
   Row,
   RowDataContext,
-  RowDataContextProvider,
+  RowDataProvider,
   Rows,
   Table,
   TableBody,
   TableComponentsContext,
-  TableComponentsContextProvider,
+  TableComponentsProvider,
   TableHeader,
   TablePartContext,
-  TablePartContextProvider,
+  TablePartProvider,
   useColumns,
   useContent,
   useContentValue,
@@ -42,7 +42,7 @@ import {
   useData,
   useIndex,
   useRowData,
-  useTableComponentsContext,
+  useTableComponents,
   useTablePart,
 } from './index';
 
@@ -168,7 +168,7 @@ describe('ctablex', () => {
     };
 
     render(
-      <TableComponentsContextProvider value={components}>
+      <TableComponentsProvider value={components}>
         <DataTable data={data}>
           <Columns>
             <Column header="Name" accessor="name" />
@@ -184,7 +184,7 @@ describe('ctablex', () => {
             </TableBody>
           </Table>
         </DataTable>
-      </TableComponentsContextProvider>,
+      </TableComponentsProvider>,
     );
     expect(screen.queryByTestId('table')).toBeInTheDocument();
   });
@@ -285,16 +285,16 @@ describe('ctablex', () => {
   it('should export every things', () => {
     expect(DataTable).toBeDefined();
     expect(TableComponentsContext).toBeDefined();
-    expect(useTableComponentsContext).toBeDefined();
-    expect(TableComponentsContextProvider).toBeDefined();
+    expect(useTableComponents).toBeDefined();
+    expect(TableComponentsProvider).toBeDefined();
     expect(useData).toBeDefined();
     expect(DataContext).toBeDefined();
-    expect(DataContextProvider).toBeDefined();
+    expect(DataProvider).toBeDefined();
     expect(Columns).toBeDefined();
     expect(Column).toBeDefined();
     expect(useColumns).toBeDefined();
     expect(ColumnsContext).toBeDefined();
-    expect(ColumnsContextProvider).toBeDefined();
+    expect(ColumnsProvider).toBeDefined();
     expect(isColumnsType).toBeDefined();
     expect(findColumns).toBeDefined();
     expect(TableHeader).toBeDefined();
@@ -303,27 +303,27 @@ describe('ctablex', () => {
     expect(Rows).toBeDefined();
     expect(Row).toBeDefined();
     expect(useRowData).toBeDefined();
-    expect(RowDataContextProvider).toBeDefined();
+    expect(RowDataProvider).toBeDefined();
     expect(RowDataContext).toBeDefined();
     expect(TableBody).toBeDefined();
     expect(Table).toBeDefined();
     expect(TablePartContext).toBeDefined();
-    expect(TablePartContextProvider).toBeDefined();
+    expect(TablePartProvider).toBeDefined();
     expect(useTablePart).toBeDefined();
     expect(DefaultContent).toBeDefined();
     expect(Cell).toBeDefined();
     expect(ContentValue).toBeDefined();
     expect(useContentValue).toBeDefined();
     expect(ContentContext).toBeDefined();
-    expect(ContentContextProvider).toBeDefined();
+    expect(ContentProvider).toBeDefined();
     expect(useContent).toBeDefined();
     expect(ArrayOutput).toBeDefined();
     expect(useCurrentValue).toBeDefined();
-    expect(CurrentValueContextProvider).toBeDefined();
+    expect(CurrentValueProvider).toBeDefined();
     expect(CurrentValueContext).toBeDefined();
     expect(useIndex).toBeDefined();
     expect(IndexContext).toBeDefined();
-    expect(IndexContextProvider).toBeDefined();
+    expect(IndexProvider).toBeDefined();
     expect(getValue).toBeDefined();
   });
 });

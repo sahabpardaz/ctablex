@@ -1,6 +1,6 @@
 import React, { PropsWithChildren } from 'react';
-import { useTableComponentsContext } from '../TableComponentsContext';
-import { TablePartContextProvider } from './TablePartContext';
+import { useTableComponents } from '../TableComponentsContext';
+import { TablePartProvider } from './TablePartContext';
 
 interface TableBodyOwnProps<D> {}
 
@@ -8,11 +8,11 @@ export type TableBodyProps<D> = PropsWithChildren<TableBodyOwnProps<D>>;
 
 export function TableBody<D>(props: TableBodyProps<D>) {
   const { children } = props;
-  const Components = useTableComponentsContext();
+  const Components = useTableComponents();
 
   return (
-    <TablePartContextProvider value="body">
+    <TablePartProvider value="body">
       <Components.Tbody>{children}</Components.Tbody>
-    </TablePartContextProvider>
+    </TablePartProvider>
   );
 }

@@ -1,33 +1,21 @@
 export {
-  TableComponentsContextType,
-  TableComponentsContextProviderProps,
+  TableComponents,
+  TableComponentsProviderProps,
 } from './TableComponentsContext';
 export {
-  CurrentValueContextType,
-  CurrentValueContextProviderProps,
+  CurrentValue,
+  CurrentValueProviderProps,
 } from './array/CurrentValueContext';
-export {
-  IndexContextType,
-  IndexContextProviderProps,
-} from './array/IndexContext';
-export {
-  ContentContextType,
-  ContentContextProviderProps,
-} from './content/ContentContext';
-export {
-  ColumnsContextType,
-  ColumnsContextProviderProps,
-} from './column/ColumnsContext';
+export { Index, IndexProviderProps } from './array/IndexContext';
+export { Content, ContentProviderProps } from './content/ContentContext';
+export { ColumnsNode, ColumnsProviderProps } from './column/ColumnsContext';
 export { ColumnsType } from './column/ColumnsType';
-export { DataContextType, DataContextProviderProps } from './data/DataContext';
+export { Data, DataProviderProps } from './data/DataContext';
+export { RowData, RowDataProviderProps } from './row/RowDataContext';
 export {
-  RowDataContextType,
-  RowDataContextProviderProps,
-} from './row/RowDataContext';
-export {
-  TablePartContextType,
+  TablePart,
   TablePartType,
-  TablePartContextProviderProps,
+  TablePartProviderProps,
 } from './table/TablePartContext';
 export { Accessor } from './utils/accessor';
 
