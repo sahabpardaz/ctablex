@@ -42,9 +42,9 @@ export declare namespace Columns {
   var __COLUMNS__: boolean;
 }
 
-export declare const ColumnsContext: Context<ColumnsContextType | undefined>;
+declare type Columns_2 = ReactNode;
 
-export declare type ColumnsContextType = ReactNode;
+export declare const ColumnsContext: Context<Columns_2 | undefined>;
 
 declare interface ColumnsOwnProps {}
 
@@ -55,7 +55,7 @@ export declare function ColumnsProvider(
 ): JSX.Element;
 
 declare interface ColumnsProviderOwnProps {
-  value: ColumnsContextType;
+  value: Columns_2;
 }
 
 export declare type ColumnsProviderProps = PropsWithChildren<
@@ -66,18 +66,16 @@ export declare interface ColumnsType<D extends object = {}> {
   __COLUMNS__: true;
 }
 
-export declare const ContentContext: Context<
-  ContentContextType<any> | undefined
->;
+export declare type Content<V> = V;
 
-export declare type ContentContextType<V> = V;
+export declare const ContentContext: Context<Content<any> | undefined>;
 
 export declare function ContentProvider<V>(
   props: ContentProviderProps<V>,
 ): JSX.Element;
 
 declare interface ContentProviderOwnProps<V> {
-  value: ContentContextType<V>;
+  value: Content<V>;
 }
 
 export declare type ContentProviderProps<V> = PropsWithChildren<
@@ -96,11 +94,11 @@ export declare type ContentValueProps<D, C> = PropsWithChildren<
   ContentValueOwnProps<D, C>
 >;
 
-export declare const CurrentValueContext: Context<
-  CurrentValueContextType<any> | undefined
->;
+export declare type CurrentValue<V> = V;
 
-export declare type CurrentValueContextType<V> = V;
+export declare const CurrentValueContext: Context<
+  CurrentValue<any> | undefined
+>;
 
 export declare function CurrentValueProvider<V>(
   props: CurrentValueProviderProps<V>,
@@ -110,16 +108,16 @@ export declare type CurrentValueProviderProps<V> = PropsWithChildren<
   ItemProviderOwnProps<V>
 >;
 
-export declare const DataContext: Context<DataContextType<any> | undefined>;
+export declare type Data<D> = ReadonlyArray<D>;
 
-export declare type DataContextType<D> = ReadonlyArray<D>;
+export declare const DataContext: Context<Data<any> | undefined>;
 
 export declare function DataProvider<D>(
   props: DataProviderProps<D>,
 ): JSX.Element;
 
 declare interface DataProviderOwnProps<D> {
-  value: DataContextType<D>;
+  value: Data<D>;
 }
 
 export declare type DataProviderProps<D> = PropsWithChildren<
@@ -144,7 +142,7 @@ export declare type DefaultContentProps<D> = PropsWithChildren<
   DefaultContentOwnProps<D>
 >;
 
-export declare const defaultTableComponents: TableComponentsContextType;
+export declare const defaultTableComponents: TableComponents;
 
 export declare function findColumns<D extends object = {}>(
   children: ReactNode,
@@ -171,14 +169,14 @@ declare interface HeaderRowOwnProps {}
 
 export declare type HeaderRowProps = PropsWithChildren<HeaderRowOwnProps>;
 
-export declare const IndexContext: Context<IndexContextType | undefined>;
+export declare type Index = number;
 
-export declare type IndexContextType = number;
+export declare const IndexContext: Context<Index | undefined>;
 
 export declare function IndexProvider(props: IndexProviderProps): JSX.Element;
 
 declare interface IndexProviderOwnProps {
-  value: IndexContextType;
+  value: Index;
 }
 
 export declare type IndexProviderProps = PropsWithChildren<
@@ -190,23 +188,21 @@ export declare function isColumnsType<D extends object = {}>(
 ): type is ColumnsType<D>;
 
 declare interface ItemProviderOwnProps<V> {
-  value: CurrentValueContextType<V>;
+  value: CurrentValue<V>;
 }
 
 export declare function Row<D>(props: RowProps<D>): JSX.Element;
 
-export declare const RowDataContext: Context<
-  RowDataContextType<any> | undefined
->;
+export declare type RowData<V> = V;
 
-export declare type RowDataContextType<V> = V;
+export declare const RowDataContext: Context<RowData<any> | undefined>;
 
 export declare function RowDataProvider<V>(
   props: RowDataProviderProps<V>,
 ): JSX.Element;
 
 declare interface RowDataProviderOwnProps<V> {
-  value: RowDataContextType<V>;
+  value: RowData<V>;
 }
 
 export declare type RowDataProviderProps<V> = PropsWithChildren<
@@ -236,9 +232,7 @@ declare interface TableBodyOwnProps<D> {}
 
 export declare type TableBodyProps<D> = PropsWithChildren<TableBodyOwnProps<D>>;
 
-export declare const TableComponentsContext: Context<TableComponentsContextType>;
-
-export declare interface TableComponentsContextType {
+export declare interface TableComponents {
   Table: ElementType;
   Thead: ElementType;
   Tbody: ElementType;
@@ -247,12 +241,14 @@ export declare interface TableComponentsContextType {
   Td: ElementType;
 }
 
+export declare const TableComponentsContext: Context<TableComponents>;
+
 export declare function TableComponentsProvider(
   props: TableComponentsProviderProps,
 ): JSX.Element;
 
 declare interface TableComponentsProviderOwnProps {
-  value: TableComponentsContextType;
+  value: TableComponents;
 }
 
 export declare type TableComponentsProviderProps = PropsWithChildren<
@@ -267,18 +263,16 @@ export declare type TableHeaderProps = PropsWithChildren<TableHeaderOwnProps>;
 
 declare interface TableOwnProps {}
 
-export declare const TablePartContext: Context<
-  TablePartContextType | undefined
->;
+export declare type TablePart = TablePartType;
 
-export declare type TablePartContextType = TablePartType;
+export declare const TablePartContext: Context<TablePart | undefined>;
 
 export declare function TablePartProvider(
   props: TablePartProviderProps,
 ): JSX.Element;
 
 declare interface TablePartProviderOwnProps {
-  value: TablePartContextType;
+  value: TablePart;
 }
 
 export declare type TablePartProviderProps = PropsWithChildren<
@@ -289,9 +283,9 @@ export declare type TablePartType = 'definition' | 'header' | 'body' | string;
 
 export declare type TableProps = PropsWithChildren<TableOwnProps>;
 
-export declare function useColumns(): ColumnsContextType;
+export declare function useColumns(): Columns_2;
 
-export declare function useContent<V>(): ContentContextType<V>;
+export declare function useContent<V>(): Content<V>;
 
 export declare function useContentValue<D, C>(accessor: null): null;
 
@@ -301,20 +295,16 @@ export declare function useContentValue<D, C>(
   accessor: Accessor<D, C> | null,
 ): C | null;
 
-export declare function useCurrentValue<V>(
-  value?: V,
-): CurrentValueContextType<V>;
+export declare function useCurrentValue<V>(value?: V): CurrentValue<V>;
 
-export declare function useData<D>(
-  value?: ReadonlyArray<D>,
-): DataContextType<D>;
+export declare function useData<D>(value?: ReadonlyArray<D>): Data<D>;
 
-export declare function useIndex(): IndexContextType;
+export declare function useIndex(): Index;
 
-export declare function useRowData<V>(): RowDataContextType<V>;
+export declare function useRowData<V>(): RowData<V>;
 
-export declare function useTableComponents(): TableComponentsContextType;
+export declare function useTableComponents(): TableComponents;
 
-export declare function useTablePart(): TablePartContextType;
+export declare function useTablePart(): TablePart;
 
 export {};

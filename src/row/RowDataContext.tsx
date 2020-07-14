@@ -5,12 +5,12 @@ import React, {
   useContext,
 } from 'react';
 
-export type RowDataContextType<V> = V;
-export const RowDataContext: Context<
-  RowDataContextType<any> | undefined
-> = createContext<RowDataContextType<any> | undefined>(undefined);
+export type RowData<V> = V;
+export const RowDataContext: Context<RowData<any> | undefined> = createContext<
+  RowData<any> | undefined
+>(undefined);
 
-export function useRowData<V>(): RowDataContextType<V> {
+export function useRowData<V>(): RowData<V> {
   const context = useContext(RowDataContext);
   if (context === undefined) {
     throw new Error('useRowData must be used inside the <RowDataProvider/>');
@@ -19,7 +19,7 @@ export function useRowData<V>(): RowDataContextType<V> {
 }
 
 interface RowDataProviderOwnProps<V> {
-  value: RowDataContextType<V>;
+  value: RowData<V>;
 }
 
 export type RowDataProviderProps<V> = PropsWithChildren<

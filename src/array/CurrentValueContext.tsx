@@ -5,12 +5,12 @@ import React, {
   useContext,
 } from 'react';
 
-export type CurrentValueContextType<V> = V;
+export type CurrentValue<V> = V;
 export const CurrentValueContext: Context<
-  CurrentValueContextType<any> | undefined
-> = createContext<CurrentValueContextType<any> | undefined>(undefined);
+  CurrentValue<any> | undefined
+> = createContext<CurrentValue<any> | undefined>(undefined);
 
-export function useCurrentValue<V>(value?: V): CurrentValueContextType<V> {
+export function useCurrentValue<V>(value?: V): CurrentValue<V> {
   const context = useContext(CurrentValueContext);
   if (value !== undefined) {
     return value;
@@ -22,7 +22,7 @@ export function useCurrentValue<V>(value?: V): CurrentValueContextType<V> {
 }
 
 interface ItemProviderOwnProps<V> {
-  value: CurrentValueContextType<V>;
+  value: CurrentValue<V>;
 }
 
 export type CurrentValueProviderProps<V> = PropsWithChildren<

@@ -6,7 +6,7 @@ import React, {
   useContext,
 } from 'react';
 
-export interface TableComponentsContextType {
+export interface TableComponents {
   Table: ElementType;
   Thead: ElementType;
   Tbody: ElementType;
@@ -14,7 +14,7 @@ export interface TableComponentsContextType {
   Th: ElementType;
   Td: ElementType;
 }
-export const defaultTableComponents: TableComponentsContextType = {
+export const defaultTableComponents: TableComponents = {
   Table: 'table',
   Thead: 'thead',
   Tbody: 'tbody',
@@ -23,16 +23,16 @@ export const defaultTableComponents: TableComponentsContextType = {
   Td: 'td',
 };
 
-export const TableComponentsContext: Context<TableComponentsContextType> = createContext<
-  TableComponentsContextType
+export const TableComponentsContext: Context<TableComponents> = createContext<
+  TableComponents
 >(defaultTableComponents);
 
-export function useTableComponents(): TableComponentsContextType {
+export function useTableComponents(): TableComponents {
   return useContext(TableComponentsContext);
 }
 
 interface TableComponentsProviderOwnProps {
-  value: TableComponentsContextType;
+  value: TableComponents;
 }
 
 export type TableComponentsProviderProps = PropsWithChildren<

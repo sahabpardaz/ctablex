@@ -6,12 +6,12 @@ import React, {
 } from 'react';
 
 export type TablePartType = 'definition' | 'header' | 'body' | string;
-export type TablePartContextType = TablePartType;
-export const TablePartContext: Context<
-  TablePartContextType | undefined
-> = createContext<TablePartContextType | undefined>(undefined);
+export type TablePart = TablePartType;
+export const TablePartContext: Context<TablePart | undefined> = createContext<
+  TablePart | undefined
+>(undefined);
 
-export function useTablePart(): TablePartContextType {
+export function useTablePart(): TablePart {
   const context = useContext(TablePartContext);
   if (context === undefined) {
     throw new Error(
@@ -22,7 +22,7 @@ export function useTablePart(): TablePartContextType {
 }
 
 interface TablePartProviderOwnProps {
-  value: TablePartContextType;
+  value: TablePart;
 }
 
 export type TablePartProviderProps = PropsWithChildren<

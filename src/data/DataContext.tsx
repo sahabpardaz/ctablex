@@ -5,12 +5,12 @@ import React, {
   useContext,
 } from 'react';
 
-export type DataContextType<D> = ReadonlyArray<D>;
-export const DataContext: Context<
-  DataContextType<any> | undefined
-> = createContext<DataContextType<any> | undefined>(undefined);
+export type Data<D> = ReadonlyArray<D>;
+export const DataContext: Context<Data<any> | undefined> = createContext<
+  Data<any> | undefined
+>(undefined);
 
-export function useData<D>(value?: ReadonlyArray<D>): DataContextType<D> {
+export function useData<D>(value?: ReadonlyArray<D>): Data<D> {
   const context = useContext(DataContext);
   if (value !== undefined) {
     return value;
@@ -22,7 +22,7 @@ export function useData<D>(value?: ReadonlyArray<D>): DataContextType<D> {
 }
 
 interface DataProviderOwnProps<D> {
-  value: DataContextType<D>;
+  value: Data<D>;
 }
 
 export type DataProviderProps<D> = PropsWithChildren<DataProviderOwnProps<D>>;

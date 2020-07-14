@@ -5,12 +5,12 @@ import React, {
   useContext,
 } from 'react';
 
-export type IndexContextType = number;
-export const IndexContext: Context<
-  IndexContextType | undefined
-> = createContext<IndexContextType | undefined>(undefined);
+export type Index = number;
+export const IndexContext: Context<Index | undefined> = createContext<
+  Index | undefined
+>(undefined);
 
-export function useIndex(): IndexContextType {
+export function useIndex(): Index {
   const context = useContext(IndexContext);
   if (context === undefined) {
     throw new Error('useIndex must be used inside the <IndexProvider/>');
@@ -19,7 +19,7 @@ export function useIndex(): IndexContextType {
 }
 
 interface IndexProviderOwnProps {
-  value: IndexContextType;
+  value: Index;
 }
 
 export type IndexProviderProps = PropsWithChildren<IndexProviderOwnProps>;

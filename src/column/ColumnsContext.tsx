@@ -6,12 +6,12 @@ import React, {
   useContext,
 } from 'react';
 
-export type ColumnsContextType = ReactNode;
-export const ColumnsContext: Context<
-  ColumnsContextType | undefined
-> = createContext<ColumnsContextType | undefined>(undefined);
+export type Columns = ReactNode;
+export const ColumnsContext: Context<Columns | undefined> = createContext<
+  Columns | undefined
+>(undefined);
 
-export function useColumns(): ColumnsContextType {
+export function useColumns(): Columns {
   const context = useContext(ColumnsContext);
   if (context === undefined) {
     throw new Error('useColumns must be used inside the <ColumnsProvider/>');
@@ -20,7 +20,7 @@ export function useColumns(): ColumnsContextType {
 }
 
 interface ColumnsProviderOwnProps {
-  value: ColumnsContextType;
+  value: Columns;
 }
 
 export type ColumnsProviderProps = PropsWithChildren<ColumnsProviderOwnProps>;
