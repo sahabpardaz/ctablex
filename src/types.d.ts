@@ -8,7 +8,7 @@ export {
 } from './array/CurrentValueContext';
 export { Index, IndexProviderProps } from './array/IndexContext';
 export { Content, ContentProviderProps } from './content/ContentContext';
-export { Columns, ColumnsProviderProps } from './column/ColumnsContext';
+export { ColumnsNode, ColumnsProviderProps } from './column/ColumnsContext';
 export { ColumnsType } from './column/ColumnsType';
 export { Data, DataProviderProps } from './data/DataContext';
 export { RowData, RowDataProviderProps } from './row/RowDataContext';

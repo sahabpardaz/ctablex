@@ -42,9 +42,9 @@ export declare namespace Columns {
   var __COLUMNS__: boolean;
 }
 
-declare type Columns_2 = ReactNode;
+export declare const ColumnsContext: Context<ColumnsNode | undefined>;
 
-export declare const ColumnsContext: Context<Columns_2 | undefined>;
+export declare type ColumnsNode = ReactNode;
 
 declare interface ColumnsOwnProps {}
 
@@ -55,7 +55,7 @@ export declare function ColumnsProvider(
 ): JSX.Element;
 
 declare interface ColumnsProviderOwnProps {
-  value: Columns_2;
+  value: ColumnsNode;
 }
 
 export declare type ColumnsProviderProps = PropsWithChildren<
@@ -283,7 +283,7 @@ export declare type TablePartType = 'definition' | 'header' | 'body' | string;
 
 export declare type TableProps = PropsWithChildren<TableOwnProps>;
 
-export declare function useColumns(): Columns_2;
+export declare function useColumns(): ColumnsNode;
 
 export declare function useContent<V>(): Content<V>;
 
