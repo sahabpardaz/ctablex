@@ -15,7 +15,7 @@ export function useTablePart(): TablePartContextType {
   const context = useContext(TablePartContext);
   if (context === undefined) {
     throw new Error(
-      'useTablePartContext must be used inside the <TablePartContextProvider/>',
+      'useTablePart must be used inside the <TablePartContextProvider/>',
     );
   }
   return context;

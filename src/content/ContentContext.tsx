@@ -14,7 +14,7 @@ export function useContent<V>(): ContentContextType<V> {
   const context = useContext(ContentContext);
   if (context === undefined) {
     throw new Error(
-      'useContentContext must be used inside the <ContentContextProvider/>',
+      'useContent must be used inside the <ContentContextProvider/>',
     );
   }
   return context;

@@ -15,7 +15,7 @@ export function useColumns(): ColumnsContextType {
   const context = useContext(ColumnsContext);
   if (context === undefined) {
     throw new Error(
-      'useColumnsContext must be used inside the <ColumnsContextProvider/>',
+      'useColumns must be used inside the <ColumnsContextProvider/>',
     );
   }
   return context;

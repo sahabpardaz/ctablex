@@ -14,7 +14,7 @@ export function useRowData<V>(): RowDataContextType<V> {
   const context = useContext(RowDataContext);
   if (context === undefined) {
     throw new Error(
-      'useRowDataContext must be used inside the <RowDataContextProvider/>',
+      'useRowData must be used inside the <RowDataContextProvider/>',
     );
   }
   return context;

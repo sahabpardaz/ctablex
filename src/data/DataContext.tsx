@@ -16,9 +16,7 @@ export function useData<D>(value?: ReadonlyArray<D>): DataContextType<D> {
     return value;
   }
   if (context === undefined) {
-    throw new Error(
-      'useDataContext must be used inside the <DataContextProvider/>',
-    );
+    throw new Error('useData must be used inside the <DataContextProvider/>');
   }
   return context;
 }

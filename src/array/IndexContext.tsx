@@ -13,9 +13,7 @@ export const IndexContext: Context<
 export function useIndex(): IndexContextType {
   const context = useContext(IndexContext);
   if (context === undefined) {
-    throw new Error(
-      'useIndexContext must be used inside the <IndexContextProvider/>',
-    );
+    throw new Error('useIndex must be used inside the <IndexContextProvider/>');
   }
   return context;
 }
