@@ -1,6 +1,6 @@
 import React, { Fragment, PropsWithChildren } from 'react';
-import { IndexContextProvider } from './IndexContext';
-import { CurrentValueContextProvider } from './CurrentValueContext';
+import { IndexProvider } from './IndexContext';
+import { CurrentValueProvider } from './CurrentValueContext';
 
 interface ArrayOutputOwnProps<V> {
   value: ReadonlyArray<V>;
@@ -16,9 +16,9 @@ export function ArrayOutput<V>(props: ArrayOutputProps<V>) {
   return (
     <Fragment>
       {values.map((value, index) => (
-        <CurrentValueContextProvider value={value} key={getKey(value, index)}>
-          <IndexContextProvider value={index}>{children}</IndexContextProvider>
-        </CurrentValueContextProvider>
+        <CurrentValueProvider value={value} key={getKey(value, index)}>
+          <IndexProvider value={index}>{children}</IndexProvider>
+        </CurrentValueProvider>
       ))}
     </Fragment>
   );

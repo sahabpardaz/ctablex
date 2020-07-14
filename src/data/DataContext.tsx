@@ -16,20 +16,18 @@ export function useData<D>(value?: ReadonlyArray<D>): DataContextType<D> {
     return value;
   }
   if (context === undefined) {
-    throw new Error('useData must be used inside the <DataContextProvider/>');
+    throw new Error('useData must be used inside the <DataProvider/>');
   }
   return context;
 }
 
-interface DataContextProviderOwnProps<D> {
+interface DataProviderOwnProps<D> {
   value: DataContextType<D>;
 }
 
-export type DataContextProviderProps<D> = PropsWithChildren<
-  DataContextProviderOwnProps<D>
->;
+export type DataProviderProps<D> = PropsWithChildren<DataProviderOwnProps<D>>;
 
-export function DataContextProvider<D>(props: DataContextProviderProps<D>) {
+export function DataProvider<D>(props: DataProviderProps<D>) {
   return (
     <DataContext.Provider value={props.value}>
       {props.children}

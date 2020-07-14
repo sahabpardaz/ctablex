@@ -13,24 +13,20 @@ export const ContentContext: Context<
 export function useContent<V>(): ContentContextType<V> {
   const context = useContext(ContentContext);
   if (context === undefined) {
-    throw new Error(
-      'useContent must be used inside the <ContentContextProvider/>',
-    );
+    throw new Error('useContent must be used inside the <ContentProvider/>');
   }
   return context;
 }
 
-interface ContentContextProviderOwnProps<V> {
+interface ContentProviderOwnProps<V> {
   value: ContentContextType<V>;
 }
 
-export type ContentContextProviderProps<V> = PropsWithChildren<
-  ContentContextProviderOwnProps<V>
+export type ContentProviderProps<V> = PropsWithChildren<
+  ContentProviderOwnProps<V>
 >;
 
-export function ContentContextProvider<V>(
-  props: ContentContextProviderProps<V>,
-) {
+export function ContentProvider<V>(props: ContentProviderProps<V>) {
   return (
     <ContentContext.Provider value={props.value}>
       {props.children}

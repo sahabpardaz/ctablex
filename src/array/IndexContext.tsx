@@ -13,20 +13,18 @@ export const IndexContext: Context<
 export function useIndex(): IndexContextType {
   const context = useContext(IndexContext);
   if (context === undefined) {
-    throw new Error('useIndex must be used inside the <IndexContextProvider/>');
+    throw new Error('useIndex must be used inside the <IndexProvider/>');
   }
   return context;
 }
 
-interface IndexContextProviderOwnProps {
+interface IndexProviderOwnProps {
   value: IndexContextType;
 }
 
-export type IndexContextProviderProps = PropsWithChildren<
-  IndexContextProviderOwnProps
->;
+export type IndexProviderProps = PropsWithChildren<IndexProviderOwnProps>;
 
-export function IndexContextProvider(props: IndexContextProviderProps) {
+export function IndexProvider(props: IndexProviderProps) {
   return (
     <IndexContext.Provider value={props.value}>
       {props.children}

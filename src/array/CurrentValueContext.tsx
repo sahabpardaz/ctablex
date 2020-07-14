@@ -16,24 +16,20 @@ export function useCurrentValue<V>(value?: V): CurrentValueContextType<V> {
     return value;
   }
   if (context === undefined) {
-    throw new Error(
-      'useCurrentValue must be used inside the <ItemContextProvider/>',
-    );
+    throw new Error('useCurrentValue must be used inside the <ItemProvider/>');
   }
   return context;
 }
 
-interface ItemContextProviderOwnProps<V> {
+interface ItemProviderOwnProps<V> {
   value: CurrentValueContextType<V>;
 }
 
-export type CurrentValueContextProviderProps<V> = PropsWithChildren<
-  ItemContextProviderOwnProps<V>
+export type CurrentValueProviderProps<V> = PropsWithChildren<
+  ItemProviderOwnProps<V>
 >;
 
-export function CurrentValueContextProvider<V>(
-  props: CurrentValueContextProviderProps<V>,
-) {
+export function CurrentValueProvider<V>(props: CurrentValueProviderProps<V>) {
   return (
     <CurrentValueContext.Provider value={props.value}>
       {props.children}

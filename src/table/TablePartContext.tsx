@@ -15,21 +15,21 @@ export function useTablePart(): TablePartContextType {
   const context = useContext(TablePartContext);
   if (context === undefined) {
     throw new Error(
-      'useTablePart must be used inside the <TablePartContextProvider/>',
+      'useTablePart must be used inside the <TablePartProvider/>',
     );
   }
   return context;
 }
 
-interface TablePartContextProviderOwnProps {
+interface TablePartProviderOwnProps {
   value: TablePartContextType;
 }
 
-export type TablePartContextProviderProps = PropsWithChildren<
-  TablePartContextProviderOwnProps
+export type TablePartProviderProps = PropsWithChildren<
+  TablePartProviderOwnProps
 >;
 
-export function TablePartContextProvider(props: TablePartContextProviderProps) {
+export function TablePartProvider(props: TablePartProviderProps) {
   return (
     <TablePartContext.Provider value={props.value}>
       {props.children}

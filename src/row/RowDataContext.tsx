@@ -13,24 +13,20 @@ export const RowDataContext: Context<
 export function useRowData<V>(): RowDataContextType<V> {
   const context = useContext(RowDataContext);
   if (context === undefined) {
-    throw new Error(
-      'useRowData must be used inside the <RowDataContextProvider/>',
-    );
+    throw new Error('useRowData must be used inside the <RowDataProvider/>');
   }
   return context;
 }
 
-interface RowDataContextProviderOwnProps<V> {
+interface RowDataProviderOwnProps<V> {
   value: RowDataContextType<V>;
 }
 
-export type RowDataContextProviderProps<V> = PropsWithChildren<
-  RowDataContextProviderOwnProps<V>
+export type RowDataProviderProps<V> = PropsWithChildren<
+  RowDataProviderOwnProps<V>
 >;
 
-export function RowDataContextProvider<V>(
-  props: RowDataContextProviderProps<V>,
-) {
+export function RowDataProvider<V>(props: RowDataProviderProps<V>) {
   return (
     <RowDataContext.Provider value={props.value}>
       {props.children}

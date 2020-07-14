@@ -2,7 +2,7 @@ import React, { PropsWithChildren } from 'react';
 import { useCurrentValue } from '../array/CurrentValueContext';
 import { useColumns } from '../column/ColumnsContext';
 import { useTableComponents } from '../TableComponentsContext';
-import { RowDataContextProvider } from './RowDataContext';
+import { RowDataProvider } from './RowDataContext';
 
 interface RowOwnProps<D> {
   row?: D;
@@ -16,8 +16,8 @@ export function Row<D>(props: RowProps<D>) {
   const columns = useColumns();
   const row = useCurrentValue<D>(props.row);
   return (
-    <RowDataContextProvider value={row}>
+    <RowDataProvider value={row}>
       <Components.Tr>{columns}</Components.Tr>
-    </RowDataContextProvider>
+    </RowDataProvider>
   );
 }

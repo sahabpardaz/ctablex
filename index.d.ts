@@ -44,23 +44,23 @@ export declare namespace Columns {
 
 export declare const ColumnsContext: Context<ColumnsContextType | undefined>;
 
-export declare function ColumnsContextProvider(
-  props: ColumnsContextProviderProps,
-): JSX.Element;
-
-declare interface ColumnsContextProviderOwnProps {
-  value: ColumnsContextType;
-}
-
-export declare type ColumnsContextProviderProps = PropsWithChildren<
-  ColumnsContextProviderOwnProps
->;
-
 export declare type ColumnsContextType = ReactNode;
 
 declare interface ColumnsOwnProps {}
 
 export declare type ColumnsProps = PropsWithChildren<ColumnsOwnProps>;
+
+export declare function ColumnsProvider(
+  props: ColumnsProviderProps,
+): JSX.Element;
+
+declare interface ColumnsProviderOwnProps {
+  value: ColumnsContextType;
+}
+
+export declare type ColumnsProviderProps = PropsWithChildren<
+  ColumnsProviderOwnProps
+>;
 
 export declare interface ColumnsType<D extends object = {}> {
   __COLUMNS__: true;
@@ -70,19 +70,19 @@ export declare const ContentContext: Context<
   ContentContextType<any> | undefined
 >;
 
-export declare function ContentContextProvider<V>(
-  props: ContentContextProviderProps<V>,
+export declare type ContentContextType<V> = V;
+
+export declare function ContentProvider<V>(
+  props: ContentProviderProps<V>,
 ): JSX.Element;
 
-declare interface ContentContextProviderOwnProps<V> {
+declare interface ContentProviderOwnProps<V> {
   value: ContentContextType<V>;
 }
 
-export declare type ContentContextProviderProps<V> = PropsWithChildren<
-  ContentContextProviderOwnProps<V>
+export declare type ContentProviderProps<V> = PropsWithChildren<
+  ContentProviderOwnProps<V>
 >;
-
-export declare type ContentContextType<V> = V;
 
 export declare function ContentValue<D, C>(
   props: ContentValueProps<D, C>,
@@ -100,31 +100,31 @@ export declare const CurrentValueContext: Context<
   CurrentValueContextType<any> | undefined
 >;
 
-export declare function CurrentValueContextProvider<V>(
-  props: CurrentValueContextProviderProps<V>,
+export declare type CurrentValueContextType<V> = V;
+
+export declare function CurrentValueProvider<V>(
+  props: CurrentValueProviderProps<V>,
 ): JSX.Element;
 
-export declare type CurrentValueContextProviderProps<V> = PropsWithChildren<
-  ItemContextProviderOwnProps<V>
+export declare type CurrentValueProviderProps<V> = PropsWithChildren<
+  ItemProviderOwnProps<V>
 >;
-
-export declare type CurrentValueContextType<V> = V;
 
 export declare const DataContext: Context<DataContextType<any> | undefined>;
 
-export declare function DataContextProvider<D>(
-  props: DataContextProviderProps<D>,
+export declare type DataContextType<D> = ReadonlyArray<D>;
+
+export declare function DataProvider<D>(
+  props: DataProviderProps<D>,
 ): JSX.Element;
 
-declare interface DataContextProviderOwnProps<D> {
+declare interface DataProviderOwnProps<D> {
   value: DataContextType<D>;
 }
 
-export declare type DataContextProviderProps<D> = PropsWithChildren<
-  DataContextProviderOwnProps<D>
+export declare type DataProviderProps<D> = PropsWithChildren<
+  DataProviderOwnProps<D>
 >;
-
-export declare type DataContextType<D> = ReadonlyArray<D>;
 
 export declare function DataTable<D>(props: DataTableProps<D>): JSX.Element;
 
@@ -173,25 +173,23 @@ export declare type HeaderRowProps = PropsWithChildren<HeaderRowOwnProps>;
 
 export declare const IndexContext: Context<IndexContextType | undefined>;
 
-export declare function IndexContextProvider(
-  props: IndexContextProviderProps,
-): JSX.Element;
+export declare type IndexContextType = number;
 
-declare interface IndexContextProviderOwnProps {
+export declare function IndexProvider(props: IndexProviderProps): JSX.Element;
+
+declare interface IndexProviderOwnProps {
   value: IndexContextType;
 }
 
-export declare type IndexContextProviderProps = PropsWithChildren<
-  IndexContextProviderOwnProps
+export declare type IndexProviderProps = PropsWithChildren<
+  IndexProviderOwnProps
 >;
-
-export declare type IndexContextType = number;
 
 export declare function isColumnsType<D extends object = {}>(
   type: any,
 ): type is ColumnsType<D>;
 
-declare interface ItemContextProviderOwnProps<V> {
+declare interface ItemProviderOwnProps<V> {
   value: CurrentValueContextType<V>;
 }
 
@@ -201,19 +199,19 @@ export declare const RowDataContext: Context<
   RowDataContextType<any> | undefined
 >;
 
-export declare function RowDataContextProvider<V>(
-  props: RowDataContextProviderProps<V>,
+export declare type RowDataContextType<V> = V;
+
+export declare function RowDataProvider<V>(
+  props: RowDataProviderProps<V>,
 ): JSX.Element;
 
-declare interface RowDataContextProviderOwnProps<V> {
+declare interface RowDataProviderOwnProps<V> {
   value: RowDataContextType<V>;
 }
 
-export declare type RowDataContextProviderProps<V> = PropsWithChildren<
-  RowDataContextProviderOwnProps<V>
+export declare type RowDataProviderProps<V> = PropsWithChildren<
+  RowDataProviderOwnProps<V>
 >;
-
-export declare type RowDataContextType<V> = V;
 
 declare interface RowOwnProps<D> {
   row?: D;
@@ -240,18 +238,6 @@ export declare type TableBodyProps<D> = PropsWithChildren<TableBodyOwnProps<D>>;
 
 export declare const TableComponentsContext: Context<TableComponentsContextType>;
 
-export declare function TableComponentsContextProvider(
-  props: TableComponentsContextProviderProps,
-): JSX.Element;
-
-declare interface TableComponentsContextProviderOwnProps {
-  value: TableComponentsContextType;
-}
-
-export declare type TableComponentsContextProviderProps = PropsWithChildren<
-  TableComponentsContextProviderOwnProps
->;
-
 export declare interface TableComponentsContextType {
   Table: ElementType;
   Thead: ElementType;
@@ -260,6 +246,18 @@ export declare interface TableComponentsContextType {
   Th: ElementType;
   Td: ElementType;
 }
+
+export declare function TableComponentsProvider(
+  props: TableComponentsProviderProps,
+): JSX.Element;
+
+declare interface TableComponentsProviderOwnProps {
+  value: TableComponentsContextType;
+}
+
+export declare type TableComponentsProviderProps = PropsWithChildren<
+  TableComponentsProviderOwnProps
+>;
 
 export declare function TableHeader(props: TableHeaderProps): JSX.Element;
 
@@ -273,19 +271,19 @@ export declare const TablePartContext: Context<
   TablePartContextType | undefined
 >;
 
-export declare function TablePartContextProvider(
-  props: TablePartContextProviderProps,
+export declare type TablePartContextType = TablePartType;
+
+export declare function TablePartProvider(
+  props: TablePartProviderProps,
 ): JSX.Element;
 
-declare interface TablePartContextProviderOwnProps {
+declare interface TablePartProviderOwnProps {
   value: TablePartContextType;
 }
 
-export declare type TablePartContextProviderProps = PropsWithChildren<
-  TablePartContextProviderOwnProps
+export declare type TablePartProviderProps = PropsWithChildren<
+  TablePartProviderOwnProps
 >;
-
-export declare type TablePartContextType = TablePartType;
 
 export declare type TablePartType = 'definition' | 'header' | 'body' | string;
 

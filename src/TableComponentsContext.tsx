@@ -31,17 +31,15 @@ export function useTableComponents(): TableComponentsContextType {
   return useContext(TableComponentsContext);
 }
 
-interface TableComponentsContextProviderOwnProps {
+interface TableComponentsProviderOwnProps {
   value: TableComponentsContextType;
 }
 
-export type TableComponentsContextProviderProps = PropsWithChildren<
-  TableComponentsContextProviderOwnProps
+export type TableComponentsProviderProps = PropsWithChildren<
+  TableComponentsProviderOwnProps
 >;
 
-export function TableComponentsContextProvider(
-  props: TableComponentsContextProviderProps,
-) {
+export function TableComponentsProvider(props: TableComponentsProviderProps) {
   return (
     <TableComponentsContext.Provider value={props.value}>
       {props.children}

@@ -14,22 +14,18 @@ export const ColumnsContext: Context<
 export function useColumns(): ColumnsContextType {
   const context = useContext(ColumnsContext);
   if (context === undefined) {
-    throw new Error(
-      'useColumns must be used inside the <ColumnsContextProvider/>',
-    );
+    throw new Error('useColumns must be used inside the <ColumnsProvider/>');
   }
   return context;
 }
 
-interface ColumnsContextProviderOwnProps {
+interface ColumnsProviderOwnProps {
   value: ColumnsContextType;
 }
 
-export type ColumnsContextProviderProps = PropsWithChildren<
-  ColumnsContextProviderOwnProps
->;
+export type ColumnsProviderProps = PropsWithChildren<ColumnsProviderOwnProps>;
 
-export function ColumnsContextProvider(props: ColumnsContextProviderProps) {
+export function ColumnsProvider(props: ColumnsProviderProps) {
   return (
     <ColumnsContext.Provider value={props.value}>
       {props.children}
