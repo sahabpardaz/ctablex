@@ -144,6 +144,8 @@ export declare type DefaultContentProps<D> = PropsWithChildren<
   DefaultContentOwnProps<D>
 >;
 
+export declare const defaultTableComponents: TableComponentsContextType;
+
 export declare function findColumns<D extends object = {}>(
   children: ReactNode,
 ): ReactElement | null;
@@ -243,7 +245,7 @@ export declare function TableComponentsContextProvider(
 ): JSX.Element;
 
 declare interface TableComponentsContextProviderOwnProps {
-  value: Partial<TableComponentsContextType>;
+  value: TableComponentsContextType;
 }
 
 export declare type TableComponentsContextProviderProps = PropsWithChildren<
