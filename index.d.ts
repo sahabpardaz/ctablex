@@ -315,7 +315,7 @@ export declare function useIndex(): IndexContextType;
 
 export declare function useRowData<V>(): RowDataContextType<V>;
 
-export declare function useTableComponentsContext(): TableComponentsContextType;
+export declare function useTableComponents(): TableComponentsContextType;
 
 export declare function useTablePart(): TablePartContextType;
 

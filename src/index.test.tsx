@@ -42,7 +42,7 @@ import {
   useData,
   useIndex,
   useRowData,
-  useTableComponentsContext,
+  useTableComponents,
   useTablePart,
 } from './index';
 
@@ -285,7 +285,7 @@ describe('ctablex', () => {
   it('should export every things', () => {
     expect(DataTable).toBeDefined();
     expect(TableComponentsContext).toBeDefined();
-    expect(useTableComponentsContext).toBeDefined();
+    expect(useTableComponents).toBeDefined();
     expect(TableComponentsContextProvider).toBeDefined();
     expect(useData).toBeDefined();
     expect(DataContext).toBeDefined();

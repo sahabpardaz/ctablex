@@ -1,6 +1,6 @@
 import React, { PropsWithChildren } from 'react';
 import { TablePartContextProvider } from '../table/TablePartContext';
-import { useTableComponentsContext } from '../TableComponentsContext';
+import { useTableComponents } from '../TableComponentsContext';
 
 interface TableHeaderOwnProps {}
 
@@ -8,7 +8,7 @@ export type TableHeaderProps = PropsWithChildren<TableHeaderOwnProps>;
 
 export function TableHeader(props: TableHeaderProps) {
   const { children } = props;
-  const Components = useTableComponentsContext();
+  const Components = useTableComponents();
 
   return (
     <TablePartContextProvider value="header">

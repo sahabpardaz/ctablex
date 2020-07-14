@@ -27,7 +27,7 @@ export const TableComponentsContext: Context<TableComponentsContextType> = creat
   TableComponentsContextType
 >(defaultTableComponents);
 
-export function useTableComponentsContext(): TableComponentsContextType {
+export function useTableComponents(): TableComponentsContextType {
   return useContext(TableComponentsContext);
 }
 

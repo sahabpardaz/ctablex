@@ -1,7 +1,7 @@
 export { DataTable } from './data/DataTable';
 export {
   TableComponentsContext,
-  useTableComponentsContext,
+  useTableComponents,
   TableComponentsContextProvider,
   defaultTableComponents,
 } from './TableComponentsContext';
