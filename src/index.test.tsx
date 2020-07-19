@@ -252,6 +252,38 @@ describe('ctablex', () => {
     );
     expect(screen.queryByText('Gloves')).toBeInTheDocument();
   });
+  it('should render a custom Row with different columns definition', () => {
+    const count = data.map((row) => row.count).reduce((a, b) => a + b, 0);
+    const summary = { count };
+    render(
+      <DataTable data={data}>
+        <Columns>
+          <Column header="Name" accessor="name" />
+          <Column header="Count" accessor="count" />
+        </Columns>
+        <Columns part="summary">
+          <Column>Total</Column>
+          <Column accessor="count">
+            <DefaultContent /> (Sum)
+          </Column>
+        </Columns>
+        <Table>
+          <TableHeader>
+            <HeaderRow />
+          </TableHeader>
+          <TableBody>
+            <TablePartProvider value="summary">
+              <Row row={summary} />
+            </TablePartProvider>
+            <Rows>
+              <Row />
+            </Rows>
+          </TableBody>
+        </Table>
+      </DataTable>,
+    );
+    expect(screen.queryByText('12 (Sum)')).toBeInTheDocument();
+  });
   it('should throw error if data is undefined', () => {
     // @ts-ignore
     console.error.mockImplementation(() => {});
@@ -279,7 +311,7 @@ describe('ctablex', () => {
           <Column />
         </DataTable>,
       ),
-    ).not.toThrow();
+    ).toThrow();
   });
 
   it('should export every things', () => {

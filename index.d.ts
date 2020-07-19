@@ -25,9 +25,7 @@ declare interface CellOwnProps<D, C> {
 
 export declare type CellProps<D, C> = PropsWithChildren<CellOwnProps<D, C>>;
 
-export declare function Column<D, C>(
-  props: ColumnProps<D, C>,
-): JSX.Element | null;
+export declare function Column<D, C>(props: ColumnProps<D, C>): JSX.Element;
 
 declare interface ColumnOwnProps<D, C> {
   header?: ReactNode;
@@ -46,7 +44,9 @@ export declare const ColumnsContext: Context<ColumnsNode | undefined>;
 
 export declare type ColumnsNode = ReactNode;
 
-declare interface ColumnsOwnProps {}
+declare interface ColumnsOwnProps {
+  part?: string;
+}
 
 export declare type ColumnsProps = PropsWithChildren<ColumnsOwnProps>;
 

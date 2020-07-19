@@ -18,8 +18,5 @@ export function Column<D, C>(props: ColumnProps<D, C>) {
   if (part === 'header') {
     return <HeaderCell>{header}</HeaderCell>;
   }
-  if (part === 'body') {
-    return <Cell accessor={accessor}>{children}</Cell>;
-  }
-  return null;
+  return <Cell accessor={accessor}>{children}</Cell>;
 }
