@@ -11,5 +11,5 @@ export function useContentValue<D, C>(
   accessor: Accessor<D, C> | null,
 ): C | null {
   const row = useRowData<D>();
-  return getValue(row, accessor);
+  return getValue(row, accessor) ?? null;
 }
