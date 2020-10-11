@@ -21,6 +21,10 @@ export { TableHeader } from './header/TableHeader';
 export { HeaderRow } from './header/HeaderRow';
 export { HeaderCell } from './header/HeaderCell';
 
+export { TableFooter } from './footer/TableFooter';
+export { FooterRow } from './footer/FooterRow';
+export { FooterCell } from './footer/FooterCell';
+
 export { Rows } from './row/Rows';
 export { Row } from './row/Row';
 export {

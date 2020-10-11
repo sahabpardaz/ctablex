@@ -13,6 +13,7 @@ export function Columns(props: ColumnsProps) {
   if (
     part === undefined &&
     currentPart !== 'header' &&
+    currentPart !== 'footer' &&
     currentPart !== 'body'
   ) {
     return null;

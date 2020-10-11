@@ -9,6 +9,7 @@ import React, {
 export interface TableComponents {
   Table: ElementType;
   Thead: ElementType;
+  Tfoot: ElementType;
   Tbody: ElementType;
   Tr: ElementType;
   Th: ElementType;
@@ -17,6 +18,7 @@ export interface TableComponents {
 export const defaultTableComponents: TableComponents = {
   Table: 'table',
   Thead: 'thead',
+  Tfoot: 'tfoot',
   Tbody: 'tbody',
   Tr: 'tr',
   Th: 'th',
