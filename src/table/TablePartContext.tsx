@@ -5,7 +5,7 @@ import React, {
   useContext,
 } from 'react';
 
-export type TablePartType = 'definition' | 'header' | 'body' | string;
+export type TablePartType = 'definition' | 'header' | 'body';
 export type TablePart = TablePartType;
 export const TablePartContext: Context<TablePart | undefined> = createContext<
   TablePart | undefined

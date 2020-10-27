@@ -1,5 +1,5 @@
 import React, { ComponentProps, ComponentType, PropsWithChildren } from 'react';
-import { useColumns } from '../column/ColumnsContext';
+import { Columns } from '../column/Columns';
 import { useTableComponents } from '../TableComponentsContext';
 
 interface HeaderRowOwnProps<C extends ComponentType> {
@@ -13,10 +13,8 @@ export type HeaderRowProps<C extends ComponentType> = PropsWithChildren<
 export function HeaderRow<C extends ComponentType = ComponentType>(
   props: HeaderRowProps<C>,
 ) {
-  const { TrProps } = props;
+  const { TrProps, children = <Columns /> } = props;
   const Components = useTableComponents();
 
-  const columns = useColumns();
-
-  return <Components.Tr {...TrProps}>{columns}</Components.Tr>;
+  return <Components.Tr {...TrProps}>{children}</Components.Tr>;
 }

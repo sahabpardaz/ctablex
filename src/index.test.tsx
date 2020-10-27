@@ -4,7 +4,6 @@ import {
   ArrayOutput,
   Cell,
   Column,
-  Columns,
   ColumnsContext,
   ColumnsProvider,
   ContentContext,
@@ -35,6 +34,7 @@ import {
   TableHeader,
   TablePartContext,
   TablePartProvider,
+  Columns,
   useColumns,
   useContent,
   useContentValue,
@@ -44,6 +44,7 @@ import {
   useRowData,
   useTableComponents,
   useTablePart,
+  UseColumns,
 } from './index';
 
 const IndexCell = () => {
@@ -286,12 +287,14 @@ describe('ctablex', () => {
         </Columns>
         <Table>
           <TableHeader>
-            <HeaderRow />
+            <HeaderRow>
+              <Columns />
+            </HeaderRow>
           </TableHeader>
           <TableBody>
-            <TablePartProvider value="summary">
-              <Row row={summary} />
-            </TablePartProvider>
+            <Row row={summary}>
+              <Columns part="summary" />
+            </Row>
             <Rows>
               <Row />
             </Rows>
@@ -305,6 +308,15 @@ describe('ctablex', () => {
     // @ts-ignore
     console.error.mockImplementation(() => {});
     expect(() => render(<Row />)).toThrow();
+    expect(() => render(<Columns />)).toThrow();
+    expect(() => render(<UseColumns />)).toThrow();
+    expect(() =>
+      render(
+        <ColumnsProvider value={[null]}>
+          <UseColumns />
+        </ColumnsProvider>,
+      ),
+    ).not.toThrow();
     expect(() => render(<DefaultContent />)).toThrow();
     expect(() => render(<Column />)).toThrow();
     expect(() => render(<Cell accessor="id" />)).toThrow();
@@ -314,7 +326,9 @@ describe('ctablex', () => {
           <Columns />
           <Table>
             <TableBody>
-              <Row />
+              <Row>
+                <Columns />
+              </Row>
             </TableBody>
           </Table>
         </DataTable>,
@@ -340,6 +354,7 @@ describe('ctablex', () => {
     expect(DataContext).toBeDefined();
     expect(DataProvider).toBeDefined();
     expect(Columns).toBeDefined();
+    expect(UseColumns).toBeDefined();
     expect(Column).toBeDefined();
     expect(useColumns).toBeDefined();
     expect(ColumnsContext).toBeDefined();
