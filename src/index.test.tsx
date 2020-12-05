@@ -165,13 +165,28 @@ describe('ctablex', () => {
           </table>
         );
       },
+      Th: (props: PropsWithChildren<{ color?: string }>) => (
+        <th color={props.color} data-testid="th">
+          {props.children}
+        </th>
+      ),
+      Td: (props: PropsWithChildren<{ color?: string }>) => (
+        <td color={props.color} data-testid="td">
+          {props.children}
+        </td>
+      ),
     };
 
     render(
       <TableComponentsProvider value={components}>
         <DataTable data={data}>
           <Columns>
-            <Column header="Name" accessor="name" />
+            <Column
+              header="Name"
+              accessor="name"
+              ThProps={{ color: 'red' }}
+              TdProps={{ color: 'blue' }}
+            />
           </Columns>
           <Table>
             <TableHeader>
@@ -187,6 +202,8 @@ describe('ctablex', () => {
       </TableComponentsProvider>,
     );
     expect(screen.queryByTestId('table')).toBeInTheDocument();
+    expect(screen.queryAllByTestId('th')[0]).toHaveAttribute('color', 'red');
+    expect(screen.queryAllByTestId('td')[0]).toHaveAttribute('color', 'blue');
   });
   it('should use custom key accessor', () => {
     const fn = jest.fn((row: any) => row.id);

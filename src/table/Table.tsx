@@ -1,12 +1,18 @@
-import React, { PropsWithChildren } from 'react';
+import React, { ComponentProps, ComponentType, PropsWithChildren } from 'react';
 import { useTableComponents } from '../TableComponentsContext';
 
-interface TableOwnProps {}
+interface TableOwnProps<C extends ComponentType> {
+  TableProps?: Partial<ComponentProps<C>>;
+}
 
-export type TableProps = PropsWithChildren<TableOwnProps>;
+export type TableProps<C extends ComponentType> = PropsWithChildren<
+  TableOwnProps<C>
+>;
 
-export function Table(props: TableProps) {
-  const { children } = props;
+export function Table<C extends ComponentType = ComponentType>(
+  props: TableProps<C>,
+) {
+  const { children, TableProps } = props;
   const Components = useTableComponents();
-  return <Components.Table>{children}</Components.Table>;
+  return <Components.Table {...TableProps}>{children}</Components.Table>;
 }

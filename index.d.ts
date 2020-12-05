@@ -1,3 +1,5 @@
+import { ComponentProps } from 'react';
+import { ComponentType } from 'react';
 import { Context } from 'react';
 import { ElementType } from 'react';
 import { PropsWithChildren } from 'react';
@@ -17,22 +19,46 @@ export declare type ArrayOutputProps<V> = PropsWithChildren<
   ArrayOutputOwnProps<V>
 >;
 
-export declare function Cell<D, C>(props: CellProps<D, C>): JSX.Element;
+export declare function Cell<
+  C extends ComponentType = ComponentType,
+  A extends Accessor<any, any> = Accessor<any, any>
+>(props: CellProps<C, A>): JSX.Element;
 
-declare interface CellOwnProps<D, C> {
-  accessor: Accessor<D, C> | null;
+declare interface CellOwnProps<
+  C extends ComponentType,
+  A extends Accessor<any, any>
+> {
+  accessor: A | null;
+  TdProps?: Partial<ComponentProps<C>>;
 }
 
-export declare type CellProps<D, C> = PropsWithChildren<CellOwnProps<D, C>>;
+export declare type CellProps<
+  C extends ComponentType,
+  A extends Accessor<any, any>
+> = PropsWithChildren<CellOwnProps<C, A>>;
 
-export declare function Column<D, C>(props: ColumnProps<D, C>): JSX.Element;
+export declare function Column<
+  C extends ComponentType = ComponentType,
+  H extends ComponentType = ComponentType,
+  A extends Accessor<any, any> = Accessor<any, any>
+>(props: ColumnProps<C, H, A>): JSX.Element;
 
-declare interface ColumnOwnProps<D, C> {
+declare interface ColumnOwnProps<
+  C extends ComponentType,
+  H extends ComponentType,
+  A extends Accessor<any, any>
+> {
   header?: ReactNode;
-  accessor?: Accessor<D, C> | null;
+  accessor?: A | null;
+  TdProps?: Partial<ComponentProps<C>>;
+  ThProps?: Partial<ComponentProps<H>>;
 }
 
-export declare type ColumnProps<D, C> = PropsWithChildren<ColumnOwnProps<D, C>>;
+export declare type ColumnProps<
+  C extends ComponentType,
+  H extends ComponentType,
+  A extends Accessor<any, any>
+> = PropsWithChildren<ColumnOwnProps<C, H, A>>;
 
 export declare function Columns(props: ColumnsProps): JSX.Element | null;
 
@@ -157,17 +183,29 @@ export declare function getValue<D, C>(
   accessor: Accessor<D, C> | null,
 ): C | null;
 
-export declare function HeaderCell(props: HeaderCellProps): JSX.Element;
+export declare function HeaderCell<C extends ComponentType = ComponentType>(
+  props: HeaderCellProps<C>,
+): JSX.Element;
 
-declare interface HeaderCellOwnProps {}
+declare interface HeaderCellOwnProps<C extends ComponentType> {
+  ThProps?: Partial<ComponentProps<C>>;
+}
 
-export declare type HeaderCellProps = PropsWithChildren<HeaderCellOwnProps>;
+export declare type HeaderCellProps<
+  C extends ComponentType
+> = PropsWithChildren<HeaderCellOwnProps<C>>;
 
-export declare function HeaderRow(props: HeaderRowProps): JSX.Element;
+export declare function HeaderRow<C extends ComponentType = ComponentType>(
+  props: HeaderRowProps<C>,
+): JSX.Element;
 
-declare interface HeaderRowOwnProps {}
+declare interface HeaderRowOwnProps<C extends ComponentType> {
+  TrProps?: Partial<ComponentProps<C>>;
+}
 
-export declare type HeaderRowProps = PropsWithChildren<HeaderRowOwnProps>;
+export declare type HeaderRowProps<C extends ComponentType> = PropsWithChildren<
+  HeaderRowOwnProps<C>
+>;
 
 export declare type Index = number;
 
@@ -191,7 +229,9 @@ declare interface ItemProviderOwnProps<V> {
   value: CurrentValue<V>;
 }
 
-export declare function Row<D>(props: RowProps<D>): JSX.Element;
+export declare function Row<D, C extends ComponentType = ComponentType>(
+  props: RowProps<D, C>,
+): JSX.Element;
 
 export declare type RowData<V> = V;
 
@@ -209,11 +249,14 @@ export declare type RowDataProviderProps<V> = PropsWithChildren<
   RowDataProviderOwnProps<V>
 >;
 
-declare interface RowOwnProps<D> {
+declare interface RowOwnProps<D, C extends ComponentType> {
   row?: D;
+  TrProps?: Partial<ComponentProps<C>>;
 }
 
-export declare type RowProps<D> = PropsWithChildren<RowOwnProps<D>>;
+export declare type RowProps<D, C extends ComponentType> = PropsWithChildren<
+  RowOwnProps<D, C>
+>;
 
 export declare function Rows<D>(props: RowsProps<D>): JSX.Element;
 
@@ -224,13 +267,22 @@ declare interface RowsOwnProps<D> {
 
 export declare type RowsProps<D> = PropsWithChildren<RowsOwnProps<D>>;
 
-export declare function Table(props: TableProps): JSX.Element;
+export declare function Table<C extends ComponentType = ComponentType>(
+  props: TableProps<C>,
+): JSX.Element;
 
-export declare function TableBody<D>(props: TableBodyProps<D>): JSX.Element;
+export declare function TableBody<D, C extends ComponentType = ComponentType>(
+  props: TableBodyProps<D, C>,
+): JSX.Element;
 
-declare interface TableBodyOwnProps<D> {}
+declare interface TableBodyOwnProps<D, C extends ComponentType> {
+  TbodyProps?: Partial<ComponentProps<C>>;
+}
 
-export declare type TableBodyProps<D> = PropsWithChildren<TableBodyOwnProps<D>>;
+export declare type TableBodyProps<
+  D,
+  C extends ComponentType
+> = PropsWithChildren<TableBodyOwnProps<D, C>>;
 
 export declare interface TableComponents {
   Table: ElementType;
@@ -255,13 +307,21 @@ export declare type TableComponentsProviderProps = PropsWithChildren<
   TableComponentsProviderOwnProps
 >;
 
-export declare function TableHeader(props: TableHeaderProps): JSX.Element;
+export declare function TableHeader<C extends ComponentType = ComponentType>(
+  props: TableHeaderProps<C>,
+): JSX.Element;
 
-declare interface TableHeaderOwnProps {}
+declare interface TableHeaderOwnProps<C extends ComponentType> {
+  TheadProps?: Partial<ComponentProps<C>>;
+}
 
-export declare type TableHeaderProps = PropsWithChildren<TableHeaderOwnProps>;
+export declare type TableHeaderProps<
+  C extends ComponentType
+> = PropsWithChildren<TableHeaderOwnProps<C>>;
 
-declare interface TableOwnProps {}
+declare interface TableOwnProps<C extends ComponentType> {
+  TableProps?: Partial<ComponentProps<C>>;
+}
 
 export declare type TablePart = TablePartType;
 
@@ -281,7 +341,9 @@ export declare type TablePartProviderProps = PropsWithChildren<
 
 export declare type TablePartType = 'definition' | 'header' | 'body' | string;
 
-export declare type TableProps = PropsWithChildren<TableOwnProps>;
+export declare type TableProps<C extends ComponentType> = PropsWithChildren<
+  TableOwnProps<C>
+>;
 
 export declare function useColumns(): ColumnsNode;
 
