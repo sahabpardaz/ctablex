@@ -1,4 +1,5 @@
 import React, { ComponentProps, ComponentType, PropsWithChildren } from 'react';
+import { Rows } from '../row/Rows';
 import { useTableComponents } from '../TableComponentsContext';
 import { TablePartProvider } from './TablePartContext';
 
@@ -13,7 +14,7 @@ export type TableBodyProps<D, C extends ComponentType> = PropsWithChildren<
 export function TableBody<D, C extends ComponentType = ComponentType>(
   props: TableBodyProps<D, C>,
 ) {
-  const { children, TbodyProps } = props;
+  const { children = <Rows />, TbodyProps } = props;
   const Components = useTableComponents();
 
   return (

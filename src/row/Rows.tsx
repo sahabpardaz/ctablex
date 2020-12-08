@@ -3,6 +3,7 @@ import { ArrayOutput } from '../array/ArrayOutput';
 import { useData } from '../data/DataContext';
 import { Accessor } from '../utils/accessor';
 import { getValue } from '../utils/getValue';
+import { Row } from './Row';
 
 interface RowsOwnProps<D> {
   keyAccessor?: Accessor<D, string | number>;
@@ -12,7 +13,7 @@ interface RowsOwnProps<D> {
 export type RowsProps<D> = PropsWithChildren<RowsOwnProps<D>>;
 
 export function Rows<D>(props: RowsProps<D>) {
-  const { children, keyAccessor } = props;
+  const { children = <Row />, keyAccessor } = props;
   const data = useData<D>(props.data);
   const getKey = useMemo(() => {
     if (keyAccessor) {
