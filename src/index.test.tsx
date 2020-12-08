@@ -89,16 +89,7 @@ describe('ctablex', () => {
           <Column header="Count" accessor="count" />
           <Column header="Color" accessor="color" />
         </Columns>
-        <Table>
-          <TableHeader>
-            <HeaderRow />
-          </TableHeader>
-          <TableBody>
-            <Rows>
-              <Row />
-            </Rows>
-          </TableBody>
-        </Table>
+        <Table />
       </DataTable>,
     );
   });

@@ -1,5 +1,12 @@
-import React, { ComponentProps, ComponentType, PropsWithChildren } from 'react';
+import React, {
+  ComponentProps,
+  ComponentType,
+  PropsWithChildren,
+  Fragment,
+} from 'react';
+import { TableHeader } from '../header/TableHeader';
 import { useTableComponents } from '../TableComponentsContext';
+import { TableBody } from './TableBody';
 
 interface TableOwnProps<C extends ComponentType> {
   TableProps?: Partial<ComponentProps<C>>;
@@ -12,7 +19,13 @@ export type TableProps<C extends ComponentType> = PropsWithChildren<
 export function Table<C extends ComponentType = ComponentType>(
   props: TableProps<C>,
 ) {
-  const { children, TableProps } = props;
+  const defaultChildren = (
+    <Fragment>
+      <TableHeader />
+      <TableBody />
+    </Fragment>
+  );
+  const { children = defaultChildren, TableProps } = props;
   const Components = useTableComponents();
   return <Components.Table {...TableProps}>{children}</Components.Table>;
 }
