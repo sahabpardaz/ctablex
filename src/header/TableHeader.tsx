@@ -1,18 +1,24 @@
-import React, { PropsWithChildren } from 'react';
+import React, { ComponentProps, ComponentType, PropsWithChildren } from 'react';
 import { TablePartProvider } from '../table/TablePartContext';
 import { useTableComponents } from '../TableComponentsContext';
 
-interface TableHeaderOwnProps {}
+interface TableHeaderOwnProps<C extends ComponentType> {
+  TheadProps?: Partial<ComponentProps<C>>;
+}
 
-export type TableHeaderProps = PropsWithChildren<TableHeaderOwnProps>;
+export type TableHeaderProps<C extends ComponentType> = PropsWithChildren<
+  TableHeaderOwnProps<C>
+>;
 
-export function TableHeader(props: TableHeaderProps) {
-  const { children } = props;
+export function TableHeader<C extends ComponentType = ComponentType>(
+  props: TableHeaderProps<C>,
+) {
+  const { children, TheadProps } = props;
   const Components = useTableComponents();
 
   return (
     <TablePartProvider value="header">
-      <Components.Thead>{children}</Components.Thead>
+      <Components.Thead {...TheadProps}>{children}</Components.Thead>
     </TablePartProvider>
   );
 }
