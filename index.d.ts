@@ -3,7 +3,6 @@ import { ComponentType } from 'react';
 import { Context } from 'react';
 import { ElementType } from 'react';
 import { PropsWithChildren } from 'react';
-import { ReactElement } from 'react';
 import { ReactNode } from 'react';
 
 export declare type Accessor<D, C> = string | ((row: D) => C);
@@ -172,7 +171,7 @@ export declare const defaultTableComponents: TableComponents;
 
 export declare function findColumns<D extends object = {}>(
   children: ReactNode,
-): ReactElement | null;
+): ReactNode;
 
 export declare function getValue<D, C>(data: D, accessor: null): null;
 
@@ -339,13 +338,21 @@ export declare type TablePartProviderProps = PropsWithChildren<
   TablePartProviderOwnProps
 >;
 
-export declare type TablePartType = 'definition' | 'header' | 'body' | string;
+export declare type TablePartType = 'definition' | 'header' | 'body';
 
 export declare type TableProps<C extends ComponentType> = PropsWithChildren<
   TableOwnProps<C>
 >;
 
+export declare function UseColumns(props: UseColumnsProps): JSX.Element;
+
 export declare function useColumns(): ColumnsNode;
+
+declare interface UseColumnsOwnProps {
+  part?: string;
+}
+
+export declare type UseColumnsProps = PropsWithChildren<UseColumnsOwnProps>;
 
 export declare function useContent<V>(): Content<V>;
 

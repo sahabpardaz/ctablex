@@ -4,8 +4,8 @@ import React, {
   PropsWithChildren,
   ReactNode,
 } from 'react';
-import { DefaultContent } from '..';
 import { Cell } from '../cell/Cell';
+import { DefaultContent } from '../content/DefaultContent';
 import { HeaderCell } from '../header/HeaderCell';
 import { useTablePart } from '../table/TablePartContext';
 import { Accessor } from '../utils/accessor';

@@ -8,6 +8,7 @@ export {
 export { useData, DataContext, DataProvider } from './data/DataContext';
 
 export { Columns } from './column/Columns';
+export { UseColumns } from './column/UseColumns';
 export { Column } from './column/Column';
 export {
   useColumns,

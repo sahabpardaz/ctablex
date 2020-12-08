@@ -1,5 +1,6 @@
-import React, { Fragment, PropsWithChildren } from 'react';
+import React, { PropsWithChildren } from 'react';
 import { useTablePart } from '../table/TablePartContext';
+import { UseColumns } from './UseColumns';
 
 interface ColumnsOwnProps {
   part?: string;
@@ -8,19 +9,12 @@ interface ColumnsOwnProps {
 export type ColumnsProps = PropsWithChildren<ColumnsOwnProps>;
 
 export function Columns(props: ColumnsProps) {
-  const { children, part } = props;
   const currentPart = useTablePart();
-  if (
-    part === undefined &&
-    currentPart !== 'header' &&
-    currentPart !== 'body'
-  ) {
+  const { part } = props;
+  if (currentPart === 'definition') {
     return null;
   }
-  if (part !== undefined && currentPart !== part) {
-    return null;
-  }
-  return <Fragment>{children}</Fragment>;
+  return <UseColumns part={part} />;
 }
 
 Columns.__COLUMNS__ = true;

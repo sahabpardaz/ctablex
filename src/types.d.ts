@@ -23,6 +23,7 @@ export { ArrayOutputProps } from './array/ArrayOutput';
 export { CellProps } from './cell/Cell';
 export { ColumnProps } from './column/Column';
 export { ColumnsProps } from './column/Columns';
+export { UseColumnsProps } from './column/UseColumns';
 export { ContentValueProps } from './content/ContentValue';
 export { DataTableProps } from './data/DataTable';
 export { DefaultContentProps } from './content/DefaultContent';

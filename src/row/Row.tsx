@@ -1,6 +1,6 @@
 import React, { ComponentProps, ComponentType, PropsWithChildren } from 'react';
 import { useCurrentValue } from '../array/CurrentValueContext';
-import { useColumns } from '../column/ColumnsContext';
+import { Columns } from '../column/Columns';
 import { useTableComponents } from '../TableComponentsContext';
 import { RowDataProvider } from './RowDataContext';
 
@@ -16,14 +16,13 @@ export type RowProps<D, C extends ComponentType> = PropsWithChildren<
 export function Row<D, C extends ComponentType = ComponentType>(
   props: RowProps<D, C>,
 ) {
-  const { TrProps } = props;
+  const { TrProps, children = <Columns /> } = props;
   const Components = useTableComponents();
 
-  const columns = useColumns();
   const row = useCurrentValue<D>(props.row);
   return (
     <RowDataProvider value={row}>
-      <Components.Tr {...TrProps}>{columns}</Components.Tr>
+      <Components.Tr {...TrProps}>{children}</Components.Tr>
     </RowDataProvider>
   );
 }
