@@ -29,11 +29,6 @@ import {
   Columns,
   Column,
   Table,
-  TableHeader,
-  HeaderRow,
-  TableBody,
-  Rows,
-  Row,
 } from '@ctablex/core';
 
 const data = [
@@ -63,22 +58,73 @@ export function MyTable() {
         <Column header="Price" accessor="price" />
         <Column header="Count" accessor="count" />
       </Columns>
-      <Table>
-        <TableHeader>
-          <HeaderRow />
-        </TableHeader>
-        <TableBody>
-          <Rows>
-            <Row />
-          </Rows>
-        </TableBody>
-      </Table>
+      <Table />
     </DataTable>
   );
 }
 ```
 
 [live demo](https://codesandbox.io/s/github/sahabpardaz/ctablex/tree/master/examples/basic?file=/src/BasicTable.tsx), [source code](https://github.com/sahabpardaz/ctablex/tree/master/examples/basic)
+
+### The `Table` component
+
+The `Table`/`TableHeader`/`HeaderRow`/`TableBody`/`Rows`/`Row` components have default children. so when you write `<Table />`, it's equal to you write the following codes:
+
+```tsx
+<Table>
+  <TableHeader>
+    <HeaderRow>
+      <Columns />
+    </HeaderRow>
+  </TableHeader>
+  <TableBody>
+    <Rows>
+      <Row>
+        <Columns />
+      </Row>
+    </Rows>
+  </TableBody>
+</Table>
+```
+
+### The `Columns` component
+
+You can assume `<Columns />` component somehow renders `Columns`' children defined in the first part (`definition` part).
+
+```tsx
+<DataTable data={data}>
+  <Columns>
+    {/* begin children definition */}
+    <Column header="Name" accessor="name" />
+    <Column header="Price" accessor="price" />
+    <Column header="Count" accessor="count" />
+    {/* end children definition */}
+  </Columns>
+  <TableBody>
+    <Rows>
+      <Row>
+        <Columns />
+      </Row>
+    </Rows>
+  </TableBody>
+</DataTable>
+```
+
+is equal to
+
+```tsx
+<DataTable data={data}>
+  <TableBody>
+    <Rows>
+      <Row>
+        <Column header="Name" accessor="name" />
+        <Column header="Price" accessor="price" />
+        <Column header="Count" accessor="count" />
+      </Row>
+    </Rows>
+  </TableBody>
+</DataTable>
+```
 
 ## Changelog
 
