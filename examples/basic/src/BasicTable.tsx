@@ -1,15 +1,5 @@
+import { Column, Columns, DataTable, Table } from '@ctablex/core';
 import React from 'react';
-import {
-  DataTable,
-  Columns,
-  Column,
-  Table,
-  TableHeader,
-  HeaderRow,
-  TableBody,
-  Rows,
-  Row,
-} from '@ctablex/core';
 import { Item } from './types';
 
 interface Props {
@@ -24,16 +14,7 @@ export function BasicTable(props: Props) {
         <Column header="Price" accessor="price" />
         <Column header="Count" accessor="count" />
       </Columns>
-      <Table>
-        <TableHeader>
-          <HeaderRow />
-        </TableHeader>
-        <TableBody>
-          <Rows>
-            <Row />
-          </Rows>
-        </TableBody>
-      </Table>
+      <Table />
     </DataTable>
   );
 }

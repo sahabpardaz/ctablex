@@ -1,15 +1,4 @@
-import {
-  Column,
-  Columns,
-  ContentValue,
-  DataTable,
-  HeaderRow,
-  Row,
-  Rows,
-  Table,
-  TableBody,
-  TableHeader,
-} from '@ctablex/core';
+import { Column, Columns, ContentValue, DataTable, Table } from '@ctablex/core';
 import { Tooltip } from '@material-ui/core';
 import React, { Fragment } from 'react';
 import { BooleanContent } from './BooleanContent';
@@ -64,16 +53,7 @@ export function ProductsTable(props: Props) {
           </ContentValue>
         </Column>
       </Columns>
-      <Table>
-        <TableHeader>
-          <HeaderRow />
-        </TableHeader>
-        <TableBody>
-          <Rows>
-            <Row />
-          </Rows>
-        </TableBody>
-      </Table>
+      <Table />
     </DataTable>
   );
 }

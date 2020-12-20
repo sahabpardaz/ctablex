@@ -1,14 +1,4 @@
-import {
-  Column,
-  Columns,
-  DataTable,
-  HeaderRow,
-  Row,
-  Rows,
-  Table,
-  TableBody,
-  TableHeader,
-} from '@ctablex/core';
+import { Column, Columns, DataTable, Table } from '@ctablex/core';
 import React from 'react';
 import { BooleanContent } from './BooleanContent';
 import { NumberContent } from './NumberContent';
@@ -33,16 +23,7 @@ export function ProductsTable(props: Props) {
           <BooleanContent yes="Yes" no="No" />
         </Column>
       </Columns>
-      <Table>
-        <TableHeader>
-          <HeaderRow />
-        </TableHeader>
-        <TableBody>
-          <Rows>
-            <Row />
-          </Rows>
-        </TableBody>
-      </Table>
+      <Table />
     </DataTable>
   );
 }
