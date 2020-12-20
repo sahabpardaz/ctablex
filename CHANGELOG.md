@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.3.0](https://github.com/sahabpardaz/ctablex/compare/v0.2.1...v0.3.0) (2020-12-20)
+
+### Features
+
+- add default children to table/table-body/table-header/row/rows components ([#29](https://github.com/sahabpardaz/ctablex/issues/29)) ([7091f5f](https://github.com/sahabpardaz/ctablex/commit/7091f5fb389e21e635752167556a2a6127fd1d97))
+- **columns:** add part props in columns usage ([#27](https://github.com/sahabpardaz/ctablex/issues/27)) ([1de25ca](https://github.com/sahabpardaz/ctablex/commit/1de25ca6e52771caa22ee735164fcff534233970))
+- accept and pass props to underlying components ([#28](https://github.com/sahabpardaz/ctablex/issues/28)) ([d672f4d](https://github.com/sahabpardaz/ctablex/commit/d672f4d914f5a1b7ce5c0480e782dc33550782fe))
+
+### Examples
+
+- **complex-content:** add complex content example ([#25](https://github.com/sahabpardaz/ctablex/issues/25)) ([7553c57](https://github.com/sahabpardaz/ctablex/commit/7553c57f57f29e29e146c4795ff9f93fc414dd37))
+
+### Documentations
+
+- update readme and use new api ([#30](https://github.com/sahabpardaz/ctablex/issues/30)) ([494dab0](https://github.com/sahabpardaz/ctablex/commit/494dab029130c27be2cbcc56944ad770479327a1))
+
 ### [0.2.1](https://github.com/sahabpardaz/ctablex/compare/v0.2.0...v0.2.1) (2020-07-19)
 
 ### Features
