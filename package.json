@@ -30,6 +30,7 @@
     "url": "https://github.com/sahabpardaz/ctablex"
   },
   "scripts": {
+    "prepare": "husky install",
     "build": "libton-script build",
     "build:doc": "libton-script doc",
     "toc": "markdown-toc -i README.md",
@@ -49,7 +50,7 @@
     "@types/jest": "26.0.0",
     "@types/react": "^16.9.41",
     "@types/testing-library__jest-dom": "^5.9.1",
-    "husky": "4.2.5",
+    "husky": "^6.0.0",
     "libton-script": "0.12.7",
     "lint-staged": "10.2.11",
     "markdown-toc": "^1.2.0",
