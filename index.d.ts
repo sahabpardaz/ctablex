@@ -118,6 +118,18 @@ export declare type ContentValueProps<D, C> = PropsWithChildren<
   ContentValueOwnProps<D, C>
 >;
 
+export declare function CurrentRowDataProvider<D>(
+  props: CurrentRowDataProviderProps<D>,
+): JSX.Element;
+
+declare interface CurrentRowDataProviderOwnProps<D> {
+  row?: D;
+}
+
+declare type CurrentRowDataProviderProps<D> = PropsWithChildren<
+  CurrentRowDataProviderOwnProps<D>
+>;
+
 export declare type CurrentValue<V> = V;
 
 export declare const CurrentValueContext: Context<
