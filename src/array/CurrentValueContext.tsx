@@ -6,9 +6,8 @@ import React, {
 } from 'react';
 
 export type CurrentValue<V> = V;
-export const CurrentValueContext: Context<
-  CurrentValue<any> | undefined
-> = createContext<CurrentValue<any> | undefined>(undefined);
+export const CurrentValueContext: Context<CurrentValue<any> | undefined> =
+  createContext<CurrentValue<any> | undefined>(undefined);
 
 export function useCurrentValue<V>(value?: V): CurrentValue<V> {
   const context = useContext(CurrentValueContext);
