@@ -25,9 +25,8 @@ interface TablePartProviderOwnProps {
   value: TablePart;
 }
 
-export type TablePartProviderProps = PropsWithChildren<
-  TablePartProviderOwnProps
->;
+export type TablePartProviderProps =
+  PropsWithChildren<TablePartProviderOwnProps>;
 
 export function TablePartProvider(props: TablePartProviderProps) {
   return (

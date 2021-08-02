@@ -23,9 +23,8 @@ export const defaultTableComponents: TableComponents = {
   Td: 'td',
 };
 
-export const TableComponentsContext: Context<TableComponents> = createContext<
-  TableComponents
->(defaultTableComponents);
+export const TableComponentsContext: Context<TableComponents> =
+  createContext<TableComponents>(defaultTableComponents);
 
 export function useTableComponents(): TableComponents {
   return useContext(TableComponentsContext);
@@ -35,9 +34,8 @@ interface TableComponentsProviderOwnProps {
   value: TableComponents;
 }
 
-export type TableComponentsProviderProps = PropsWithChildren<
-  TableComponentsProviderOwnProps
->;
+export type TableComponentsProviderProps =
+  PropsWithChildren<TableComponentsProviderOwnProps>;
 
 export function TableComponentsProvider(props: TableComponentsProviderProps) {
   return (

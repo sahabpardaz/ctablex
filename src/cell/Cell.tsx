@@ -10,12 +10,12 @@ interface CellOwnProps<C extends ComponentType, A extends Accessor<any, any>> {
 
 export type CellProps<
   C extends ComponentType,
-  A extends Accessor<any, any>
+  A extends Accessor<any, any>,
 > = PropsWithChildren<CellOwnProps<C, A>>;
 
 export function Cell<
   C extends ComponentType = ComponentType,
-  A extends Accessor<any, any> = Accessor<any, any>
+  A extends Accessor<any, any> = Accessor<any, any>,
 >(props: CellProps<C, A>) {
   const { accessor, children, TdProps } = props;
   const Components = useTableComponents();

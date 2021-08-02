@@ -13,7 +13,7 @@ import { Accessor } from '../utils/accessor';
 interface ColumnOwnProps<
   C extends ComponentType,
   H extends ComponentType,
-  A extends Accessor<any, any>
+  A extends Accessor<any, any>,
 > {
   header?: ReactNode;
   accessor?: A | null;
@@ -24,13 +24,13 @@ interface ColumnOwnProps<
 export type ColumnProps<
   C extends ComponentType,
   H extends ComponentType,
-  A extends Accessor<any, any>
+  A extends Accessor<any, any>,
 > = PropsWithChildren<ColumnOwnProps<C, H, A>>;
 
 export function Column<
   C extends ComponentType = ComponentType,
   H extends ComponentType = ComponentType,
-  A extends Accessor<any, any> = Accessor<any, any>
+  A extends Accessor<any, any> = Accessor<any, any>,
 >(props: ColumnProps<C, H, A>) {
   const {
     children = <DefaultContent />,
