@@ -24,6 +24,7 @@ export { HeaderCell } from './header/HeaderCell';
 
 export { Rows } from './row/Rows';
 export { Row } from './row/Row';
+export { CurrentRowDataProvider } from './row/CurrentRowDataProvider';
 export {
   useRowData,
   RowDataProvider,
