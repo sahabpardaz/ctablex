@@ -28,4 +28,4 @@ You can:
 
 - Open this example in a new [CodeSandbox]
 
-[codesandbox]: https://codesandbox.io/s/github/sahabpardaz/ctablex/tree/master/examples/material-ui?file=/src/App.tsx
+[codesandbox]: https://codesandbox.io/s/github/sahabpardaz/ctablex/tree/master/examples/1-material-ui?file=/src/App.tsx

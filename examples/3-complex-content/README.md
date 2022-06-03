@@ -47,4 +47,4 @@ You can:
 
 - Open this example in a new [CodeSandbox]
 
-[codesandbox]: https://codesandbox.io/s/github/sahabpardaz/ctablex/tree/master/examples/complex-content?file=/src/ProductsTable.tsx
+[codesandbox]: https://codesandbox.io/s/github/sahabpardaz/ctablex/tree/master/examples/3-complex-content?file=/src/ProductsTable.tsx
