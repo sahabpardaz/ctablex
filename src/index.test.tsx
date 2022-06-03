@@ -4,13 +4,11 @@ import {
   ArrayOutput,
   Cell,
   Column,
-  Columns,
   ColumnsContext,
   ColumnsProvider,
   ContentContext,
   ContentProvider,
   ContentValue,
-  CurrentRowDataProvider,
   CurrentValueContext,
   CurrentValueProvider,
   DataContext,
@@ -36,8 +34,8 @@ import {
   TableHeader,
   TablePartContext,
   TablePartProvider,
+  Columns,
   useColumns,
-  UseColumns,
   useContent,
   useContentValue,
   useCurrentValue,
@@ -46,6 +44,7 @@ import {
   useRowData,
   useTableComponents,
   useTablePart,
+  UseColumns,
 } from './index';
 
 const IndexCell = () => {
@@ -381,6 +380,5 @@ describe('ctablex', () => {
     expect(IndexContext).toBeDefined();
     expect(IndexProvider).toBeDefined();
     expect(getValue).toBeDefined();
-    expect(CurrentRowDataProvider).toBeDefined();
   });
 });
