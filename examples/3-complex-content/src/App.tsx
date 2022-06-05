@@ -1,4 +1,4 @@
-import { CssBaseline } from '@material-ui/core';
+import { CssBaseline } from '@mui/material';
 import React, { Fragment } from 'react';
 import { generateData } from './data';
 import { MuiTableProvider } from './MuiTableProvider';
