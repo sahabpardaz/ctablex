@@ -1,0 +1,42 @@
+{
+  "name": "multipart-example",
+  "version": "1.0.0",
+  "description": "Material-UI ctablex example",
+  "keywords": [
+    "react",
+    "table",
+    "ctablex",
+    "react-table",
+    "datagrid",
+    "material-ui"
+  ],
+  "main": "src/index.tsx",
+  "dependencies": {
+    "@ctablex/core": "0.3.0",
+    "@emotion/react": "^11.9.0",
+    "@emotion/styled": "^11.8.1",
+    "@mui/material": "^5.8.2",
+    "@types/faker": "5.5.9",
+    "faker": "5.5.3",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "react-scripts": "5.0.1"
+  },
+  "devDependencies": {
+    "@types/react": "18.0.11",
+    "@types/react-dom": "18.0.5",
+    "typescript": "4.7.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
