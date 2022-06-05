@@ -9,7 +9,7 @@ interface OwnProps {
 export type Props = PropsWithChildren<OwnProps>;
 
 export function BooleanContent(props: Props) {
-  const content = useContent<number>();
+  const content = useContent<boolean>();
 
   return (
     <Fragment>

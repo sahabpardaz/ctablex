@@ -11,8 +11,18 @@ export function BasicTable(props: Props) {
     <DataTable data={props.data}>
       <Columns>
         <Column header="Name" accessor="name" />
-        <Column header="Price" accessor="price" />
-        <Column header="Count" accessor="count" />
+        <Column
+          header="Price"
+          accessor="price"
+          TdProps={{ align: 'right' }}
+          ThProps={{ align: 'right' }}
+        />
+        <Column
+          header="Count"
+          accessor="count"
+          TdProps={{ align: 'right' }}
+          ThProps={{ align: 'right' }}
+        />
       </Columns>
       <Table />
     </DataTable>

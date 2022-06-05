@@ -1,5 +1,5 @@
 import { Column, Columns, ContentValue, DataTable, Table } from '@ctablex/core';
-import { Tooltip } from '@material-ui/core';
+import { Tooltip } from '@mui/material';
 import React, { Fragment } from 'react';
 import { BooleanContent } from './BooleanContent';
 import { NumberContent } from './NumberContent';
@@ -14,16 +14,30 @@ export function ProductsTable(props: Props) {
     <DataTable data={props.data}>
       <Columns>
         <Column header="Name" accessor="name" />
-        <Column header="Price" accessor="price">
-          <NumberContent />
-        </Column>
-        <Column header="Count" accessor="count">
-          <NumberContent />
-        </Column>
         <Column header="Free Delivery" accessor="freeDelivery">
           <BooleanContent yes="Yes" no="No" />
         </Column>
-        <Column header="Sum">
+        <Column
+          header="Price"
+          accessor="price"
+          TdProps={{ align: 'right' }}
+          ThProps={{ align: 'right' }}
+        >
+          <NumberContent />
+        </Column>
+        <Column
+          header="Count"
+          accessor="count"
+          TdProps={{ align: 'right' }}
+          ThProps={{ align: 'right' }}
+        >
+          <NumberContent />
+        </Column>
+        <Column
+          header="Sum"
+          TdProps={{ align: 'right' }}
+          ThProps={{ align: 'right' }}
+        >
           <ContentValue accessor="price">
             <NumberContent />
           </ContentValue>
