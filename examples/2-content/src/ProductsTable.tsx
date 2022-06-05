@@ -13,14 +13,24 @@ export function ProductsTable(props: Props) {
     <DataTable data={props.data}>
       <Columns>
         <Column header="Name" accessor="name" />
-        <Column header="Price" accessor="price">
-          <NumberContent />
-        </Column>
-        <Column header="Count" accessor="count">
-          <NumberContent />
-        </Column>
         <Column header="Free Delivery" accessor="freeDelivery">
           <BooleanContent yes="Yes" no="No" />
+        </Column>
+        <Column
+          header="Price"
+          accessor="price"
+          TdProps={{ align: 'right' }}
+          ThProps={{ align: 'right' }}
+        >
+          <NumberContent />
+        </Column>
+        <Column
+          header="Count"
+          accessor="count"
+          TdProps={{ align: 'right' }}
+          ThProps={{ align: 'right' }}
+        >
+          <NumberContent />
         </Column>
       </Columns>
       <Table />
