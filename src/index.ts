@@ -58,3 +58,7 @@ export {
 export { useIndex, IndexContext, IndexProvider } from './array/IndexContext';
 
 export { getValue } from './utils/getValue';
+
+export { Children } from './children/Children';
+export { useChildren, ChildrenProvider } from './children/ChildrenContext';
+export { withDefaultChildren } from './children/with-default-children';

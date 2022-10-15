@@ -3,7 +3,10 @@ import React, { Fragment, PropsWithChildren } from 'react';
 import {
   ArrayOutput,
   Cell,
+  Children,
+  ChildrenProvider,
   Column,
+  Columns,
   ColumnsContext,
   ColumnsProvider,
   ContentContext,
@@ -34,8 +37,9 @@ import {
   TableHeader,
   TablePartContext,
   TablePartProvider,
-  Columns,
+  useChildren,
   useColumns,
+  UseColumns,
   useContent,
   useContentValue,
   useCurrentValue,
@@ -44,7 +48,7 @@ import {
   useRowData,
   useTableComponents,
   useTablePart,
-  UseColumns,
+  withDefaultChildren,
 } from './index';
 
 const IndexCell = () => {
@@ -380,5 +384,10 @@ describe('ctablex', () => {
     expect(IndexContext).toBeDefined();
     expect(IndexProvider).toBeDefined();
     expect(getValue).toBeDefined();
+
+    expect(Children).toBeDefined();
+    expect(useChildren).toBeDefined();
+    expect(ChildrenProvider).toBeDefined();
+    expect(withDefaultChildren).toBeDefined();
   });
 });

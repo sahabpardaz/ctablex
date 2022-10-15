@@ -1,3 +1,5 @@
+/// <reference types="react" />
+
 import { ComponentProps } from 'react';
 import { ComponentType } from 'react';
 import { Context } from 'react';
@@ -35,6 +37,25 @@ export declare type CellProps<
   C extends ComponentType,
   A extends Accessor<any, any>,
 > = PropsWithChildren<CellOwnProps<C, A>>;
+
+export declare function Children(props: ChildrenProps): JSX.Element;
+
+declare type ChildrenContextType = ReactNode;
+
+declare interface ChildrenOwnProps {}
+
+declare type ChildrenProps = ChildrenOwnProps;
+
+export declare function ChildrenProvider(
+  props: ChildrenProviderProps,
+): JSX.Element;
+
+declare interface ChildrenProviderOwnProps {
+  value: ChildrenContextType;
+}
+
+declare type ChildrenProviderProps =
+  PropsWithChildren<ChildrenProviderOwnProps>;
 
 export declare function Column<
   C extends ComponentType = ComponentType,
@@ -338,6 +359,8 @@ export declare type TableProps<C extends ComponentType> = PropsWithChildren<
   TableOwnProps<C>
 >;
 
+export declare function useChildren(): ChildrenContextType;
+
 export declare function UseColumns(props: UseColumnsProps): JSX.Element;
 
 export declare function useColumns(): ColumnsNode;
@@ -369,5 +392,12 @@ export declare function useRowData<V>(): RowData<V>;
 export declare function useTableComponents(): TableComponents;
 
 export declare function useTablePart(): TablePart;
+
+export declare function withDefaultChildren<
+  TProps extends {
+    children?: ReactNode;
+  },
+  C extends ComponentType<TProps> | keyof JSX.IntrinsicElements,
+>(Cmp: C): ComponentType<TProps>;
 
 export {};
