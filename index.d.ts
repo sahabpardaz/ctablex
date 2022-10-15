@@ -5,6 +5,7 @@ import { ComponentType } from 'react';
 import { Context } from 'react';
 import { ElementType } from 'react';
 import { PropsWithChildren } from 'react';
+import { ReactElement } from 'react';
 import { ReactNode } from 'react';
 
 export declare type Accessor<D, C> = string | ((row: D) => C);
@@ -323,6 +324,28 @@ declare interface TableComponentsProviderOwnProps {
 export declare type TableComponentsProviderProps =
   PropsWithChildren<TableComponentsProviderOwnProps>;
 
+declare interface TableElements {
+  table: ReactElement;
+  thead: ReactElement;
+  tbody: ReactElement;
+  tr: ReactElement;
+  th: ReactElement;
+  td: ReactElement;
+}
+
+export declare const TableElementsContext: Context<TableElements>;
+
+export declare function TableElementsProvider(
+  props: TableElementsProviderProps,
+): JSX.Element;
+
+declare interface TableElementsProviderOwnProps {
+  value: TableElements;
+}
+
+declare type TableElementsProviderProps =
+  PropsWithChildren<TableElementsProviderOwnProps>;
+
 export declare function TableHeader<C extends ComponentType = ComponentType>(
   props: TableHeaderProps<C>,
 ): JSX.Element;
@@ -390,6 +413,8 @@ export declare function useIndex(): Index;
 export declare function useRowData<V>(): RowData<V>;
 
 export declare function useTableComponents(): TableComponents;
+
+export declare function useTableElements(): TableElements;
 
 export declare function useTablePart(): TablePart;
 

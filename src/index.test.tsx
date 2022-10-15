@@ -49,6 +49,9 @@ import {
   useTableComponents,
   useTablePart,
   withDefaultChildren,
+  useTableElements,
+  TableElementsProvider,
+  TableElementsContext,
 } from './index';
 
 const IndexCell = () => {
@@ -389,5 +392,9 @@ describe('ctablex', () => {
     expect(useChildren).toBeDefined();
     expect(ChildrenProvider).toBeDefined();
     expect(withDefaultChildren).toBeDefined();
+
+    expect(useTableElements).toBeDefined();
+    expect(TableElementsProvider).toBeDefined();
+    expect(TableElementsContext).toBeDefined();
   });
 });

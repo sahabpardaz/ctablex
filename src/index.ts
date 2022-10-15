@@ -5,6 +5,11 @@ export {
   TableComponentsProvider,
   defaultTableComponents,
 } from './TableComponentsContext';
+export {
+  useTableElements,
+  TableElementsProvider,
+  TableElementsContext,
+} from './TableElementsContext';
 export { useData, DataContext, DataProvider } from './data/DataContext';
 
 export { Columns } from './column/Columns';
