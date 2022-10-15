@@ -32,6 +32,7 @@ declare interface CellOwnProps<
 > {
   accessor: A | null;
   TdProps?: Partial<ComponentProps<C>>;
+  tdEl?: ReactElement;
 }
 
 export declare type CellProps<
@@ -73,6 +74,8 @@ declare interface ColumnOwnProps<
   accessor?: A | null;
   TdProps?: Partial<ComponentProps<C>>;
   ThProps?: Partial<ComponentProps<H>>;
+  tdEl?: ReactElement;
+  thEl?: ReactElement;
 }
 
 export declare type ColumnProps<
@@ -209,6 +212,7 @@ export declare function HeaderCell<C extends ComponentType = ComponentType>(
 
 declare interface HeaderCellOwnProps<C extends ComponentType> {
   ThProps?: Partial<ComponentProps<C>>;
+  thEl?: ReactElement;
 }
 
 export declare type HeaderCellProps<C extends ComponentType> =
@@ -220,6 +224,7 @@ export declare function HeaderRow<C extends ComponentType = ComponentType>(
 
 declare interface HeaderRowOwnProps<C extends ComponentType> {
   TrProps?: Partial<ComponentProps<C>>;
+  trEl?: ReactElement;
 }
 
 export declare type HeaderRowProps<C extends ComponentType> = PropsWithChildren<
@@ -270,6 +275,7 @@ export declare type RowDataProviderProps<V> = PropsWithChildren<
 declare interface RowOwnProps<D, C extends ComponentType> {
   row?: D;
   TrProps?: Partial<ComponentProps<C>>;
+  trEl?: ReactElement;
 }
 
 export declare type RowProps<D, C extends ComponentType> = PropsWithChildren<
@@ -295,6 +301,7 @@ export declare function TableBody<D, C extends ComponentType = ComponentType>(
 
 declare interface TableBodyOwnProps<D, C extends ComponentType> {
   TbodyProps?: Partial<ComponentProps<C>>;
+  tbodyEl?: ReactElement;
 }
 
 export declare type TableBodyProps<
@@ -352,6 +359,7 @@ export declare function TableHeader<C extends ComponentType = ComponentType>(
 
 declare interface TableHeaderOwnProps<C extends ComponentType> {
   TheadProps?: Partial<ComponentProps<C>>;
+  theadEl?: ReactElement;
 }
 
 export declare type TableHeaderProps<C extends ComponentType> =
@@ -359,6 +367,7 @@ export declare type TableHeaderProps<C extends ComponentType> =
 
 declare interface TableOwnProps<C extends ComponentType> {
   TableProps?: Partial<ComponentProps<C>>;
+  tableEl?: ReactElement;
 }
 
 export declare type TablePart = TablePartType;
