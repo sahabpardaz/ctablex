@@ -2,6 +2,40 @@
 
 All notable changes to this project will be documented in this file.
 
+### [0.4.0](https://github.com/sahabpardaz/ctablex/compare/v0.3.0...v0.4.0) (2022-10-16)
+
+### Highlights
+
+Now components can be customized with xEl prop instead of xProps. It helps for a better type check.
+
+```tsx
+return <Row TrProps={{ className: 'zebra' }} />;
+// vs
+return (
+  <Row
+    trEl={
+      <tr className="zebra">
+        <Children />
+      </tr>
+    }
+  />
+);
+// or
+const MyTr = withDefaultChildren('tr');
+return <Row trEl={<MyTr className="zebra" />} />;
+```
+
+### Features
+
+- add and use table elements context ([#63](https://github.com/sahabpardaz/ctablex/issues/63)) ([0441555](https://github.com/sahabpardaz/ctablex/commit/0441555b21e0412a631a072eb0535363232ec5ff))
+- add children context ([#62](https://github.com/sahabpardaz/ctablex/issues/62)) ([f39f6ca](https://github.com/sahabpardaz/ctablex/commit/f39f6ca10229615d06112cd051de1e9046ef2fdf))
+- **row:** add and use CurrentRowDataProvider component ([#46](https://github.com/sahabpardaz/ctablex/issues/46)) ([5ad330b](https://github.com/sahabpardaz/ctablex/commit/5ad330b1d96155cea227a0cd831e9e21aee1c2c9))
+
+### Examples
+
+- **multipart:** add multipart example ([#57](https://github.com/sahabpardaz/ctablex/issues/57)) ([20ae64c](https://github.com/sahabpardaz/ctablex/commit/20ae64c9f17f9b853392873d5205e740f3769caa))
+- rename example directory names ([#52](https://github.com/sahabpardaz/ctablex/issues/52)) ([53f1a22](https://github.com/sahabpardaz/ctablex/commit/53f1a22b6b8fb1486313e6c114ab58554165d797))
+
 ## [0.3.0](https://github.com/sahabpardaz/ctablex/compare/v0.2.1...v0.3.0) (2020-12-20)
 
 ### Features
