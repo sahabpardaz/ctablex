@@ -4,7 +4,10 @@ import React, {
   ElementType,
   PropsWithChildren,
   useContext,
+  useMemo,
 } from 'react';
+import { Children } from './children/Children';
+import { TableElements, TableElementsProvider } from './TableElementsContext';
 
 export interface TableComponents {
   Table: ElementType;
@@ -38,9 +41,51 @@ export type TableComponentsProviderProps =
   PropsWithChildren<TableComponentsProviderOwnProps>;
 
 export function TableComponentsProvider(props: TableComponentsProviderProps) {
+  const elements = useComponentsToElements(props.value);
   return (
-    <TableComponentsContext.Provider value={props.value}>
-      {props.children}
-    </TableComponentsContext.Provider>
+    <TableElementsProvider value={elements}>
+      <TableComponentsContext.Provider value={props.value}>
+        {props.children}
+      </TableComponentsContext.Provider>
+    </TableElementsProvider>
   );
+}
+
+export function useComponentsToElements(
+  Components: TableComponents,
+): TableElements {
+  return useMemo(() => {
+    return {
+      table: (
+        <Components.Table>
+          <Children />
+        </Components.Table>
+      ),
+      thead: (
+        <Components.Thead>
+          <Children />
+        </Components.Thead>
+      ),
+      tbody: (
+        <Components.Tbody>
+          <Children />
+        </Components.Tbody>
+      ),
+      tr: (
+        <Components.Tr>
+          <Children />
+        </Components.Tr>
+      ),
+      th: (
+        <Components.Th>
+          <Children />
+        </Components.Th>
+      ),
+      td: (
+        <Components.Td>
+          <Children />
+        </Components.Td>
+      ),
+    };
+  }, []);
 }

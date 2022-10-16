@@ -2,6 +2,7 @@ import React, {
   ComponentProps,
   ComponentType,
   PropsWithChildren,
+  ReactElement,
   ReactNode,
 } from 'react';
 import { Cell } from '../cell/Cell';
@@ -19,6 +20,8 @@ interface ColumnOwnProps<
   accessor?: A | null;
   TdProps?: Partial<ComponentProps<C>>;
   ThProps?: Partial<ComponentProps<H>>;
+  tdEl?: ReactElement;
+  thEl?: ReactElement;
 }
 
 export type ColumnProps<
@@ -27,24 +30,32 @@ export type ColumnProps<
   A extends Accessor<any, any>,
 > = PropsWithChildren<ColumnOwnProps<C, H, A>>;
 
+const defaultChildren = <DefaultContent />;
+
 export function Column<
   C extends ComponentType = ComponentType,
   H extends ComponentType = ComponentType,
   A extends Accessor<any, any> = Accessor<any, any>,
 >(props: ColumnProps<C, H, A>) {
   const {
-    children = <DefaultContent />,
+    children = defaultChildren,
     accessor = null,
     header,
     ThProps,
     TdProps,
+    tdEl,
+    thEl,
   } = props;
   const part = useTablePart();
   if (part === 'header') {
-    return <HeaderCell ThProps={ThProps}>{header}</HeaderCell>;
+    return (
+      <HeaderCell ThProps={ThProps} thEl={thEl}>
+        {header}
+      </HeaderCell>
+    );
   }
   return (
-    <Cell TdProps={TdProps} accessor={accessor}>
+    <Cell TdProps={TdProps} tdEl={tdEl} accessor={accessor}>
       {children}
     </Cell>
   );

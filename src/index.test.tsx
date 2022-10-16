@@ -34,6 +34,8 @@ import {
   TableBody,
   TableComponentsContext,
   TableComponentsProvider,
+  TableElementsContext,
+  TableElementsProvider,
   TableHeader,
   TablePartContext,
   TablePartProvider,
@@ -47,6 +49,7 @@ import {
   useIndex,
   useRowData,
   useTableComponents,
+  useTableElements,
   useTablePart,
   withDefaultChildren,
 } from './index';
@@ -56,6 +59,13 @@ const IndexCell = () => {
   return <Fragment>{index + 1}.</Fragment>;
 };
 
+type Data = {
+  id: string;
+  name: string;
+  price: number;
+  count: number;
+  color: string;
+};
 const data = [
   {
     id: '1',
@@ -152,6 +162,8 @@ describe('ctablex', () => {
     expect(screen.queryByText(/3\./)).toBeInTheDocument();
   });
   it('should use custom Components', () => {
+    // @ts-ignore
+    console.error.mockImplementation(() => {});
     const components = {
       ...defaultTableComponents,
       Table: (props: PropsWithChildren<{}>) => {
@@ -200,7 +212,154 @@ describe('ctablex', () => {
     expect(screen.queryByTestId('table')).toBeInTheDocument();
     expect(screen.queryAllByTestId('th')[0]).toHaveAttribute('color', 'red');
     expect(screen.queryAllByTestId('td')[0]).toHaveAttribute('color', 'blue');
+    expect(console.error).toBeCalledTimes(2);
+    expect(console.error).toBeCalledWith(
+      'ThProps is deprecated, use thEl instead',
+    );
+    expect(console.error).toBeCalledWith(
+      'TdProps is deprecated, use tdEl instead',
+    );
   });
+  it('should use custom Elements', () => {
+    render(
+      <DataTable data={data}>
+        <Columns>
+          <Column
+            header="Name"
+            accessor="name"
+            thEl={
+              <th color="red" data-testid="th">
+                <Children />
+              </th>
+            }
+            tdEl={
+              <td color="blue" data-testid="td">
+                <Children />
+              </td>
+            }
+          />
+        </Columns>
+        <Table
+          tableEl={
+            <table data-testid="table">
+              <Children />
+            </table>
+          }
+        >
+          <TableHeader
+            theadEl={
+              <thead data-testid="thead">
+                <Children />
+              </thead>
+            }
+          >
+            <HeaderRow
+              trEl={
+                <tr data-testid="header-row">
+                  <Children />
+                </tr>
+              }
+            />
+          </TableHeader>
+          <TableBody
+            tbodyEl={
+              <tbody data-testid="tbody">
+                <Children />
+              </tbody>
+            }
+          >
+            <Rows>
+              <Row
+                trEl={
+                  <tr data-testid="row">
+                    <Children />
+                  </tr>
+                }
+              />
+            </Rows>
+          </TableBody>
+        </Table>
+      </DataTable>,
+    );
+    expect(screen.queryByTestId('table')).toBeInTheDocument();
+    expect(screen.queryByTestId('thead')).toBeInTheDocument();
+    expect(screen.queryByTestId('header-row')).toBeInTheDocument();
+    expect(screen.queryByTestId('tbody')).toBeInTheDocument();
+    expect(screen.getAllByTestId('row')[0]).toBeInTheDocument();
+    expect(screen.queryAllByTestId('th')[0]).toHaveAttribute('color', 'red');
+    expect(screen.queryAllByTestId('td')[0]).toHaveAttribute('color', 'blue');
+  });
+  it('should use custom Elements with default children', () => {
+    const MyTable = withDefaultChildren('table');
+    const MyThead = withDefaultChildren('thead');
+    const MyTbody = withDefaultChildren('tbody');
+    const MyTr = withDefaultChildren('tr');
+    const MyTh = withDefaultChildren('th');
+    const MyTd = withDefaultChildren('td');
+    render(
+      <DataTable data={data}>
+        <Columns>
+          <Column
+            header="Name"
+            accessor="name"
+            thEl={<MyTh color="red" data-testid="th" />}
+            tdEl={<MyTd color="blue" data-testid="td" />}
+          />
+        </Columns>
+        <Table tableEl={<MyTable data-testid="table" />}>
+          <TableHeader theadEl={<MyThead data-testid="thead" />}>
+            <HeaderRow trEl={<MyTr data-testid="header-row" />} />
+          </TableHeader>
+          <TableBody tbodyEl={<MyTbody data-testid="tbody" />}>
+            <Rows>
+              <Row trEl={<MyTr data-testid="row" />} />
+            </Rows>
+          </TableBody>
+        </Table>
+      </DataTable>,
+    );
+    expect(screen.queryByTestId('table')).toBeInTheDocument();
+    expect(screen.queryByTestId('thead')).toBeInTheDocument();
+    expect(screen.queryByTestId('header-row')).toBeInTheDocument();
+    expect(screen.queryByTestId('tbody')).toBeInTheDocument();
+    expect(screen.getAllByTestId('row')[0]).toBeInTheDocument();
+    expect(screen.queryAllByTestId('th')[0]).toHaveAttribute('color', 'red');
+    expect(screen.queryAllByTestId('td')[0]).toHaveAttribute('color', 'blue');
+  });
+  it('should use custom Elements with custom child', () => {
+    const MyRow = (props: { activeId: string }) => {
+      const Components = useTableComponents();
+      const value = useCurrentValue<Data>();
+      const active = value.id === props.activeId;
+      return (
+        <Components.Tr
+          data-testid="row"
+          className={active ? 'active' : undefined}
+        >
+          <Children />
+        </Components.Tr>
+      );
+    };
+    render(
+      <DataTable data={data}>
+        <Columns>
+          <Column header="Name" accessor="name" />
+        </Columns>
+        <Table>
+          <TableHeader>
+            <HeaderRow />
+          </TableHeader>
+          <TableBody>
+            <Rows>
+              <Row trEl={<MyRow activeId="2" />} />
+            </Rows>
+          </TableBody>
+        </Table>
+      </DataTable>,
+    );
+    expect(screen.getAllByTestId('row')[1]).toHaveClass('active');
+  });
+
   it('should use custom key accessor', () => {
     const fn = jest.fn((row: any) => row.id);
     render(
@@ -389,5 +548,9 @@ describe('ctablex', () => {
     expect(useChildren).toBeDefined();
     expect(ChildrenProvider).toBeDefined();
     expect(withDefaultChildren).toBeDefined();
+
+    expect(useTableElements).toBeDefined();
+    expect(TableElementsProvider).toBeDefined();
+    expect(TableElementsContext).toBeDefined();
   });
 });

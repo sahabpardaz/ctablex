@@ -12,8 +12,10 @@ interface RowsOwnProps<D> {
 
 export type RowsProps<D> = PropsWithChildren<RowsOwnProps<D>>;
 
+const defaultChildren = <Row />;
+
 export function Rows<D>(props: RowsProps<D>) {
-  const { children = <Row />, keyAccessor } = props;
+  const { children = defaultChildren, keyAccessor } = props;
   const data = useData<D>(props.data);
   const getKey = useMemo(() => {
     if (keyAccessor) {

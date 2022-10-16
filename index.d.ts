@@ -5,6 +5,7 @@ import { ComponentType } from 'react';
 import { Context } from 'react';
 import { ElementType } from 'react';
 import { PropsWithChildren } from 'react';
+import { ReactElement } from 'react';
 import { ReactNode } from 'react';
 
 export declare type Accessor<D, C> = string | ((row: D) => C);
@@ -31,6 +32,7 @@ declare interface CellOwnProps<
 > {
   accessor: A | null;
   TdProps?: Partial<ComponentProps<C>>;
+  tdEl?: ReactElement;
 }
 
 export declare type CellProps<
@@ -72,6 +74,8 @@ declare interface ColumnOwnProps<
   accessor?: A | null;
   TdProps?: Partial<ComponentProps<C>>;
   ThProps?: Partial<ComponentProps<H>>;
+  tdEl?: ReactElement;
+  thEl?: ReactElement;
 }
 
 export declare type ColumnProps<
@@ -208,6 +212,7 @@ export declare function HeaderCell<C extends ComponentType = ComponentType>(
 
 declare interface HeaderCellOwnProps<C extends ComponentType> {
   ThProps?: Partial<ComponentProps<C>>;
+  thEl?: ReactElement;
 }
 
 export declare type HeaderCellProps<C extends ComponentType> =
@@ -219,6 +224,7 @@ export declare function HeaderRow<C extends ComponentType = ComponentType>(
 
 declare interface HeaderRowOwnProps<C extends ComponentType> {
   TrProps?: Partial<ComponentProps<C>>;
+  trEl?: ReactElement;
 }
 
 export declare type HeaderRowProps<C extends ComponentType> = PropsWithChildren<
@@ -269,6 +275,7 @@ export declare type RowDataProviderProps<V> = PropsWithChildren<
 declare interface RowOwnProps<D, C extends ComponentType> {
   row?: D;
   TrProps?: Partial<ComponentProps<C>>;
+  trEl?: ReactElement;
 }
 
 export declare type RowProps<D, C extends ComponentType> = PropsWithChildren<
@@ -294,6 +301,7 @@ export declare function TableBody<D, C extends ComponentType = ComponentType>(
 
 declare interface TableBodyOwnProps<D, C extends ComponentType> {
   TbodyProps?: Partial<ComponentProps<C>>;
+  tbodyEl?: ReactElement;
 }
 
 export declare type TableBodyProps<
@@ -323,12 +331,35 @@ declare interface TableComponentsProviderOwnProps {
 export declare type TableComponentsProviderProps =
   PropsWithChildren<TableComponentsProviderOwnProps>;
 
+declare interface TableElements {
+  table: ReactElement;
+  thead: ReactElement;
+  tbody: ReactElement;
+  tr: ReactElement;
+  th: ReactElement;
+  td: ReactElement;
+}
+
+export declare const TableElementsContext: Context<TableElements>;
+
+export declare function TableElementsProvider(
+  props: TableElementsProviderProps,
+): JSX.Element;
+
+declare interface TableElementsProviderOwnProps {
+  value: TableElements;
+}
+
+declare type TableElementsProviderProps =
+  PropsWithChildren<TableElementsProviderOwnProps>;
+
 export declare function TableHeader<C extends ComponentType = ComponentType>(
   props: TableHeaderProps<C>,
 ): JSX.Element;
 
 declare interface TableHeaderOwnProps<C extends ComponentType> {
   TheadProps?: Partial<ComponentProps<C>>;
+  theadEl?: ReactElement;
 }
 
 export declare type TableHeaderProps<C extends ComponentType> =
@@ -336,6 +367,7 @@ export declare type TableHeaderProps<C extends ComponentType> =
 
 declare interface TableOwnProps<C extends ComponentType> {
   TableProps?: Partial<ComponentProps<C>>;
+  tableEl?: ReactElement;
 }
 
 export declare type TablePart = TablePartType;
@@ -391,6 +423,8 @@ export declare function useRowData<V>(): RowData<V>;
 
 export declare function useTableComponents(): TableComponents;
 
+export declare function useTableElements(): TableElements;
+
 export declare function useTablePart(): TablePart;
 
 export declare function withDefaultChildren<
@@ -398,6 +432,6 @@ export declare function withDefaultChildren<
     children?: ReactNode;
   },
   C extends ComponentType<TProps> | keyof JSX.IntrinsicElements,
->(Cmp: C): ComponentType<TProps>;
+>(Cmp: C): ComponentType<ComponentProps<C>>;
 
 export {};

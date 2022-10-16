@@ -1,8 +1,16 @@
-import React, { ComponentProps, ComponentType, PropsWithChildren } from 'react';
-import { useTableComponents } from '../TableComponentsContext';
+import React, {
+  ComponentProps,
+  ComponentType,
+  PropsWithChildren,
+  ReactElement,
+} from 'react';
+import { ChildrenProvider } from '../children/ChildrenContext';
+import { useTableElements } from '../TableElementsContext';
+import { addProps } from '../utils/add-props';
 
 interface HeaderCellOwnProps<C extends ComponentType> {
   ThProps?: Partial<ComponentProps<C>>;
+  thEl?: ReactElement;
 }
 
 export type HeaderCellProps<C extends ComponentType> = PropsWithChildren<
@@ -12,9 +20,12 @@ export type HeaderCellProps<C extends ComponentType> = PropsWithChildren<
 export function HeaderCell<C extends ComponentType = ComponentType>(
   props: HeaderCellProps<C>,
 ) {
-  const { children, ThProps } = props;
+  const { children } = props;
 
-  const Components = useTableComponents();
-
-  return <Components.Th {...ThProps}>{children}</Components.Th>;
+  const elements = useTableElements();
+  const element = addProps(props.thEl ?? elements.th, props.ThProps, {
+    el: 'thEl',
+    prop: 'ThProps',
+  });
+  return <ChildrenProvider value={children}>{element}</ChildrenProvider>;
 }

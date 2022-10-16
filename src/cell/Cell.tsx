@@ -1,11 +1,19 @@
-import React, { ComponentProps, ComponentType, PropsWithChildren } from 'react';
+import React, {
+  ComponentProps,
+  ComponentType,
+  PropsWithChildren,
+  ReactElement,
+} from 'react';
+import { ChildrenProvider } from '../children/ChildrenContext';
 import { ContentValue } from '../content/ContentValue';
-import { useTableComponents } from '../TableComponentsContext';
+import { useTableElements } from '../TableElementsContext';
 import { Accessor } from '../utils/accessor';
+import { addProps } from '../utils/add-props';
 
 interface CellOwnProps<C extends ComponentType, A extends Accessor<any, any>> {
   accessor: A | null;
   TdProps?: Partial<ComponentProps<C>>;
+  tdEl?: ReactElement;
 }
 
 export type CellProps<
@@ -17,11 +25,15 @@ export function Cell<
   C extends ComponentType = ComponentType,
   A extends Accessor<any, any> = Accessor<any, any>,
 >(props: CellProps<C, A>) {
-  const { accessor, children, TdProps } = props;
-  const Components = useTableComponents();
+  const { accessor, children } = props;
+  const elements = useTableElements();
+  const element = addProps(props.tdEl ?? elements.td, props.TdProps, {
+    el: 'tdEl',
+    prop: 'TdProps',
+  });
   return (
     <ContentValue accessor={accessor}>
-      <Components.Td {...TdProps}>{children}</Components.Td>
+      <ChildrenProvider value={children}>{element}</ChildrenProvider>
     </ContentValue>
   );
 }
