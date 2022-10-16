@@ -432,6 +432,6 @@ export declare function withDefaultChildren<
     children?: ReactNode;
   },
   C extends ComponentType<TProps> | keyof JSX.IntrinsicElements,
->(Cmp: C): ComponentType<TProps>;
+>(Cmp: C): ComponentType<ComponentProps<C>>;
 
 export {};
